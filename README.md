@@ -66,6 +66,22 @@ cp -r skills/opnsense-proxmox-secops /path/to/your/project/.agent/skills/
 
 ---
 
+
+---
+
+## 🔌 Recommended Companion Plugins (Önerilen Tamamlayıcı Eklentiler)
+
+While all 26 skills are 100% self-contained and run out of the box, pairing them with the following official Antigravity plugins unlocks advanced visual reverse-engineering and design capabilities:
+
+### 1. Chrome DevTools (`antigravity-plugins-official/plugin/chrome-devtools-plugin`)
+* **Synergy With:** `editorial-web-design-studio`, `frontend-design`, `web-quality-modern-guidance`.
+* **What it does:** Allows the agent to open live websites via headless Chrome, extract exact computed CSS design tokens (colors, typography, spacing hierarchies), and run automated performance audits.
+
+### 2. Mobbin (`antigravity-plugins-partners/plugin/mobbin`)
+* **Synergy With:** `editorial-web-design-studio`, `frontend-design`.
+* **What it does:** Grants the agent access to 600,000+ real-world production UI screens (Stripe, Linear, Airbnb) via the Mobbin MCP server, preventing generic AI design patterns and benchmarking against top industry UX.
+
+---
 ## 🔒 Privacy & Sanitization Guarantee
 This repository has been strictly sanitized:
 - **No private IP addresses:** Subnets use standard RFC 1918 templates (`10.10.10.x`, `192.168.1.x`).
