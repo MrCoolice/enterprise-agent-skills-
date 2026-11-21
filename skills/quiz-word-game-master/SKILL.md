@@ -38,7 +38,41 @@ Bu beceri; **Bilgi Yarışması (Quiz/Trivia)**, **Kelime Bulmaca & Anagram**, *
 
 ---
 
-## ❓ 2. Bilgi Yarışması (Quiz & Trivia) Motoru Standartları
+## 🛠️ 2. Dört Temel Çalışma Modu (Modes of Operation)
+
+Bu beceri, ajan çağrıldığında kullanıcının ihtiyacına göre şu 4 moddan birinde tam otonom hareket eder:
+
+### 🧩 Mod A: Trivia & Quiz Soru Fabrikası (`trivia-anti-bias-generator`)
+* **Ne Zaman Kullanılır:** Yeni quiz kategorileri (JSON) oluştururken veya mevcut soruları genişletirken.
+* **Katı Şık Eşitliği Kuralı:** Doğru şık, yanlış şıkların ortalama karakter uzunluğundan en fazla **1.25 kat** uzun olabilir. Uzunsa çeldiriciler zenginleştirilir veya doğru şık sadeleştirilir.
+* **Tembel Çeldirici Yasağı:** *"Yukarıdakilerin hepsi"*, *"Hiçbiri"* veya bariz alakasız saçma şıklar kesinlikle yasaktır; çeldiriciler konuyu yarım bilen birinin en sık düşeceği kavram yanılgılarını (*misconceptions*) hedefler.
+* **Trivia Ayrımı:** Doğru şıkkı açıklayıcı ek ansiklopedik bilgi doğrudan `trivia` alanına taşınır; şıkkın içine gömülmez.
+* **Dengeli Cevap İndeksi:** `correctAnswer` (0, 1, 2, 3) indeksleri eşit dağıtılır (her biri ~%25).
+* **Boss Soru Ritim Dağılımı:** 12 soruluk sette 4. ve 8. sorular `mini-boss`, 12. soru ise yüksek puanlı ve dar süreli `final-boss` olmalıdır.
+
+### 🔤 Mod B: Kelime & Anagram Seviye Mühendisi (`puzzle-generator-skill`)
+* **Ne Zaman Kullanılır:** Kelime bulmaca seviyeleri (`levels.ts`) üretirken veya sözlük eklerken.
+* **76.000 Kelimelik TDK Uyumu:** Yalnızca TDK sözlüğünde (`tdk_words_76k.txt`) yer alan meşru Türkçe kökler ve türetimler kullanılır. Argo veya geçersiz uydurma kelimeler elenir.
+* **Sesli-Sessiz Harf Dengesi:** Verilen harf havuzu asla çözümsüz veya boğucu olamaz; en az 2 sesli harf ve akıllı karıştırma (`smartShuffleLetters`) kuralı uygulanır.
+* **Hedef ve Bonus Kelimeler:** Ana ızgarada yer alan hedef kelimelerin yanı sıra, o harflerden türetilebilen geçerli diğer sözlük kelimeleri `bonusWords` havuzuna kaydedilir ve oyuncuya ekstra puan verir.
+
+### 🤖 Mod C: Otonom QA Playtester & Denge Denetimi (`game-qa-playtester`)
+* **Ne Zaman Kullanılır:** Oyun yayınlanmadan veya seviye paketi güncellendikten sonra denetim için.
+* **Headless Regresyon Denetimi:** `scripts/audit-quiz-balance.mjs` ve `scripts/audit-wordgame.mjs` test motorlarını çalıştırır.
+* **Hata ve Çıkmaz (Deadlock) Tespiti:** 
+  - Çözülemeyen anagram veya eksik harf kombinasyonlarını yakalar.
+  - Şık bias'ı (sürekli C şıkkının doğru olması veya doğru şıkkın hep bariz uzun olması) durumunda alarm verir.
+  - UTF-8 Türkçe karakter bozulmalarını (*Mojibake: `Ã§`, `Ä±` vb.*) otomatik tespit eder ve temizler.
+
+### 🚀 Mod D: Viral Tutundurma & Story Kart Motoru (`viral-loop-engine`)
+* **Ne Zaman Kullanılır:** Oyuncu skor kartı, sosyal medya paylaşımı veya unvan tasarımlarında.
+* **1080x1920 Dikey Story Kartı:** HTML5 Canvas veya Remotion ile oyuncunun CyberRank unvanını, hız bonusunu ve çözdüğü soruları gösteren yüksek kontrastlı hikaye kartı üretir.
+* **Wordle Stili Emoji Izgarası:** Skor kopyalandığında renkli emojilerle sosyal medyada viral paylaşım sağlar (`🟩🟨⬜`).
+* **Kıl Payı Kaçırma (Near-Miss) Psikolojisi:** Oyuncuya son 1 harf kala veya 1 saniye kala kaybettiğini hissettirip *"Bir el daha!"* döngüsünü tetikleyen anlık dopamin geri bildirimi sunar.
+
+---
+
+## ❓ 3. Bilgi Yarışması (Quiz & Trivia) Motoru Standartları
 
 ### 2.1 Çeldirici (Şık) Tasarım Algoritması
 Yapay zekanın yaptığı en büyük hata, doğru cevabı aşırı uzun, yanlış şıkları ise çok kısa veya alakasız yazmaktır.
