@@ -27,7 +27,7 @@ Bu beceri; resmi **WordPress/agent-skills** (`wp-wpcli-and-ops`, eklenti güvenl
 
 ## 🧭 1. `GolgeKitabeviWP` (`CT 113`) Altyapı Bağlamı
 
-- **Sunucu & Repo:** `LXC 113` (`10.10.10.113`, VLAN 20 WEB, 4 vCPU, 2 GB RAM, 25 GB Disk — ~18 GB boş), Repo: `admin_user/golgekitabevi-wp`, Kök: `/var/www/html/wordpress`, Runtime: **PHP 8.4-FPM**.
+- **Sunucu & Repo:** `LXC 113` (`10.10.10.113`, VLAN 20 WEB, 4 vCPU, 2 GB RAM, 25 GB Disk — ~18 GB boş), Repo: `devops-engineer/golgekitabevi-wp`, Kök: `/var/www/html/wordpress`, Runtime: **PHP 8.4-FPM**.
 - **Aktif Performans Yığını:** `WP Fastest Cache` (`44ms` hedefi) + `WebP Express` (`CDN friendly` `<picture>` modu) + yeni yüklemelerde **`1400px` otomatik görsel küçültme koruması** (TBW & disk şişmesi önleme).
 - **Özel Modüller:** `golge-watermark`, `golge-nadir-import`, `golge-isbn`, `stats-ajax`, UTF-8 `llms.txt` ve KVKK/Gizlilik/Çerez sayfaları.
 

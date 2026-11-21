@@ -26,7 +26,7 @@ Bu beceri; **AgriciDaniel/claude-seo (`seo-matomo`)** ve **enuno/claude-command-
 
 ## 🧭 1. GölgeSiber Matomo Altyapı Bağlamı (`LXC 114`)
 
-- **Kurumsal Adres:** `https://matomo.secops-domain.example.com` (`LXC 114`, `10.30.30.106:80`, VLAN 30 CLOUD).
+- **Kurumsal Adres:** `https://matomo.secops-domain.example.com` (`LXC 114`, `10.10.30.106:80`, VLAN 30 CLOUD).
 - **Ters Vekil & Gerçek Ziyaretçi IP'si:** Cloudflare Proxied → NPM (`10.10.10.106`) / NPMplus (`10.10.10.120`).
   - *Kritik Kontrol:* Reverse proxy değişiminde (NPM → NPMplus) `/opt/matomo/config/config.ini.php` içindeki `trusted_proxies[]` ve `proxy_client_headers[]` (`HTTP_CF_CONNECTING_IP` / `HTTP_X_FORWARDED_FOR`) güncel değilse tüm ziyaretçiler proxy IP'si gibi görünür — analitik sapma görürsen ilk bunu kontrol et.
 - **Takip Edilen Ana Varlıklar:** `secops-domain.example.com`, `hotel-suites.example.com`, `ecommerce.example.com`.

@@ -29,8 +29,8 @@ Bu beceri; resmi **nextcloud/nextcloud-skills** (üretim sunucusu/`occ` bakımı
 
 ## 🧭 1. GölgeSiber Nextcloud Altyapı Bağlamı (`VM 103` + `CT 100`)
 
-- **Ana Sunucu:** `VM 103 (NextCloud)` — `10.30.30.103` (VLAN 30 CLOUD), `4 vCPU / 8 GB RAM / 100 GB` (`HDD_Havuz`), Kurumsal URL: `https://nc.secops-domain.example.com`.
-- **Ofis Motoru:** `CT 100 (OnlyOffice)` — `10.30.30.108` (VLAN 30 CLOUD). **Kritik Uyku Kuralı:** `00:00 – 08:30` arası gece uykusundadır; bu saatlerde belge açma hatası görülürse önce `CT 100` uyku durumu kontrol edilir (`/start 100`).
+- **Ana Sunucu:** `VM 103 (NextCloud)` — `10.10.30.103` (VLAN 30 CLOUD), `4 vCPU / 8 GB RAM / 100 GB` (`HDD_Havuz`), Kurumsal URL: `https://nc.secops-domain.example.com`.
+- **Ofis Motoru:** `CT 100 (OnlyOffice)` — `10.10.30.108` (VLAN 30 CLOUD). **Kritik Uyku Kuralı:** `00:00 – 08:30` arası gece uykusundadır; bu saatlerde belge açma hatası görülürse önce `CT 100` uyku durumu kontrol edilir (`/start 100`).
 - **Ters Vekil & Gerçek IP Uyumu:** Cloudflare + NPM (`10.10.10.106`) → NPMplus (`10.10.10.120`). Proxy geçişinde `/var/www/nextcloud/config/config.php` içindeki `trusted_domains`, `trusted_proxies`, `overwrite.cli.url` ve `overwriteprotocol => 'https'` alanları senkron tutulmalıdır.
 - **Aktif Temel Uygulamalar:** `Collectives` (ana bilgi üssü), `GroupFolders`, `Two-Factor MFA`, `rclone WebDAV` (`ProxmoxHostBackups` hedefi).
 

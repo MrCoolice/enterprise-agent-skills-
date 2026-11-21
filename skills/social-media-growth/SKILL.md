@@ -122,14 +122,14 @@ Her takvim çıktısı şu standart tablo yapısını izler:
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **07 Kas 09:00** | LinkedIn | PDF Carousel | **Uzmanlık (%60)** | *"Sunucunuz sabaha sağ çıkamayabilir..."* | 3 Ölümcül Hata ⚠️ | Siber güvenlik tüyoları... (3 hashtag) | Link ilk yorumda | Koyu lacivert/neon siber güvenlik infografiği | `[Uzmanlık]` |
 | **08 Kas 19:45** | Instagram | Dikey Reels | **Lifestyle (%25)** | *"Gece 03:00'te veri merkezinde ne işimiz var?"* | Gece Nöbeti ☕ | Sunucu sesleri, kahve, samimi siber hikaye... (5 hashtag) | Bio linki | Sunucu koridorunda loş ışıkta yürüyüş | `[Lifestyle]` |
-| **09 Kas 20:30** | Instagram / YT | Reels / Shorts | **Dönüşüm (%15)** | *"Web sitenizin güvenliğini test edelim mi?"* | Ücretsiz Analiz 🛡️ | DM'den analiz çağrısı... (5 hashtag) | `secops-domain.example.com/links` | Doğrudan ekrana konuşan kurucu/uzman, arkada dashboard | `[Meta Reklam Adayı]` |
+| **09 Kas 20:30** | Instagram / YT | Reels / Shorts | **Dönüşüm (%15)** | *"Web sitenizin güvenliğini test edelim mi?"* | Ücretsiz Analiz 🛡️ | DM'den analiz çağrısı... (5 hashtag) | `secops-domain.example.com/links` | Doğrudan ekrana konuşan Kurucu / Mimar, arkada dashboard | `[Meta Reklam Adayı]` |
 
 ---
 
 ## 🧠 6. ÖĞRENEN HAFIZA SİSTEMİ (MEMORY LOOP)
 
 Bu skill çalışırken öğrendiği dersleri `.agents/skills/social-media-growth/memory/` altında tutar:
-* `memory/brand_profile.md`: GölgeSiber (Enterprise Architect) için tutan kancalar, başarılı saatler, kitle demografisi ve **Ses Profili (Voice Profile)**.
+* `memory/golgesiber.md`: GölgeSiber (Enterprise SecOps Architect) için tutan kancalar, başarılı saatler, kitle demografisi ve **Ses Profili (Voice Profile)**.
 * `memory/clients/[musteri_adi].md`: Her yeni müşteri için oluşturulan özel hafıza ve ses kütüğü.
 * Kullanıcı bir içerik hakkında geri bildirim verdiğinde (*"Şu Reels çok tuttu", "Şu saatte dönüşüm alamadık"*), sistem bunu ilgili hafıza dosyasına yazar ve sonraki planlarda bu veriyi önceliklendirir.
 

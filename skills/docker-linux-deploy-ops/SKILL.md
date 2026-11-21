@@ -30,10 +30,10 @@ Bu beceri; resmi **docker/skills** (`docker-compose-patterns` ve konteyner güve
 
 | Proje | Yerel (`Windows`) | Repo | Hedef LXC & IP | Yığın / Servis |
 | :--- | :--- | :--- | :--- | :--- |
-| **GolgeSiber-v3** | `C:\Projects\golgesiber-v3` | `admin_user/golgesiber-v3` | `CT 115` (`10.10.10.104`) | Next.js 16 + React 19 + TS + SQLite/Prisma (`systemd` / PM2) |
-| **Dalaman Suites** | `C:\Projects\booking-whatsapp-bot` | `admin_user/booking-whatsapp-bot` | `CT 116` (`10.10.10.116`) | FastAPI + Baileys (`/opt/dalaman-suite/app`, `dalaman-suite.service`, `dalaman-gateway.service`) |
-| **GolgeKitabeviWP** | `C:\Projects\golgekitabevi-wp` | `admin_user/golgekitabevi-wp` | `CT 113` (`10.10.10.113`) | WordPress / PHP 8.4-FPM (`/var/www/html/wordpress`) |
-| **Dashboard** | `C:\Projects\golgesiber-dashboard` | `admin_user/golgesiber-dashboard` | `CT 108` (`10.10.10.101`) | Node.js |
+| **GolgeSiber-v3** | `C:\Projects\golgesiber-v3` | `devops-engineer/golgesiber-v3` | `CT 115` (`10.10.10.104`) | Next.js 16 + React 19 + TS + SQLite/Prisma (`systemd` / PM2) |
+| **Dalaman Suites** | `C:\Projects\booking-whatsapp-bot` | `devops-engineer/booking-whatsapp-bot` | `CT 116` (`10.10.10.116`) | FastAPI + Baileys (`/opt/dalaman-suite/app`, `dalaman-suite.service`, `dalaman-gateway.service`) |
+| **GolgeKitabeviWP** | `C:\Projects\golgekitabevi-wp` | `devops-engineer/golgekitabevi-wp` | `CT 113` (`10.10.10.113`) | WordPress / PHP 8.4-FPM (`/var/www/html/wordpress`) |
+| **Dashboard** | `C:\Projects\golgesiber-dashboard` | `devops-engineer/golgesiber-dashboard` | `CT 108` (`10.10.10.101`) | Node.js |
 | **NPMplus** | — | Alpine 3.24 + Docker | `CT 104` (`10.10.10.120`) | Docker Compose (`NPMplus` + `CrowdSec Bouncer` + `GoAccess`) |
 
 ---

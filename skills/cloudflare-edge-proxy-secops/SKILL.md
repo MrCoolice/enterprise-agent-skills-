@@ -31,7 +31,7 @@ Bu beceri; resmi **cloudflare/skills** ve resmi **crowdsecurity/crowdsec-skill**
   - Mevcut: `LXC 106 (NPM)` — `10.10.10.106:81`
   - Hedef / Yeni Nesil: `LXC 104 (NPMplus)` — **`10.10.10.120`** (Alpine 3.24 + Docker, Admin `:81`, GoAccess canlı analitik `https://10.10.10.120:91`, HTTP/3 QUIC, ModSecurity WAF).
 - **Merkezi CrowdSec LAPI:** `OPNsense VM 101` (`10.10.10.1:8080`, `WEB_VLAN -> This Firewall 8080`) ⟷ `crowdsec-npmplus-bouncer`.
-- **Çekirdek Proxy Servisleri:** `hotel-suites.example.com` (`10.10.10.116:80`), `secops-domain.example.com` (`10.10.10.104`), `ecommerce.example.com` (`10.10.10.113`), `nc.secops-domain.example.com` (`10.30.30.103`), `matomo.secops-domain.example.com` (`10.30.30.106:80`), `unifi.secops-domain.example.com` (`10.10.10.107:11443`).
+- **Çekirdek Proxy Servisleri:** `hotel-suites.example.com` (`10.10.10.116:80`), `secops-domain.example.com` (`10.10.10.104`), `ecommerce.example.com` (`10.10.10.113`), `nc.secops-domain.example.com` (`10.10.30.103`), `matomo.secops-domain.example.com` (`10.10.30.106:80`), `unifi.secops-domain.example.com` (`10.10.10.107:11443`).
 
 ---
 
@@ -55,7 +55,7 @@ Bu beceri; resmi **cloudflare/skills** ve resmi **crowdsecurity/crowdsec-skill**
    - `cscli bouncers list` (NPMplus bouncer `valid` ve son çekim zamanı güncel mi?)
    - `cscli metrics` (parsing/bucket/bouncer istatistikleri), `cscli decisions list` (aktif banlar), `cscli collections list`.
 2. **Yanlış Pozitif (False Positive) Önleme:**
-   - **Zorunlu Whitelist:** İç RFC1918 VLAN'lar (`10.10.10.0/24`, `10.10.10.0/24`, `10.30.30.0/24`, `10.40.40.0/24`, `192.168.1.0/24`) ve kendi statik/yönetici IP'lerin için CrowdSec parser whitelist tanımlı olmalıdır — özellikle `Uptime Kuma` (`10.10.10.110`) veya `Nextcloud` senkronizasyon istemcisinin yanlışlıkla banlanmasını önle!
+   - **Zorunlu Whitelist:** İç RFC1918 VLAN'lar (`10.10.10.0/24`, `10.10.10.0/24`, `10.10.30.0/24`, `10.40.40.0/24`, `192.168.1.0/24`) ve kendi statik/yönetici IP'lerin için CrowdSec parser whitelist tanımlı olmalıdır — özellikle `Uptime Kuma` (`10.10.10.110`) veya `Nextcloud` senkronizasyon istemcisinin yanlışlıkla banlanmasını önle!
    - ModSecurity / CrowdSec AppSec açılırken önce Nextcloud WebDAV (`PROPFIND`/`PUT`/`MKCOL`), OnlyOffice JWT (`Authorization` header) ve WordPress admin post'larında false positive testi yap.
 3. **NPMplus Proxy Host Hijyeni:**
    - Her serviste: `Force SSL`, `HTTP/2 + HTTP/3 (QUIC)`, WebSocket gereken servislerde (`Nextcloud`, `OnlyOffice`, `Uptime Kuma`, `UniFi`, `Dalaman Bot`) **Websockets Support = ON**, `HSTS` ve temiz `X-Forwarded-For` / `X-Real-IP` başlıkları.
