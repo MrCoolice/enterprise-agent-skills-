@@ -1,5 +1,9 @@
 # 🚀 Enterprise Agent Skills
 
+
+> 📖 **Read the Comprehensive Architectural Guide (Detaylı Mimari Rehber):**  
+> [Yapay Zeka Ajanları ile Sistem Yönetimi: 26 Becerili Açık Kaynak SecOps Rehberi](https://golgesiber.com/blog/yapay-zeka-ajanlari-ile-sistem-yonetimi-secops-skills)
+
 A modular collection of **26 production-grade agent skills** for **Google Antigravity**, **Claude Code**, **Cursor**, and autonomous AI coding agents.
 
 This repository packages real-world, battle-tested system rules and automation playbooks spanning **Enterprise SecOps, Homelab Infrastructure, Web Engineering, NOC Monitoring, Publishing, and Growth Engineering**.
