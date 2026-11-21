@@ -69,6 +69,47 @@ cp -r skills/opnsense-proxmox-secops /path/to/your/project/.agent/skills/
 
 ---
 
+
+---
+
+## ⚡ MCP Server Integrations & Architecture (MCP Sunucu Rehberi)
+
+### Do You Need MCP Servers to Use These Skills?
+**No. 90% of the skills in this repository are designed to be "CLI-First & Zero-Dependency".**  
+They operate directly using standard terminal commands, Python scripts, configuration files, and REST APIs (e.g. Proxmox `pvesh`/`qm`, OPNsense XML, Docker CLI, Git).
+
+However, you can supercharge specific skills by connecting optional **Model Context Protocol (MCP)** servers:
+
+| Skill | Optional MCP Server | What it Unlocks |
+| :--- | :--- | :--- |
+| **`editorial-web-design-studio`**<br>**`frontend-design`** | **Chrome DevTools MCP** *(Built-in)*<br>**Mobbin MCP** | Live computed CSS extraction, network waterfall audits, and access to 600k+ production UI screens. |
+| **`str-revenue-listing-master`** | **Airbnb / OpenBNB MCP** | Automated competitor nightly-rate extraction, calendar availability, and occupancy benchmarking. |
+| **`steam-library-assistant`** | **Steam Web API MCP** | Direct library queries, playtime analytics, and friends co-op library matching. |
+| **`observability-monitoring-ops`** | **Prometheus / Grafana MCP** | Real-time PromQL querying and direct dashboard panel inspections. |
+| **`unifi-wifi-hotspot-ops`** | **UniFi Network MCP** | Read-only access point telemetry, client device counts, and RF channel maps. |
+
+### How to Configure Optional MCP Servers (Örnek MCP Yapılandırması)
+In your agent configuration file (`antigravity.json` or `claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-chrome-devtools"]
+    },
+    "steam": {
+      "command": "npx",
+      "args": ["-y", "steam-mcp-server"],
+      "env": {
+        "STEAM_API_KEY": "YOUR_STEAM_API_KEY"
+      }
+    }
+  }
+}
+```
+
+---
 ## 🔌 Recommended Companion Plugins (Önerilen Tamamlayıcı Eklentiler)
 
 While all 26 skills are 100% self-contained and run out of the box, pairing them with the following official Antigravity plugins unlocks advanced visual reverse-engineering and design capabilities:
