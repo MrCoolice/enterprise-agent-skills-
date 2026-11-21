@@ -70,6 +70,28 @@ mkdir -p ~/.gemini/config/skills
 cp -r enterprise-agent-skills-/skills/* ~/.gemini/config/skills/
 ```
 
+#### Option B: Single Skill Download (Download Only What You Need)
+If you only want one specific skill (e.g. `opnsense-proxmox-secops`), you don't need to clone the entire repo:
+
+**Windows (PowerShell):**
+```powershell
+$skill = "opnsense-proxmox-secops"
+New-Item -ItemType Directory -Force -Path "$HOME\.gemini\config\skills\$skill"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MrCoolice/enterprise-agent-skills-/main/skills/$skill/SKILL.md" -OutFile "$HOME\.gemini\config\skills\$skill\SKILL.md"
+```
+
+**Linux / macOS (curl):**
+```bash
+skill="opnsense-proxmox-secops"
+mkdir -p ~/.gemini/config/skills/$skill
+curl -sSL "https://raw.githubusercontent.com/MrCoolice/enterprise-agent-skills-/main/skills/$skill/SKILL.md" -o ~/.gemini/config/skills/$skill/SKILL.md
+```
+
+**Or using `degit` (Easiest for npm users):**
+```bash
+npx degit MrCoolice/enterprise-agent-skills-/skills/opnsense-proxmox-secops ~/.gemini/config/skills/opnsense-proxmox-secops
+```
+
 #### How to Trigger in Chat
 Once installed, your agent automatically detects and triggers the skills based on user intent. You can also invoke them directly:
 * *"Audit my OPNsense config.xml using opnsense-proxmox-secops rules."*
@@ -119,6 +141,28 @@ Copy-Item -Recurse -Force .\enterprise-agent-skills-\skills\* "$HOME\.gemini\con
 git clone https://github.com/MrCoolice/enterprise-agent-skills-.git
 mkdir -p ~/.gemini/config/skills
 cp -r enterprise-agent-skills-/skills/* ~/.gemini/config/skills/
+```
+
+#### Option B: Einzelne Fähigkeit herunterladen (Nur das Nötigste)
+Wenn Sie nur eine bestimmte Fähigkeit (z. B. `opnsense-proxmox-secops`) benötigen, müssen Sie nicht das gesamte Repository klonen:
+
+**Windows (PowerShell):**
+```powershell
+$skill = "opnsense-proxmox-secops"
+New-Item -ItemType Directory -Force -Path "$HOME\.gemini\config\skills\$skill"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MrCoolice/enterprise-agent-skills-/main/skills/$skill/SKILL.md" -OutFile "$HOME\.gemini\config\skills\$skill\SKILL.md"
+```
+
+**Linux / macOS (curl):**
+```bash
+skill="opnsense-proxmox-secops"
+mkdir -p ~/.gemini/config/skills/$skill
+curl -sSL "https://raw.githubusercontent.com/MrCoolice/enterprise-agent-skills-/main/skills/$skill/SKILL.md" -o ~/.gemini/config/skills/$skill/SKILL.md
+```
+
+**Oder mit `degit` (Für Node.js-Entwickler):**
+```bash
+npx degit MrCoolice/enterprise-agent-skills-/skills/opnsense-proxmox-secops ~/.gemini/config/skills/opnsense-proxmox-secops
 ```
 
 #### Beispiel-Befehle im Chat:
@@ -176,6 +220,28 @@ git clone https://github.com/MrCoolice/enterprise-agent-skills-.git
 # Becerileri yapılandırma dizinine aktarın
 mkdir -p ~/.gemini/config/skills
 cp -r enterprise-agent-skills-/skills/* ~/.gemini/config/skills/
+```
+
+#### Seçenek B: Tekil Beceri İndirme (Sadece İhtiyacınız Olanı Alın)
+Tüm repoyu klonlamak yerine sadece tek bir beceriyi (örneğin `opnsense-proxmox-secops`) kullanmak isterseniz:
+
+**Windows (PowerShell):**
+```powershell
+$skill = "opnsense-proxmox-secops"
+New-Item -ItemType Directory -Force -Path "$HOME\.gemini\config\skills\$skill"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MrCoolice/enterprise-agent-skills-/main/skills/$skill/SKILL.md" -OutFile "$HOME\.gemini\config\skills\$skill\SKILL.md"
+```
+
+**Linux / macOS (curl):**
+```bash
+skill="opnsense-proxmox-secops"
+mkdir -p ~/.gemini/config/skills/$skill
+curl -sSL "https://raw.githubusercontent.com/MrCoolice/enterprise-agent-skills-/main/skills/$skill/SKILL.md" -o ~/.gemini/config/skills/$skill/SKILL.md
+```
+
+**Veya `degit` ile (Tek Komutla Klasör Çekme):**
+```bash
+npx degit MrCoolice/enterprise-agent-skills-/skills/opnsense-proxmox-secops ~/.gemini/config/skills/opnsense-proxmox-secops
 ```
 
 #### Sohbette Nasıl Kullanılır?
