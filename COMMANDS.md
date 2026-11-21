@@ -60,4 +60,14 @@ This document provides exact, copy-pasteable prompt triggers and command syntax 
 
 ---
 
+## 🎨 Creative & GameDev High-Impact Prompts (Jiro, Reelfolio, 60fps, Inspora)
+
+| Goal / Amaç | 🇹🇷 Örnek İstek / Komut | 🇬🇧 Example Prompt |
+| :--- | :--- | :--- |
+| **60 FPS Akıcı Oyun Hissi (`60fps.design`)** | `quiz-word-game-master: 60fps.design standartlarında yaylanma fiziği (spring), kart çevirme ve haptik titreşimli bir kelime oyunu karosu hazırla.` | `quiz-word-game-master: build a 60fps.design inspired word puzzle tile with spring physics, 3D flip, and haptic shake feedback.` |
+| **Modern AI Section Mimarisi (`jiro.build` & `inspora.design`)** | `editorial-web-design-studio: jiro.build ve inspora.design ilhamıyla anti-AI-slop koyu mod asimetrik Bento grid ve cam efektli kart yapısı üret.` | `editorial-web-design-studio: generate an anti-AI-slop dark-mode asymmetrical Bento Grid section inspired by jiro.build and inspora.design.` |
+| **Animasyonlu Ürün Showreel (`reelfolio.io`)** | `video-director-engine: reelfolio.io tarzında bu ürün ekran görüntüsünü 3D cihaz mockup'ı içinde akıcı kayan bir Remotion lansman videosuna çevir.` | `video-director-engine: convert this static UI screenshot into a reelfolio.io style 3D animated device showreel using Remotion.` |
+
+---
+
 📖 **Detailed Architectural Guide:** [https://golgesiber.com/yazi/yapay-zeka-ajanlari-ile-sistem-yonetimi](https://golgesiber.com/yazi/yapay-zeka-ajanlari-ile-sistem-yonetimi)

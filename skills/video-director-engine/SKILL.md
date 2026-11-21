@@ -35,6 +35,15 @@ Bu beceri; **GölgeSiber**, **Dalaman Airport Suites** ve **Oyun Projeleri** iç
 
 ---
 
+## 📱 1.5. Animasyonlu Ürün Showreel ve Mockup Standartları (`reelfolio.io` İlhamı)
+* **Statik Ekran Görüntülerini Canlandırma Formülü:**
+  - Web sitesi veya mobil arayüz ekran görüntülerini düz resim olarak göstermek yasaktır.
+  - Remotion içinde **3D telefon/laptop çerçevesi (mockup)** içerisine yerleştirilir; hafif uzamsal eğim (`perspective(1200px) rotateY(-15deg) rotateX(8deg)`), dinamik sayfa içi yumuşak kaydırma (smooth scroll preview) ve arka planda hafif radyal parlama kullanılır.
+* **Yüksek Tempolu Lansman Kurgusu:**
+  - 15-30 saniyelik vitrin videolarında her 2-3 saniyede bir sahne veya açı değişir; ürünün en can alıcı 3 özelliği art arda mikro-kartlar halinde ekrana vurur.
+
+---
+
 ## 💎 2. DÜNYA STANDARDI MOTION DESIGN İLKELERİ
 
 ### A. Reels & TikTok Safe Zone ve Otomatik Metin Koruması

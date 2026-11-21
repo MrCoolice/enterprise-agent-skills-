@@ -291,6 +291,19 @@ For the complete list of exact trigger prompts and multi-agent syntax (Google An
 
 ---
 
+## 🎨 Creative Design, Motion & GameDev Reference Stack (İlham ve Tasarım Kütüphanesi)
+
+The frontend, motion design, and game development skills in this repository (`editorial-web-design-studio`, `quiz-word-game-master`, `video-director-engine`) incorporate architectural patterns and animation physics inspired by premier creative benchmarks:
+
+| Resource | Primary Domain | Integrated Skill & Capability |
+| :--- | :--- | :--- |
+| **[Jiro.build](https://jiro.build)** | AI-Ready Component Prompts | **`editorial-web-design-studio`** / **`frontend-design`**: Modular Bento Grids, glassmorphic pricing tables, and copy-paste Tailwind section architectures. |
+| **[Reelfolio.io](https://reelfolio.io)** | Animated Showreels & Mockups | **`video-director-engine`**: Transforming static screenshots into high-impact 3D device showreels and launch teasers (1080x1920 & 1920x1080). |
+| **[60fps.design](https://60fps.design)** | Buttery-Smooth 60 FPS Physics | **`quiz-word-game-master`**: Spring physics (`cubic-bezier`), card flip 3D transforms, haptic shake feedback, and particle bursts. |
+| **[Inspora.design](https://inspora.design)** | Bespoke Editorial Art Direction | **`editorial-web-design-studio`**: Anti-AI-slop typography, bold asymmetrical layouts, and high-contrast dark theme aesthetics. |
+
+---
+
 ## ⚡ Optional MCP Integrations / Optionale MCP Server / Opsiyonel MCP Sunucuları
 
 | Skill | Optional MCP Server | 🇬🇧 Capability Unlocked | 🇩🇪 Freigeschaltete Funktion | 🇹🇷 Sağladığı Ekstra Yetenek |

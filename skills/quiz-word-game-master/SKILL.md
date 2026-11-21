@@ -25,10 +25,16 @@ Bu beceri; **Bilgi Yarışması (Quiz/Trivia)**, **Kelime Bulmaca & Anagram**, *
   3. **Zirve / Boss Etabı:** Büyük meydan okuma, dar süre, zorlayıcı soru/kelime.
   4. **Nefes Alma & Şölen (Breather / Reward):** Zirveyi aşan oyuncuya hemen ardından gelen kolay, bol bonuslu ferahlatıcı seviye. Oyuncu rahatlar ve oyunu bırakamaz!
 
-### 1.2 "Anti-Slop" Dokunsal Oyun Hissi (Game Juice)
-* Yapay zekanın sıkıcı "mor-indigo SaaS kartları" yasaktır.
-* Dokunsal his: Kart ve harf karolarında 3D çevrilme (flip `rotateY(180deg)`), yaylanma (spring physics), yanlışta sarsılma (shake `translateX`), doğruda konfeti/neon patlaması.
-* Mobilde başparmak ergonomisi: Minimum 48x48px dokunma hedefleri, safe area uyumu.
+### 1.2 "Anti-Slop" Dokunsal Oyun Hissi ve 60 FPS Hareket Standartları (Game Juice & 60fps.design)
+* **Yasak:** Yapay zekanın sıkıcı "mor-indigo SaaS kartları" ve donuk statik tıklamalar yasaktır.
+* **Akıcı 60 FPS Yaylanma Fiziği (`60fps.design` İlkesi):** 
+  - Harf ve kart seçimlerinde doğrusal (linear) animasyon kullanılmaz; `cubic-bezier(0.34, 1.56, 0.64, 1)` (spring/bounce) elastik geçişleri zorunludur.
+  - Kart çevirme (flip): GPU-accelerated `transform: perspective(1000px) rotateY(180deg)` ile 60 FPS akışkanlık.
+* **Tepki ve Haptik Geri Bildirim:**
+  - Yanlış cevap: 300ms sönümlenen mikro sarsıntı (`translateX(-8px) -> translateX(8px)` sönümlü sinüs dalgası).
+  - Doğru cevap: Hafif büyüme (`scale(1.08)`), ardışık basamaklı (staggered) harf animasyonu ve Web Audio tatmin edici tık/zil efekti.
+* **Kutlama Parçacıkları (Particle Burst):** Doğru cevap ve seviye sonlarında DOM'u kasmayan hafif HTML5 Canvas tabanlı 60 FPS neon parçacık veya konfeti patlaması.
+* **Mobilde Başparmak Ergonomisi:** Minimum 48x48px dokunma hedefleri, safe area uyumu.
 
 ---
 
