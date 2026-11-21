@@ -8,7 +8,7 @@
 <p align="center">
   <a href="#-english">🇬🇧 English</a> •
   <a href="#-deutsch">🇩🇪 Deutsch</a> •
-  <a href="#-türkçe">🇹🇷 Türkçe</a>
+  <a href="#-türkçe">🇹🇷 Türkçe</a> • <a href="COMMANDS.md">🎮 <b>Commands & Prompt Cheat Sheet</b></a>
 </p>
 
 ---
@@ -282,6 +282,12 @@ Kurulum tamamlandıktan sonra ajana doğrudan görevinizi söylemeniz yeterlidir
 | **`founder-gtm-growth-council`** | Solo-founder idea validation, MVP scoping, value pricing psychology, and GTM launch roadmaps. | Ideenvalidierung für Solo-Gründer, MVP-Scoping, wertbasierte Preisgestaltung und GTM-Launch. | Fikir doğrulama, MVP kapsam belirleme, değer tabanlı fiyatlandırma ve GTM lansman stratejisi. |
 | **`str-revenue-listing-master`** | Short-term rental revenue management, competitor rate benchmarking, and OTA parity. | Kurzzeitmiete-Ertragsmanagement, Mitbewerber-Preisanalyse und OTA-Provisionsparität. | Kısa dönem kiralama gelir yönetimi, rakip gecelik fiyat kıyaslama ve OTA komisyon paritesi. |
 | **`steam-library-assistant`** | Steam library analysis, playtime statistics, co-op matching, and local disk transfer workflows. | Steam-Bibliotheksanalyse, Spielzeit-Statistiken, Co-Op-Matching und Festplatten-Spieletransfer. | Steam kütüphane analizi, oynama istatistikleri ve yerel sürücüler arası oyun taşıma otomasyonu. |
+
+---
+
+## 🎮 Command & Trigger Cheat Sheet (Komut ve İstek Sözlüğü)
+For the complete list of exact trigger prompts and multi-agent syntax (Google Antigravity, Claude Code, Cursor), see:  
+👉 **[COMMANDS.md](COMMANDS.md)** — *Full copy-pasteable prompt triggers for all 26 skills in Turkish, English, and German.*
 
 ---
 
