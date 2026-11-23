@@ -125,3 +125,16 @@ Yeni arayüz üretirken veya mevcut siteyi eleştirirken şu 4 "sıradan AI tasa
    - **`Forge UI`:** GSAP ve Motion tabanlı kopyala-yapıştır lüks web blokları.
    - **`UI Lora`:** Hem web hem mobil için tek bileşen mimarisi.
 
+---
+
+## 📐 9. Spec-Kit: Şartname Güdümlü Geliştirme (SDD — Spec-Driven Development) & ADR
+*(Kaynaklar: `compnew2006/Spec-Kit-Antigravity-Skills`, `rmyndharis/antigravity-skills`)*
+
+Büyük çok dosyalı mimari değişikliklerde, veri tabanı şema güncellemelerinde veya yeni siber araç geliştirirken körlemesine koda dalmak yasaktır. Önce **1 Sayfalık Mimari Şartname (`SPEC.md` / ADR)** onay kapısından geçilir:
+
+1. **Amaç & İş Değeri:** Bu değişiklik kullanıcıya ve sisteme ne kazandıracak?
+2. **Kapsam Dışı (Out of Scope):** Projenin şişmesini (scope creep) önlemek için bu aşamada kesinlikle YAPILMAYACAKLAR listesi.
+3. **Şema & API Sözleşmesi:** Prisma/SQLite tablo değişiklikleri, Zod şemaları ve HTTP uç noktaları.
+4. **Hata Modları & Geri Alma (Rollback):** Servis göçerse veya testler patlarsa sistemi 1 dakikada eski haline getirme adımları.
+5. **Kabul Kriterleri (DoD - Definition of Done):** İşin tamamlandığını kanıtlayacak somut testler (Lighthouse > 95, 0 konsol hatası, `pytest` / Jest yeşil).
+

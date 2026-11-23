@@ -92,3 +92,32 @@ Sitede veya etkileşimli araçlarda rafine dokunsal ses geri bildirimi istendiğ
 Çok araçlı portallarda (`golgesiber-v3` 22+ siber araç, `booking-whatsapp-bot` 3 sekmeli ortak paneli, `golgesiber-dashboard`) ilk gelen kullanıcıya siteyi 20 saniyede tanıtmak için sıfır bağımlılıklı **`driver.js`** (~5 KB) kullan:
 1. **Next.js 16 / SSR Güvenliği:** Daima izole bir **`"use client"`** yaprak bileşeninde (`OnboardingTour.tsx`), yalnızca `useEffect` içinde veya **"Turu Başlat (?)"** butonuna tıklanınca `driver()` çağır; `driver.js/dist/driver.css` temasını sitenin `:root` renk token'larıyla özelleştir.
 2. **Kullanıcıyı Boğmayan Akış:** En fazla **4–6 net adım**, `showProgress: true`, `allowClose: true` (`Esc`/dış tıklama ile anında çıkış), `localStorage` (`tour_v1_seen`) ile yalnızca ilk ziyarette otomatik tetikleme ve mobilde (`<640px`) hedeflerin ekran dışına taşmadığını Chrome DevTools ile doğrula.
+
+---
+
+## 💎 5. UI/UX Pro Max & Emil Kowalski "Taste Skill" (Tasarım Zekâsı ve Ritim Motoru)
+*(Kaynaklar: `nextlevelbuilder/ui-ux-pro-max-skill`, `tasteskill.dev`, `emilkowal.ski/skill`)*
+
+Yapay zekanın "jenerik, ruhsuz ve şablon" arayüzler üretmesini tamamen engelleyen dünya standardı tasarım zevki (taste) disiplini:
+
+1. **4px / 8px Katı Ritim & Optik Merkezleme:**
+   * Tüm margin, padding, gap ve yükseklik değerleri katı `4px / 8px / 12px / 16px / 24px / 32px / 48px / 64px` ölçeğine oturmalıdır. Rastgele `13px`, `27px` gibi değerler yasaktır.
+   * İkonlar ve metinler yan yana geldiğinde matematiksel merkez yerine **optik merkezleme** (ikonun görsel ağırlığına göre `translateY(-0.5px)` veya font baseline ayarı) yapılır.
+2. **Akışkan (Fluid) Tipografi & Oranlar:**
+   * Başlık ve gövde metinlerinde sabit piksel yerine akıcı clamp fonksiyonları kullanılır:
+     `font-size: clamp(1.75rem, 1.25rem + 1.8vw, 2.75rem); line-height: 1.15; letter-spacing: -0.02em;`
+3. **Dokunsal (Tactile) Mikro-Etkileşimler (Emil Kowalski Standartları):**
+   * Buton tıklamalarında sert geçiş yerine hafif baskı (`scale: 0.98`), hover durumunda yaylanmalı yükselme (`transform: translateY(-2px)` + `transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1)`).
+   * Modallar ve çekmeceler (Drawers) sahneye girerken fiziksel kütle hissi veren sönümlemeli yay (damping spring) eğrileriyle açılır.
+4. **Gerçek Tarayıcı Cila Kapısı (Real-Browser Taste Check):**
+   * Kod yazımı bittikten sonra çıktı Chrome DevTools ile incelenir: Görsel hiyerarşide en önemli tek bir eylem (Primary CTA) parlamalı; ikincil eylemler sessiz (ghost/outline) kalmalıdır.
+
+---
+
+## ⚡ 6. Google Labs "Stitch Skills" (Hızlı Wireframe/HTML Dönüştürücü)
+*(Kaynak: `google-labs-code/stitch-skills`)*
+
+Kaba bir HTML taslağı, wireframe çizimi veya harici ham DOM bloğu paylaşıldığında:
+1. **Semantik & Tip Güvenli Bileşen Dönüşümü:** Ham `div` yığınlarını `<header>`, `<main>`, `<section>`, `<article>`, `<aside>` etiketlerine ve katı TypeScript arayüzlerine (`interface Props`) dönüştür.
+2. **Tailwind & shadcn/ui Enjeksiyonu:** Satır içi (inline) CSS stillerini sitenin mevcut Tailwind CSS token'larına ve `cn()` yardımcı fonksiyonuna (`clsx` + `tailwind-merge`) uyarla.
+3. **Görsel & Erişilebilirlik Hijyeni:** Tüm butonlara görünür `:focus-visible` halkası (`ring-2 ring-emerald-500/50 ring-offset-2`), interaktif alanlara `min-h-[44px]` dokunma hedefi ve dekoratif ikonlara `aria-hidden="true"` ekle.
