@@ -60,3 +60,22 @@ Her onaylanan bulgu şu kanıt alanlarını **eksiksiz** taşımalıdır:
 2. **Doğrulanmış Bulgular Tablosu:** ID | Önem | Dosya:Satır | Güven Sınırı | Etki | Durum.
 3. **Detaylı Kanıt & Minimal Düzeltme Yaması:** Her `confirmed` bulgu için kesin kök neden, güvenli kod yaması ve regresyon test önerisi (`pytest` / unit test).
 4. **Doğrulama Gerektirenler (`NEEDS-VALIDATION`):** Canlı ortamda (ör. NPMplus/Cloudflare/izinler) manuel teyit gerektiren maddeler.
+
+---
+
+## 🛡️ 2. OWASP Cheat Sheet Serisi Kural Matrisi (`OWASP/CheatSheetSeries`)
+
+Her kod denetiminde endüstri standardı **OWASP Cheat Sheet** maddeleri karşılaştırma referansı (baseline) olarak alınır:
+
+1. **SSRF Prevention:** Dış URL/IP çeken araçlarda (`golgesiber-v3` network toolları) RFC1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), link-local (169.254.0.0/16) ve loopback (127.0.0.1) IP'lerine doğrudan DNS çözümlemesi öncesi/sonrası bloklama kuralı.
+2. **Session Management & JWT:** Algoritma (`none`) zafiyeti kontrolü, `HttpOnly; Secure; SameSite=Lax/Strict` çerez bayrakları ve JWT secret entropi seviyesi.
+3. **REST Security & Input Validation:** Zod/Pydantic şema denetimi, JSON payload boyut sınırı ve CORS başlıklarının asla `Access-Control-Allow-Origin: *` ile kimlik bilgisi (credentials) taşımaması.
+4. **SQL Injection Defense:** Ham string birleştirme yasağı; Prisma parametrik sorgular (`$queryRaw` tagged template) ve WP-CLI `$wpdb->prepare` zorunluluğu.
+5. **Cryptographic Storage:** Şifreler için `Argon2id` veya `bcrypt` (min 12 cost) ve hassas API token'ları için AES-256-GCM.
+
+---
+
+## 🔍 3. OSINT & Kimlik/Yüzey Güvenliği Denetimi
+
+1. **Sherlock Profil & Sızıntı Avcısı (`sherlock-project/sherlock`):** Sistem yöneticisi veya şirket kullanıcı adlarının 400+ platformda açıkta olup olmadığını denetleyerek sosyal mühendislik ve hedefli kimlik avı yüzeyini haritalama.
+2. **Kablosuz Ağ & Hotspot Güvenliği (`derv82/wifite2` & UniFi Köprüsü):** Misafir ve operasyonel Wi-Fi ağlarında zayıf WPA2-PSK, açık WPS PIN ve PMKID sızıntılarını test ederek kurumsal VLAN izolasyonunu doğrula (Detaylar: `unifi-wifi-hotspot-ops`).

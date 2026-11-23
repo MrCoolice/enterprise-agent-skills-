@@ -109,4 +109,23 @@ Her üretilen içerikte şu bileşenler eksiksiz sunulur:
 Kullanıcı *"Bu hafta/ay ne yazalım, ne videosu çekelim?"* dediğinde veya yeni içerik fikri arandığında:
 1. **Çoklu Platform Taraması:** `search_web` ile son 30 günde Reddit (`r/homelab`, `r/OPNsenseFirewall`, `r/Proxmox`), Hacker News, YouTube ve X'te en çok tartışılan gerçek kullanıcı sorunlarını ve yeni sürümleri (örn. OPNsense 26.7, Proxmox CVE'leri, yeni self-hosted araçlar) tara.
 2. **Trend → GölgeSiber Açısı:** Bulunan popüler konuyu Türkiye bağlamına (CGNAT, yerli ISP sorunları, KVKK/BTK, fiyat/performans homelab donanımı) uyarlayarak 3 somut başlık öner.
-3. **Humanizer Son Kontrolü:** Yayına hazırlanan metinde AI klişelerini (*"sonuç olarak", "hızla gelişen dijital dünyada", "adeta bir devrim"* vb.) temizle; gerçek saha komutu, hata kodu ve somut sayı bırak.
+112: 3. **Humanizer Son Kontrolü:** Yayına hazırlanan metinde AI klişelerini (*"sonuç olarak", "hızla gelişen dijital dünyada", "adeta bir devrim"* vb.) temizle; gerçek saha komutu, hata kodu ve somut sayı bırak.
+
+---
+
+## 🛠️ 7. YENİ NESİL SEO/GEO ARAÇ & MCP ENTEGRASYON PROTOKOLÜ
+
+İçerik araştırması, rakip analizi ve yapay zekâ görünürlüğü için şu modern araç mimarisi kullanılır:
+
+1. **Firecrawl MCP (`mendableai/firecrawl-mcp-server`):**
+   * Dinamik JavaScript render gerektiren modern SPA/Next.js sitelerini ve anti-bot arkasındaki rakip içerikleri LLM'lerin doğrudan analiz edebileceği temiz Markdown formatında çeker.
+   * Derin crawl (`/crawl`) ve temiz içerik çıkarma (`/scrape`) ile rakiplerin H2/H3 yapısını ve gizli şemalarını anında deşifre eder.
+2. **Perplexity API / MCP Platformu:**
+   * Doğrudan canlı SERP alıntılarını, akademik/sektörel referansları ve gerçek kullanıcı arama niyetlerini (Search Intent) doğrular.
+   * Üretilen içeriğin Perplexity, ChatGPT Search ve Google AI Overviews tarafından doğrudan kaynak gösterilme (Citations) oranını test eder.
+3. **Google Search Console (GSC MCP) & OpenSEO Standardı:**
+   * **GSC MCP:** Canlı tıklama, gösterim, ortalama sıra ve CTR verilerini çekerek **4-15. sırada sıkışmış (Quick-Win)** sayfaları otomatik tespit eder.
+   * **OpenSEO:** Sıralama takibi, anahtar kelime zorluğu ve site denetimi için üçüncü parti pahalı SaaS araçlarına (Ahrefs/Semrush) gerek kalmadan yerel terminalden denetim yürütür.
+4. **GEO Optimizer & LLM-Ready (AEO) Mimarisi:**
+   * Sitenin kök dizininde `/llms.txt` ve `/llms-full.txt` dosyalarını güncel tutar.
+   * `WebMCP` ve `Lighthouse Agentic Browsing` uyumluluğu için sayfaları otonom AI crawler botlarının token harcamadan anlayacağı semantik XML/JSON-LD ve temiz HTML hiyerarşisiyle sunar.

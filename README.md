@@ -293,10 +293,16 @@ For the complete list of exact trigger prompts and multi-agent syntax (Google An
 
 ## 🎨 Creative Design, Motion & GameDev Reference Stack (İlham ve Tasarım Kütüphanesi)
 
-The frontend, motion design, and game development skills in this repository (`editorial-web-design-studio`, `quiz-word-game-master`, `video-director-engine`) incorporate architectural patterns and animation physics inspired by premier creative benchmarks:
+The frontend, motion design, and game development skills in this repository (`editorial-web-design-studio`, `quiz-word-game-master`, `video-director-engine`, `web-quality-modern-guidance`) incorporate architectural patterns and animation physics inspired by premier creative benchmarks:
 
 | Resource | Primary Domain | Integrated Skill & Capability |
 | :--- | :--- | :--- |
+| **[Ponytail](https://github.com/DietrichGebert/ponytail)** | Senior Anti-Overengineering | **`web-quality-modern-guidance`**: The 4-step *Ladder of Laziness* enforcing browser native APIs, existing helpers, and pure CSS before writing any JS. |
+| **[Modern Web Guidance](https://github.com/GoogleChrome/modern-web-guidance)** | Chrome Web Standards | **`web-quality-modern-guidance`**: Official Google Chrome benchmarks for Next.js 16, React 19, strict Core Web Vitals, and Lighthouse 95+. |
+| **[NullMotion](https://github.com/blixvip/NullMotion)** | Zero-Dep Motion Curves | **`video-director-engine`** / **`editorial-web-design-studio`**: After Effects precision Bezier & spring physics curves for buttery-smooth SVG/UI micro-animations. |
+| **[Brag](https://github.com/latent-spaces/brag)** | Viral Product Launch Demos | **`video-director-engine`**: 30-second high-energy product launch video recipes (`/brag`) with pain hooks, before/after flashes, and -14 LUFS sound mastery. |
+| **[Lemo Opuscar](https://github.com/lemomo-ai/lemo-opuscar)** | Cinematic Film Archetypes | **`video-director-engine`**: 99 code-rendered film styles and aesthetic archetypes for programmatic Remotion video storyboards. |
+| **[Luxury UI Suite](https://uiverse.io)** | Premium UI Component Stack | **`editorial-web-design-studio`**: Curated patterns from **Vengeance UI**, **Animate UI** (shadcn motion), **Uiverse.io** (pure CSS), **Forge UI** (GSAP/Motion), and **UI Lora** (universal web/mobile). |
 | **[Jiro.build](https://jiro.build)** | AI-Ready Component Prompts | **`editorial-web-design-studio`** / **`frontend-design`**: Modular Bento Grids, glassmorphic pricing tables, and copy-paste Tailwind section architectures. |
 | **[Reelfolio.io](https://reelfolio.io)** | Animated Showreels & Mockups | **`video-director-engine`**: Transforming static screenshots into high-impact 3D device showreels and launch teasers (1080x1920 & 1920x1080). |
 | **[60fps.design](https://60fps.design)** | Buttery-Smooth 60 FPS Physics | **`quiz-word-game-master`**: Spring physics (`cubic-bezier`), card flip 3D transforms, haptic shake feedback, and particle bursts. |
@@ -308,11 +314,13 @@ The frontend, motion design, and game development skills in this repository (`ed
 
 | Skill | Optional MCP Server | 🇬🇧 Capability Unlocked | 🇩🇪 Freigeschaltete Funktion | 🇹🇷 Sağladığı Ekstra Yetenek |
 | :--- | :--- | :--- | :--- | :--- |
+| **`seo-content-master`** | **Firecrawl MCP**<br>**Perplexity PAI MCP**<br>**GSC MCP** | Dynamic JS DOM scraping, live SERP citation audits, and Google Search Console quick-wins. | Dynamisches JS-Scraping, Live-SERP-Zitierungsprüfung und Google Search Console Optimierung. | Dinamik JS sitelerini kazıma, canlı SERP kaynak teyidi ve GSC 4-15. sıra sıçrama denetimi. |
+| **`code-security-audit`** | **OWASP Cheat Sheet Matrix**<br>**Sherlock OSINT** | Enterprise defensive baseline (SSRF, JWT, SQLi) and username threat surface mapping. | Enterprise Sicherheitsleitfaden (SSRF, JWT, SQLi) und Identitäts-Angriffsflächen-Audit. | OWASP savunma matrisi (SSRF, JWT, SQLi) ve 400+ sitede kullanıcı adı sızıntı haritalama. |
+| **`unifi-wifi-hotspot-ops`** | **UniFi Network MCP**<br>**Wifite2 Audit Engine** | AP telemetry, captive portal logs, and WPA3/PMF & WPS disable security verification. | AP-Telemetrie, Captive-Portal-Logs und WPA3/PMF & WPS Sicherheitsüberprüfung. | AP telemetrisi, 5651 portal logları, WPA3/PMF ve WPS kapalılık güvenlik doğrulaması. |
 | **`editorial-web-design-studio`**<br>**`frontend-design`** | **Chrome DevTools MCP**<br>**Mobbin MCP** | Live computed CSS extraction, network waterfall audits, and access to 600k+ UI screens. | Auslesen von Live-CSS-Werten, Netzwerk-Wasserfall-Audits und Zugriff auf 600.000+ UI-Screens. | Canlı sitelerden hesaplanmış CSS alma, ağ şelale denetimi ve 600 bin+ gerçek ekran tasarımı. |
 | **`str-revenue-listing-master`** | **Airbnb / OpenBNB MCP** | Competitor nightly-rate extraction and occupancy benchmarking. | Automatische Preis- und Belegungsanalyse von Mitbewerbern. | Rakip gecelik fiyat ve doluluk oranı kıyaslama. |
 | **`steam-library-assistant`** | **Steam Web API MCP** | Direct library queries, playtime analytics, and friends co-op matching. | Direkte Bibliotheksabfragen, Spielzeitstatistiken und Co-Op-Matching. | Doğrudan kütüphane sorgulama, oynama istatistikleri ve arkadaş eşleştirme. |
 | **`observability-monitoring-ops`** | **Prometheus / Grafana MCP** | Real-time PromQL querying and dashboard panel inspections. | Echtzeit-PromQL-Abfragen und Dashboard-Inspektionen. | Gerçek zamanlı PromQL sorgulama ve canlı gösterge paneli denetimi. |
-| **`unifi-wifi-hotspot-ops`** | **UniFi Network MCP** | Read-only AP telemetry, client device counts, and RF maps. | Lesezugriff auf AP-Telemetrie, Endgeräte und RF-Kanalkarten. | Salt-okunur AP telemetrisi, bağlı cihaz sayısı ve RF kanal haritaları. |
 
 ---
 

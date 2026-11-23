@@ -30,20 +30,6 @@ Kod yazarken bir sayfanın *"yapay zekâ şablonu"* gibi görünmesine yol açan
 
 ---
 
-## 📐 1.5. Modern Bileşen ve İlham Mimarisi (`jiro.build`, `inspora.design` & `60fps.design`)
-
-1. **AI-Ready Modüler Section Kalıpları (`jiro.build` Standardı):**
-   - Sayfa bölümlerini tasarlarken yapay zekaya doğrudan tek tıkla kopyalanabilen, Tailwind + React uyumlu ve yüksek dönüşümlü bileşen mimarisi uygula:
-     * **Asimetrik Koyu Mod Hero:** Tekdüze başlık-metin yerine çift sütunlu veya terminal pencereli odak noktası.
-     * **Etkileşimli Fiyatlandırma / Özellik Izgarası:** 3'lü sıkıcı kutular yerine öne çıkan katmanda cam efektli (glassmorphic) hafif glow ve yıllık/aylık geçiş sekmesi.
-     * **Akışkan Bento Izgarası:** Farklı en-boy oranlarında (2x1, 1x1, 1x2) modüler özellik kartları.
-2. **Avangart & Anti-Slop Sanat Yönetimi (`inspora.design` İlhamı):**
-   - Standart şablonlardan kaçın: Cesur display tipografi, yüksek kontrastlı monokrom zeminler üzerine tek bir kasıtlı neon vurgu, editoryal asimetrik ızgaralar ve sanatsal negatif alan nefesi.
-3. **60 FPS Mikro-Etkileşimler (`60fps.design` İlkesi):**
-   - Buton hover durumunda sınır ışıltısı (`border-glow`), sekmeler arası geçişte `motion/react` `layoutId` akışkanlığı ve fare hareketini takip eden yumuşak radyal ışık filtreleri.
-
----
-
 ## 🎛️ 2. Mod A: Sıfırdan Modern & Sanatsal Tasarım (Koddan Önce Sanat Yönetmenliği)
 *(Leonxlnx/taste-skill + nextlevelbuilder/ui-ux-pro-max-skill + kurulu Mobbin)*
 

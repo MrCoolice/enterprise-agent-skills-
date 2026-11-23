@@ -70,6 +70,9 @@ Ağ sağlığı veya güvenlik denetimi istendiğinde (ileride `unifimcp.com` ve
 1. **Config Drift (Ayar Sapması):** Son doğrulanan duruma göre değişen SSID, VLAN etiketi, RF gücü, portal ayarı veya AP firmware sürümünü raporla.
 2. **Newcomer (Yeni Katılan Cihazlar):** Son 7 günde Fethiye veya Dalaman ağlarına ilk kez bağlanan bilinmeyen MAC/cihazları listele.
 3. **AP Sağlık Karnesi:** Her AP için `Uptime`, `Connected Clients`, `TX Retries (>%15 uyarı)`, `Channel Utilization (>%60 uyarı)` ve `L3 Inform` durumunu özetle.
+4. **Penetrasyon & Güvenlik Doğrulaması (`derv82/wifite2` & WPA3 Denetimi):**
+   * **WPS Koruması:** UniFi AP'lerde WPS tamamen kapalı olmalı (Reaver/Pixie-Dust saldırılarına karşı).
+   * **PMKID / Handshake Yakalama:** Misafir ağından kurumsal SSID'lere yönelik `wifite2` tipi PMKID dinleme veya deauth taarruzlarının WPA3-SAE ve PMF (Protected Management Frames) ile etkisiz kılındığını periyodik doğrula.
 
 ---
 

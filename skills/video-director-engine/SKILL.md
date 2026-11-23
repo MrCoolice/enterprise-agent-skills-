@@ -35,15 +35,6 @@ Bu beceri; **GölgeSiber**, **Dalaman Airport Suites** ve **Oyun Projeleri** iç
 
 ---
 
-## 📱 1.5. Animasyonlu Ürün Showreel ve Mockup Standartları (`reelfolio.io` İlhamı)
-* **Statik Ekran Görüntülerini Canlandırma Formülü:**
-  - Web sitesi veya mobil arayüz ekran görüntülerini düz resim olarak göstermek yasaktır.
-  - Remotion içinde **3D telefon/laptop çerçevesi (mockup)** içerisine yerleştirilir; hafif uzamsal eğim (`perspective(1200px) rotateY(-15deg) rotateX(8deg)`), dinamik sayfa içi yumuşak kaydırma (smooth scroll preview) ve arka planda hafif radyal parlama kullanılır.
-* **Yüksek Tempolu Lansman Kurgusu:**
-  - 15-30 saniyelik vitrin videolarında her 2-3 saniyede bir sahne veya açı değişir; ürünün en can alıcı 3 özelliği art arda mikro-kartlar halinde ekrana vurur.
-
----
-
 ## 💎 2. DÜNYA STANDARDI MOTION DESIGN İLKELERİ
 
 ### A. Reels & TikTok Safe Zone ve Otomatik Metin Koruması
@@ -98,7 +89,7 @@ Bu beceri; **GölgeSiber**, **Dalaman Airport Suites** ve **Oyun Projeleri** iç
 
 1. **`artemnovitckii/claude-animation-skills` & HyperFrames (HeyGen):** 3D WebGL / Three.js ve GSAP tabanlı `/map-route` (3D kamera takibi, otomatik rota çizimi, varış pini ve canlı ETA sayacı) ve `/breakdown` (3D patlatılmış görünüm) motoru.
 2. **`iart-ai/map-animation-skills`:** Vox tarzı editoryal harita animasyonları; MapLibre/Mapbox GPU 3D terrain kabartması, uydu zemini, dinamik yörünge (orbit) kamera geçişleri ve bölgesel sınır parlamaları.
-3. **Remotion CLI, Programmatic API (`@remotion/renderer`) & Çekim/Stil Katalogları:** Webpack + React tabanlı GPU hızlandırmalı video motoru; sinematik sahne tarifleri ve 150 hazır Remotion hareket kalıbı için **`Vincentwei1021/video-shotcraft` (124 shot recipes)** ve 15 farklı görsel estetik kategorisinde (kinetik tipografi, veri hikâyesi, terminal/kod vitrini, ürün lansmanı) kod tabanlı film dili seçimi için **`lemomo-ai/lemo-opuscar` (99 film style archetypes)** kalıplarını storyboard aşamasında referans al.
+3. **Remotion CLI, Programmatic API (`@remotion/renderer`), NullMotion & Çekim/Stil Katalogları:** Webpack + React tabanlı GPU hızlandırmalı video motoru; sinematik sahne tarifleri ve 150 hazır Remotion hareket kalıbı için **`Vincentwei1021/video-shotcraft` (124 shot recipes)**, **`blixvip/NullMotion`** (After Effects/Lottie hassasiyetinde sıfır bağımlılıklı saf Bezier/Spring eğrileri ve SVG/Canvas mikro-animasyonları) ve 15 farklı görsel estetik kategorisinde (kinetik tipografi, veri hikâyesi, terminal/kod vitrini, ürün lansmanı) kod tabanlı film dili seçimi için **`lemomo-ai/lemo-opuscar` (99 film style archetypes)** kalıplarını storyboard aşamasında referans al.
 4. **`@remotion/captions` (`createTikTokStyleCaptions`):** Kelime zaman damgalarını akıllı 2-4 kelimelik mikro-sayfalara bölen resmi Remotion kütüphanesi.
 5. **SVG & Lucide Vektör Motoru:** Emojileri bozuk karakter kutularından `[]` kurtaran saf vektör ikon katmanı.
 6. **Whisper / Edge-TTS & Resmi `elevenlabs/skills` Ses Motoru:** Milisaniye hassasiyetli `WordBoundary` zaman damgaları; doğal seslendirme (`eleven_v4` TTS veya Edge-TTS), zaman damgalı/konuşmacı ayrımlı transkript (**Scribe STT** / Whisper) ve sahne geçişleri, ortam atmosferi, UI/whoosh vurgu efektleri için **`elevenlabs/skills` (`sound-effects`)** + FFmpeg **`-14 LUFS`** miksaj (ses efekti arka planı konuşmanın `-18` ila `-24 dB` altında tutulur).
@@ -127,3 +118,14 @@ Kodla sıfırdan animasyon üretmek yerine, kullanıcının kameraya konuştuğu
 3. **Jump-Cut Maskeleme (Akıllı Punch-In):** Arka arkaya yapılan sert kesimlerde görsel sıçramayı gizlemek için kesim noktalarında mikro ölçekleme (%108–%112 crop/punch-in) veya B-roll/ekran görüntüsü geçişi öner.
 4. **Yayın Standardı Ses Temizliği & Normalizasyon:** Arka plan gürültüsü temizliği (highpass/afftdn) + **`loudnorm` ile -14 LUFS** (True Peak `-1.5 dBTP`) ses seviyesi sabitlemesi uygula.
 5. **Çoklu Çıktı Paketi:** Kurgulanan ana videoyla birlikte zaman damgalı **`.srt` altyazı dosyası** (2-4 kelimelik kinetik bölünmeye hazır) ve uzun videolarda **YouTube Bölüm Zaman Damgaları (Chapters)** üret.
+
+---
+
+## 🚀 6. ÜRÜN LANSMANI & DEMO VİDEO PROTOKOLÜ (`/brag` & `latent-spaces/brag`)
+
+SaaS, homelab projesi veya açık kaynak araç lansmanı için (Product Hunt, X/Twitter video lansmanı, GitHub README video demosu):
+
+1. **30 Saniyelik Hızlı Hook (0-5s):** Problemi canlı terminal hatası veya hantal arayüz acısıyla göster.
+2. **"Before/After" Çözüm Flaşlaması (5-15s):** Yeni sistemin (GölgeSiber / Remotion / Next.js) sıfır gecikmeyle nasıl çalıştığını Split-Screen veya hızlı Punch-In ile göster.
+3. **Özellik Fırtınası (Feature Storm 15-25s):** 3-4 kilit avantajı `NullMotion` yaylanma eğrileriyle fırlat (Kartlar 6 kare stagger ile akar).
+4. **Güçlü Call to Action (25-30s):** Canlı URL, GitHub repo yıldız çağrısı ve net son kart. Arkada `-14 LUFS` bas davul ve whoosh ses efekti.

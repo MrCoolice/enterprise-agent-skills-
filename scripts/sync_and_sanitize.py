@@ -13,7 +13,8 @@ import sys
 sys.stdout.reconfigure(encoding='utf-8')
 sys.stderr.reconfigure(encoding='utf-8')
 
-SOURCE_DIR = os.path.expanduser(r"~\.gemini\config\skills")
+SOURCE_DIR = r"c:\Users\MrCoolice\Nextcloud\.Collectives\🛡️ GölgeSiber Veri Merkezi\.agents\skills"
+GLOBAL_CONFIG_DIR = os.path.expanduser(r"~\.gemini\config\skills")
 REPO_DIR = r"C:\Projects\enterprise-agent-skills"
 TARGET_DIR = os.path.join(REPO_DIR, "skills")
 SANITIZATION_RULES = [
@@ -21,7 +22,9 @@ SANITIZATION_RULES = [
     (re.compile(r"\bUlaş\s+Özbek\b", re.IGNORECASE), "Enterprise SecOps Architect"),
     (re.compile(r"\bUlaş\b", re.UNICODE), "Kurucu / Mimar"),
     (re.compile(r"\bÖzbek\b", re.UNICODE), "Mimar"),
+    (re.compile(r"\bOrçun\b", re.UNICODE), "İş Ortağı"),
     (re.compile(r"\bMrCoolice\b"), "devops-engineer"),
+    (re.compile(r"\b48-12785\b"), "[TURIZM-BELGE-NO]"),
     
     # 2. Private Subnets
     (re.compile(r"10\.20\.20\."), "10.10.10."),
@@ -47,10 +50,13 @@ SANITIZATION_RULES = [
     (re.compile(r"/home/mrcoolice/", re.IGNORECASE), "/home/administrator/"),
 ]
 
-# Sensitive files to exclude from public repository
+# Sensitive files and skills to exclude from public repository
 IGNORED_FILES = {
     ".env", ".env.local", ".env.production", "id_rsa", "id_ed25519", 
     "credentials.json", "token.json", ".git", "__pycache__"
+}
+IGNORED_SKILLS = {
+    "str-kasa-muhasebe-ops"  # Keep private STR ledger / accounting purely local
 }
 
 def sanitize_text(text: str) -> str:
@@ -71,6 +77,22 @@ def sync_skills():
     
     for skill in sorted(skills):
         src_skill_path = os.path.join(SOURCE_DIR, skill)
+
+        # 1. Sync raw files to user's global config (~/.gemini/config/skills)
+        if os.path.exists(GLOBAL_CONFIG_DIR):
+            global_skill_path = os.path.join(GLOBAL_CONFIG_DIR, skill)
+            os.makedirs(global_skill_path, exist_ok=True)
+            for f in os.listdir(src_skill_path):
+                s_f = os.path.join(src_skill_path, f)
+                d_f = os.path.join(global_skill_path, f)
+                if os.path.isfile(s_f):
+                    shutil.copy2(s_f, d_f)
+
+        # 2. If skill is private, skip syncing to public git repo
+        if skill in IGNORED_SKILLS:
+            print(f"[-] Skipping private skill from public repo: {skill}")
+            continue
+
         dst_skill_path = os.path.join(TARGET_DIR, skill)
         os.makedirs(dst_skill_path, exist_ok=True)
         

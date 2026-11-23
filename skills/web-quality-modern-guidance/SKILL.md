@@ -106,3 +106,22 @@ Yeni arayüz üretirken veya mevcut siteyi eleştirirken şu 4 "sıradan AI tasa
 2. **Jenerik Mor/Mavi Gradyan & Klişe İkon Yığını:** Marka kimliğiyle (`GölgeSiber` siber/nane yeşili, `Casa Turka` sıcak Akdeniz lüksü) alakasız varsayılan şablon renklerinden kaçın.
 3. **Süslü ama İşlevsiz Widget Çakışması:** Yüzen butonlar, toast bildirimleri, cookie banner ve dil seçiciler asla CTA butonlarının veya form girişlerinin üstüne binmemeli.
 4. **Mikro-Tipografi & Hizalama:** Telefon numaraları (`whitespace-nowrap`), fiyat birimleri ve rozetler ekran daraldığında satır ortasından çirkin şekilde kırılmamalı.
+
+---
+
+## 🧘 8. Ponytail Kuralı: "Kıdemli Tembel Geliştirici" ve Lüks UI Kütüphaneleri
+*(Kaynaklar: `DietrichGebert/ponytail`, `Animate UI`, `Uiverse`, `Forge UI`, `UI Lora`)*
+
+1. **Ladder of Laziness (Tembellik Merdiveni — Anti-Overengineering):**
+   - Yapay zeka ajanları gereksiz boilerplate ve şişkin kütüphaneler yazmaya meyillidir.
+   - Bir özellik eklemeden önce 4 basamaklı kontrolü zorunlu uygula:
+     - 1. Basamak: Tarayıcının yerel bir API'si var mı? (`<dialog>`, `popover`, `Intl`, `URLPattern`) ➔ Evetse harici paket EKLEME.
+     - 2. Basamak: Zaten projede kurulu bir yardımcı var mı? ➔ Varsa yenisini uydurma.
+     - 3. Basamak: Standart CSS ile çözülüyor mu? (`backdrop-filter`, `accent-color`, `aspect-ratio`) ➔ Evetse JS yazma.
+     - 4. Basamak: Kod yazmaktan vazgeçilebiliyor mu? ➔ **"En iyi kod, hiç yazılmamış koddur."**
+2. **Lüks & "Pahalı Gösteren" Modern UI Ekosistemi:**
+   - **`Animate UI`:** Sitemizdeki `shadcn/ui` bileşenlerini tek komutla hareketli ve premium hale getirir.
+   - **`Uiverse.io`:** Topluluk yapımı saf CSS mikro-animasyonlu buton ve kart kodları.
+   - **`Forge UI`:** GSAP ve Motion tabanlı kopyala-yapıştır lüks web blokları.
+   - **`UI Lora`:** Hem web hem mobil için tek bileşen mimarisi.
+
