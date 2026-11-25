@@ -1,11 +1,7 @@
 ---
 name: technical-book-publishing
-description: >-
-  Technical book authoring, 10 Golden Laws editorial review, IDDIA_DEFTERI.md & OPNsense 26.7+
-  MVC fact-checking, cross-reference governance, and B5 print/PDF/EPUB typesetting (Pandoc,
-  WeasyPrint, Typst) for OPNsense 2026 Book. Use when drafting/reviewing book chapters or
-  building PDF/EPUB. Do NOT use for SEO blog posts (use seo-content-master), SVG/PNG figures
-  (use editorial-architecture-diagrams), or .pptx slides (use native-pptx-presentations).
+description: >
+  Technical book authoring, 10 Golden Laws review, OPNsense MVC fact-checking, and B5 print/PDF/EPUB typesetting (Pandoc, Typst) for OPNsense 2026 Book.
 ---
 
 # 📖 Teknik Kitap Yazarlığı, Hakemlik & PDF/EPUB Dizgi Becerisi

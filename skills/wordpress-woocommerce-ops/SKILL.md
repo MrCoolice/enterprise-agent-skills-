@@ -1,12 +1,7 @@
 ---
 name: wordpress-woocommerce-ops
-description: >-
-  WordPress & WooCommerce operations, safe www-data WP-CLI maintenance, HPOS, PHP 8.4-FPM,
-  caching/WebP, and custom plugin security (golge-watermark, golge-isbn, golge-nadir-import) for
-  GolgeKitabeviWP (CT 113, ecommerce.example.com). Use when running WP-CLI, optimizing WooCommerce,
-  or hardening WP plugins. Do NOT use for Next.js/CWV engineering (use
-  web-quality-modern-guidance), SEO blog writing (use seo-content-master), or LXC backups (use
-  proxmox-ve-ops).
+description: >
+  WordPress & WooCommerce operations, www-data WP-CLI maintenance, HPOS, PHP 8.4-FPM, and custom plugins (golge-watermark, golge-isbn) for GolgeKitabevi.
 ---
 
 # 📚 WordPress & WooCommerce Operasyon, WP-CLI & Güvenlik Becerisi

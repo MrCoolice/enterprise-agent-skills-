@@ -1,11 +1,7 @@
 ---
 name: matomo-analytics-ops
-description: >-
-  Self-hosted Matomo analytics (CT 114, matomo.secops-domain.example.com) Reporting API queries, JS
-  tracking & KVKK privacy audits for secops-domain.example.com, hotel-suites.example.com, and
-  ecommerce.example.com. Use when pulling traffic, landing pages, referrers, conversions, or
-  auditing Matomo tracking. Do NOT use for writing SEO articles (use seo-content-master), LXC
-  ops (use proxmox-ve-ops), or 502 debugging (use homelab-network-troubleshoot).
+description: >
+  Self-hosted Matomo analytics (CT 114) Reporting API queries, JS tracking, and KVKK privacy audits for GolGeSiber, Dalaman Airport Suites, and GolgeKitabevi.
 ---
 
 # 📊 Matomo Analytics & Veri İstihbaratı Uzman Becerisi

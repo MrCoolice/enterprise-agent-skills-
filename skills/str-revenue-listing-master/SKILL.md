@@ -1,12 +1,7 @@
 ---
 name: str-revenue-listing-master
-description: >-
-  Short-Term Rental (STR) revenue management, competitor nightly-rate benchmarking, OTA
-  commission parity (Airbnb, Booking.com, direct), listing optimization, and multilingual guest
-  copy for hotel-suites.example.com. Use when pricing nights, optimizing OTA listings, or
-  drafting guest templates. Do NOT use for WhatsApp bot FastAPI/Baileys/Meta Cloud API
-  engineering (use whatsapp-bot-gateway-ops) or Matomo traffic queries (use
-  matomo-analytics-ops).
+description: >
+  Short-Term Rental (STR) revenue management, competitor nightly-rate benchmarking, OTA commission parity (Airbnb, Booking.com), and listing optimization.
 ---
 
 # 🏨 Dalaman Airport Suites — STR Gelir, Fiyatlandırma ve İlan Optimizasyonu Becerisi

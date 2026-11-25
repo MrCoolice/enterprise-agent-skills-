@@ -1,11 +1,7 @@
 ---
 name: docker-linux-deploy-ops
-description: >-
-  Debian 13 LXC/VM application layer, Docker Compose hardening, systemd units, logrotate/TBW
-  protection, and zero-downtime GitHub-to-LXC deployment (CT 115, CT 116, CT 104, CT 108). Use
-  when writing Dockerfiles, compose.yaml, systemd services, or deploy/rollback pipelines. Do NOT
-  use for Proxmox host/ZFS/PBS (use proxmox-ve-ops), Nextcloud occ (use
-  nextcloud-selfhosted-ops), or WordPress WP-CLI (use wordpress-woocommerce-ops).
+description: >
+  Debian 13 LXC/VM application layer, Docker Compose hardening, systemd units, logrotate/TBW protection, and zero-downtime GitHub-to-LXC deployments.
 ---
 
 # 🐳 Docker Compose, Debian 13 `systemd` & GitHub → LXC Deployment Becerisi

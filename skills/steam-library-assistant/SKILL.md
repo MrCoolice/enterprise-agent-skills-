@@ -1,10 +1,7 @@
 ---
 name: steam-library-assistant
-description: >-
-  Steam library analysis, playtime statistics, co-op/friend matching, local disk game transfers,
-  and Steam Web API / Steamworks MCP workflows. Use when analyzing Steam libraries, moving Steam
-  games across local drives, or querying Steam stats. Do NOT use for building browser/HTML5
-  games (use quiz-word-game-master) or Proxmox/Linux storage operations (use proxmox-ve-ops).
+description: >
+  Steam library analysis, playtime statistics, co-op matching, local disk game transfers, and Steam Web API workflows.
 ---
 
 # Steam Library & Gaming Assistant

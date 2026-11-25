@@ -1,12 +1,7 @@
 ---
 name: nextcloud-selfhosted-ops
-description: >-
-  Self-hosted Nextcloud (VM 103, nc.secops-domain.example.com) occ maintenance, PHP/Redis/APCu/cron tuning,
-  config.php trusted_proxies, OnlyOffice (CT 100) JWT/sleep troubleshooting, and
-  WebDAV/Collectives/Deck automation. Use when running occ commands, repairing Nextcloud, or
-  integrating OnlyOffice/WebDAV. Do NOT use for VM 103 Proxmox/ZFS/PBS ops (use proxmox-ve-ops),
-  502 debugging (use homelab-network-troubleshoot), or OPNsense rules (use
-  opnsense-proxmox-secops).
+description: >
+  Self-hosted Nextcloud (VM 103, nc.secops-domain.example.com) occ maintenance, PHP/Redis/cron tuning, trusted_proxies, OnlyOffice (CT 100), and WebDAV automation.
 ---
 
 # ☁️ Nextcloud Self-Hosted Operasyon, `occ` Bakım & WebDAV Becerisi

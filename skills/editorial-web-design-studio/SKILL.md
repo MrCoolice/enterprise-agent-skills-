@@ -1,12 +1,7 @@
 ---
 name: editorial-web-design-studio
-description: >-
-  Anti-AI-slop art direction, DESIGN.md systems, live URL computed-CSS reverse-engineering,
-  selective feature rebuild, motion/react animations, Driver.js onboarding tours, SVG logos,
-  favicons/OG packs, and Web Audio UI micro-sounds (with Chrome DevTools & Mobbin). Use when
-  designing distinctive editorial websites or extracting a reference URL's design DNA. Do NOT
-  use for CWV/Next.js 16/Prisma backend engineering (use web-quality-modern-guidance) or
-  technical diagrams (use editorial-architecture-diagrams).
+description: >
+  Anti-AI-slop art direction, DESIGN.md systems, computed-CSS reverse engineering, motion animations, and SVG/OG packs. Use for editorial web design and extracting URL visual DNA.
 ---
 
 # 🎨 Editoryal Web Tasarım Stüdyosu, Anti-AI-Slop & URL Tasarım DNA'sı Becerisi

@@ -1,12 +1,7 @@
 ---
 name: founder-gtm-growth-council
-description: >-
-  Solo-founder idea validation (/validate-idea), MVP scoping (/mvp-scope), value pricing
-  psychology, GTM launch roadmaps, email/newsletter funnels, and 4-role executive board
-  critiques for GolGeSiber ecosystem projects. Use when validating ideas, pricing offers, or
-  planning launches. Do NOT use for SEO blog articles (use seo-content-master), daily social
-  calendars (use social-media-growth), STR nightly rates (use str-revenue-listing-master), or
-  book chapters (use technical-book-publishing).
+description: >
+  Solo-founder idea validation (/validate-idea), MVP scoping (/mvp-scope), value pricing, GTM launch roadmaps, and 4-role executive critiques for GolGeSiber projects.
 ---
 
 # 🚀 Kurucu Strateji, Ürün Konumlandırma, Fiyatlama & GTM Kurulu Becerisi

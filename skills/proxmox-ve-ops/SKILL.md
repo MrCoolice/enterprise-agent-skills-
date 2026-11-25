@@ -1,11 +1,7 @@
 ---
 name: proxmox-ve-ops
-description: >-
-  Proxmox VE (pvenew) VM/LXC lifecycle (qm/pct), ZFS pool & SSD TBW protection, disk resizing,
-  FAZ 0 snapshots, PBS (VM 102) verified backup audits, smart sleep schedules, and
-  least-privilege PVE REST API automation. Use when managing Proxmox guests, storage, ZFS, or
-  PBS backups. Do NOT use for OPNsense config.xml audits (use opnsense-proxmox-secops) or live
-  web/DNS/502 debugging (use homelab-network-troubleshoot).
+description: >
+  Proxmox VE (pvenew) VM/LXC lifecycle (qm/pct), ZFS pool & SSD TBW protection, FAZ 0 snapshots, PBS (VM 102) backup audits, and PVE REST API automation.
 ---
 
 # 🖥️ Proxmox VE, ZFS, PBS & API Operasyon Uzman Becerisi

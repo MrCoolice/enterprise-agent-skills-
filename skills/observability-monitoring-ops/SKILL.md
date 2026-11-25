@@ -1,12 +1,7 @@
 ---
 name: observability-monitoring-ops
-description: >-
-  Observability, Uptime Kuma (CT 110) monitors & sleep maintenance windows, GoAccess
-  (10.10.10.120:91), AdGuard telemetry, Grafana/Prometheus/Loki dashboards, TBW log budgets, and
-  blameless incident postmortems (RCA). Use when designing monitors, SLOs, PromQL/LogQL, or
-  postmortems. Do NOT use for Telegram bot code (use telegram-bot-alerting-ops), live outage
-  debugging (use homelab-network-troubleshoot), or Matomo marketing metrics (use
-  matomo-analytics-ops).
+description: >
+  Observability, Uptime Kuma (CT 110) monitors, GoAccess, AdGuard telemetry, Grafana/Prometheus dashboards, TBW log budgets, and incident postmortems (RCA).
 ---
 
 # 📡 Gözlemlenebilirlik, İzleme Panelleri, Metrik & Postmortem Becerisi

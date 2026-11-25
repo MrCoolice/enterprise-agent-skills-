@@ -1,12 +1,7 @@
 ---
 name: video-director-engine
-description: >-
-  Code-rendered video, Reels, talking-head editing, and motion graphics engine (Remotion,
-  HyperFrames, 3D Vox/Mapbox maps, shot recipes/film styles, kinetic captions, ElevenLabs
-  TTS/SFX, FFmpeg -14 LUFS & cut-list gate). Use when scripting, editing raw talking-head
-  footage, or rendering programmatic videos/Reels. Do NOT use for editable .pptx decks (use
-  native-pptx-presentations), social post calendars (use social-media-growth), or static
-  diagrams (use editorial-architecture-diagrams).
+description: >
+  Code-rendered video, kinetic typography, and motion graphics engine using Remotion, HyperFrames, and FFmpeg NVENC (-14 LUFS). Use for Reels, talking-head edits, and code motion graphics.
 ---
 
 # 🎬 Video Director Engine — Premium Motion Design & Remotion Standartları
@@ -78,10 +73,22 @@ Bu beceri; **GölgeSiber**, **Dalaman Airport Suites** ve **Oyun Projeleri** iç
 * **Kenarlık:** `border: 1px solid rgba(255, 255, 255, 0.14);`
 * **İç Işık:** `box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.20), 0 20px 45px rgba(0, 0, 0, 0.55);`
 
-### G. Ses Temposu ve Ölü Boşluk Temizliği (Audio Pacing & Dead-Air Removal)
-* **Reels / TikTok Standart Hızı:** **170 – 200 WPM** (Dakika Başı Kelime).
-* **Neural TTS Hız Ayarı:** Edge-TTS veya ElevenLabs gibi motorlarda seslendirme hızı `+22%` ile `+28%` arasına ayarlanmalıdır.
-* **Dead-Air / Ölü Boşluk Yasağı:** Cümle sonlarındaki 1 saniyelik yapay duraklamalar kırpılmalı; cümleler arası mikro nefes payı **0.20 - 0.25 saniye** ile sınırlandırılmalıdır.
+### G. Ses Temposu, Audio-First Kuralı ve Maksimum `atempo` Sınırı (ZORUNLU)
+* **Türkçe Doğal Okuma Gerçeği:** Türkçe eklemeli bir dil olduğu için doğal, tok ve anlaşılır belgesel/Reels anlatımı **115 – 145 Türkçe kelime/dakika (~2.0 – 2.3 kelime/saniye)** bandındadır *(İngilizce 170–200 WPM eşdeğeri)*.
+* **KESİN YASAK (`atempo > 1.15x`):** Uzun bir Türkçe metni sabit bir video süresine (ör. 28s) zorla sığdırmak için sesi `%15`'ten fazla (`atempo > 1.15x`) hızlandırmak **KESİNLİKLE YASAKTIR** — ses doğallığını, nefes vurgusunu ve belgesel ağırlığını bozar.
+* **Audio-First (Önce Ses, Sonra Süre) Protokolü:**
+  1. Önce dış sesi (ElevenLabs / Edge-TTS) doğal hızında üret ve gerçek süresini ölç; yalnızca `> 0.35s` yapay ölü boşlukları `0.18 – 0.25s` bandına kırp (hızlandırma gerekiyorsa max `1.00x – 1.15x`).
+  2. **Süre esnekse:** Video süresini ve sahne kare sayılarını sesin doğal uzunluğuna göre uzat (ör. 28s yerine 40–45s).
+  3. **Süre kesin sabit kalacaksa:** Ses üretmeden önce metni **saniyede en fazla ~2.1 Türkçe kelime** olacak şekilde kısalt (ör. 28s video için max **55–60 Türkçe kelime**) ve kısa metni kullanıcıya onaya sun.
+
+### H. Seçmeli Arka Plan Müziği & Konuşma Korumalı Miksaj (Ducking)
+* **Seçmeli (Opt-In):** Her video prodüksiyonunda kullanıcıya arka plan müziği isteyip istemediğini seçmeli olarak sun (istemezse temiz dış ses + SFX ile devam edilir).
+* **Yerel Müzik Kütüphanesi:** `C:\Users\devops-engineer\Nextcloud\Music\` (veya `C:\Users\devops-engineer\Music\`) altındaki tematik klasörlerden türe uygun enstrümantal/düşük vokalli parça seçilebilir:
+  * *Karanlık Belgesel / Dram:* `02_DARK_MELANCHOLY`, `09_FILM_OYUN_SOUNDTRACK`
+  * *Siber Güvenlik / Hacker / Tech:* `12_CYBERPUNK_DARK_TECHNO`, `11_SYNTHWAVE_OUTRUN`
+  * *Otel / Lifestyle / Sakin:* `04_SOFT_CHILL` | *Epik Tanıtım:* `03_EPIC_FANTASY`
+  * *(Not: YouTube/Instagram telif riski olan ticari parçalar seçilirse kullanıcıyı kısaca uyar.)*
+* **Konuşmayı Bastırmama Kuralı:** Arka plan müziği konuşmanın **`-20 dB` ila `-24 dB`** altında tutulur; FFmpeg `sidechaincompress` (konuşma anında otomatik kısma) + `1–3 kHz` insan sesi bandında hafif EQ oyuğu (`equalizer=f=1500:t=q:w=1.4:g=-4`) + yumuşak giriş/çıkış (`afade`) uygulanır ve final master `-14 LUFS` normalize edilir.
 
 ---
 
@@ -93,6 +100,7 @@ Bu beceri; **GölgeSiber**, **Dalaman Airport Suites** ve **Oyun Projeleri** iç
 4. **`@remotion/captions` (`createTikTokStyleCaptions`):** Kelime zaman damgalarını akıllı 2-4 kelimelik mikro-sayfalara bölen resmi Remotion kütüphanesi.
 5. **SVG & Lucide Vektör Motoru:** Emojileri bozuk karakter kutularından `[]` kurtaran saf vektör ikon katmanı.
 6. **Whisper / Edge-TTS & Resmi `elevenlabs/skills` Ses Motoru:** Milisaniye hassasiyetli `WordBoundary` zaman damgaları; doğal seslendirme (`eleven_v4` TTS veya Edge-TTS), zaman damgalı/konuşmacı ayrımlı transkript (**Scribe STT** / Whisper) ve sahne geçişleri, ortam atmosferi, UI/whoosh vurgu efektleri için **`elevenlabs/skills` (`sound-effects`)** + FFmpeg **`-14 LUFS`** miksaj (ses efekti arka planı konuşmanın `-18` ila `-24 dB` altında tutulur).
+7. **Sıfır Maliyetli Hızlı Faceless Modu (`monu564100/ai-antigravity-video-skill` uyarlaması):** Kullanıcı ücretli API kullanmadan hızlı yüzsüz (faceless) Shorts/Reels istediğinde; **Edge-TTS / Kokoro TTS** (ücretsiz seslendirme) + telifsiz **Pexels/Pixabay B-roll** klipleri + FFmpeg **`-14 LUFS`** ve Bölüm 2'deki **Safe Zone + 2–4 kelimelik kinetik altyazı** kurallarını koruyarak (statik slayt yasağını bozmadan) üretim yap.
 
 ---
 

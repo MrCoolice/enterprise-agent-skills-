@@ -1,11 +1,7 @@
 ---
 name: opnsense-proxmox-secops
-description: >-
-  Enterprise OPNsense (VM 101) static config.xml 7-layer security audits, VLAN/DMZ segmentation,
-  WireGuard/NAT/Unbound hardening, and Proxmox bridge/host network hardening. Use when auditing
-  OPNsense config.xml, designing VLAN/firewall architecture, or hardening WireGuard/Proxmox
-  bridges. Do NOT use for daily Proxmox VM/LXC/ZFS/PBS ops (use proxmox-ve-ops) or live
-  outage/502 troubleshooting (use homelab-network-troubleshoot).
+description: >
+  Enterprise OPNsense (VM 101) static config.xml 7-layer security audits, VLAN/DMZ segmentation, WireGuard/NAT hardening, and Proxmox bridge security.
 ---
 
 # 🛡️ OPNsense, Proxmox & Homelab SecOps Uzman Becerisi

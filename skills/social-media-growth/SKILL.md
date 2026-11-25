@@ -1,12 +1,7 @@
 ---
 name: social-media-growth
-description: >-
-  7-agent social media & growth factory for Instagram, LinkedIn, YouTube, and Facebook (60/25/15
-  rhythm, max 5 hashtags, voice scoring, comment mining, 1080x1350 pre-flight, brand memory).
-  Use for /icerik-fabrikasi, /sosyal-denetim, /rakip-denetimi, repurposing blogs, or social
-  calendars. Do NOT use for rendering Remotion/FFmpeg videos (use video-director-engine),
-  long-form SEO articles (use seo-content-master), or business GTM/pricing (use
-  founder-gtm-growth-council).
+description: >
+  7-agent social media growth factory for Instagram, LinkedIn, YouTube, and Facebook (60/25/15 rhythm, max 5 hashtags). Use for /icerik-fabrikasi, /sosyal-denetim, social calendars, and post repurposing.
 ---
 
 # 🚀 7 Ajanlı Sosyal Medya & Büyüme Fabrikası (Agency-Grade Content Engine)
@@ -136,7 +131,7 @@ Bu skill çalışırken öğrendiği dersleri `.agents/skills/social-media-growt
 ---
 
 ## 🧪 7. İLERİ OPTİMİZASYON & YAYIN ÖNCESİ KONTROL MODÜLLERİ
-*(charlie947/social-media-skills, social-media-skills/instagram-skill ve ScrapeCreators araştırma yaklaşımlarından uyarlanmıştır)*
+*(charlie947/social-media-skills, social-media-skills/instagram-skill, Jakeschincariol/instagram-agent-skill ve ScrapeCreators araştırma yaklaşımlarından uyarlanmıştır)*
 
 > **Kapsam Sınırı:** Bu beceri **strateji, takvim, metin/kanca, rakip analizi ve yayın öncesi teknik kontrol** içindir. Remotion/FFmpeg video render ve kamera önü ham video kurgusu için `video-director-engine`, web trafiği ve dönüşüm ölçümü için `matomo-analytics-ops` kullanılır.
 
@@ -153,8 +148,10 @@ Bu skill çalışırken öğrendiği dersleri `.agents/skills/social-media-growt
 1. **Yorum Madenciliği:** Rakip hesapların ve niş videoların altındaki gerçek kullanıcı yorumlarından en sık sorulan soruları, şikayetleri ve karşılanmamış acı noktalarını çıkarıp doğrudan yeni **Kanca (Hook)** ve **Carousel** konularına dönüştür.
 2. **Rakip Reklam Kütüphanesi (Meta / Google / LinkedIn Ad Library):** Rakiplerin 30+ gündür aktif tuttuğu (yani dönüşüm getiren) reklam kreatiflerindeki kanca, teklif ve CTA açılarını analiz edip kendi `[Meta Reklam Adayı]` içeriklerine uyarla.
 
-### C. Instagram Yayın Öncesi Teknik Kontrol (Pre-Flight)
+### C. Instagram Yayın Öncesi Teknik Kontrol (Pre-Flight) & Caption Linter
 Her Instagram Carousel veya kapak görseli paylaşılmadan önce şu teknik kontrolleri uygula *(not: görsel üretiminde Pillow çizimi kullanılmaz, modern CSS/Canvas/Canva standartları geçerlidir)*:
 1. **Carousel Boyutu:** Dikey **4:5 (`1080x1350px`)** yüksek kaliteli format; kenarlarda metin taşması yok.
 2. **3:4 Profil Izgarası (Grid Crop) Testi:** Reels (`9:16`) veya Carousel kapaklarındaki ana başlık (**Kapak Metni / Text Overlay**), Instagram profil ızgarasının **3:4 merkez kırpma alanında** kesilmeden eksiksiz okunmalıdır.
 3. **Okunabilirlik & Kontrast:** Kapak metni en fazla 3-5 kelime, mobil küçük önizlemede (thumbnail) bile 1 saniyede seçilebilir kontrastta olmalıdır.
+4. **125 Karakterlik "Daha Fazla" Caption Linter'ı (`instagram-agent-skill`):** Instagram akışında metnin *"… daha fazla"* diye kesildiği tam sınır **ilk 125 karakterdir**. En vurucu kanca ilk 125 karakterin içine eksiksiz sığmalı ve teslimde 125. karakter kesim önizlemesi gösterilmelidir.
+5. **Çekim/Tasarım Öncesi 3 Puanlı Kanca Seçimi:** Önemli Reels ve Carousel senaryolarına geçmeden önce 3 farklı kanca açısı *(Kontrast / Şok Sayı / "… Yaparsan Ne Olur?")* puanlanarak kullanıcıya seçtirilir.

@@ -1,12 +1,7 @@
 ---
 name: code-security-audit
-description: >-
-  Adversarial 6-phase source-code security audit and vulnerability hunting
-  (confirmed/needs_validation/rejected) for golgesiber-v3 (Next.js 16/Prisma),
-  booking-whatsapp-bot (FastAPI/Iyzico), golgekitabevi-wp (PHP), and pve-interactive-bot.py. Use
-  when auditing code, API routes, auth, webhooks, or SQL/ORM queries. Do NOT use for OPNsense
-  config.xml (use opnsense-proxmox-secops) or Cloudflare/NPMplus rules (use
-  cloudflare-edge-proxy-secops).
+description: >
+  Adversarial 6-phase source-code security audit and vulnerability hunting (confirmed/rejected) for Next.js, FastAPI, PHP, and Python codebases.
 ---
 
 # 🔬 Kaynak Kod Güvenlik Denetimi (Adversarial Code Audit — Cloudflare Metodolojisi)

@@ -1,12 +1,7 @@
 ---
 name: telegram-bot-alerting-ops
-description: >-
-  Telegram bot engineering, NOC alerting, and interactive command operations for @your_noc_alert_bot
-  (pve-interactive-bot.py, telegram-send.sh, ZED/OOM/CPU/SSH/CrowdSec watchers) and Dalaman
-  staff alerts. Use when building/hardening Python/Bash Telegram bots, inline approvals, or
-  alert cooldowns. Do NOT use for WhatsApp/Meta Cloud API bots (use whatsapp-bot-gateway-ops),
-  Proxmox ZFS/PBS lifecycle (use proxmox-ve-ops), or live 502 debugging (use
-  homelab-network-troubleshoot).
+description: >
+  Telegram bot engineering, NOC alerting, and interactive operations for @your_noc_alert_bot (pve-interactive-bot.py, watchers) and staff alerts.
 ---
 
 # 🤖 Telegram Bot Mühendisliği & NOC Alarm Operasyon Becerisi

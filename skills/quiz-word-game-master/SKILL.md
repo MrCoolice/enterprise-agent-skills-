@@ -1,12 +1,7 @@
 ---
 name: quiz-word-game-master
-description: >-
-  Web & mobile game engineering studio for GolGeSiber Quiz/Trivia, Word Games (Turkish/TDK),
-  Memory puzzles, and 2D HTML5 Canvas arcade games (state machines, distractors, Web Audio FX,
-  haptics, retention). Use when building or upgrading browser games or game mechanics. Do NOT
-  use for general websites/art direction (use editorial-web-design-studio), Next.js/Prisma site
-  CWV audits (use web-quality-modern-guidance), or Steam library management (use
-  steam-library-assistant).
+description: >
+  Web & mobile game engineering for GolGeSiber Quiz/Trivia, Turkish word games, memory puzzles, and 2D Canvas games. Use for browser games, game mechanics, and retention loops.
 ---
 
 # 🎮 GölgeSiber Game Studio Master (Evrensel Web & Mobil Oyun Mimarı)

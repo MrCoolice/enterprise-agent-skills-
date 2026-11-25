@@ -1,12 +1,7 @@
 ---
 name: native-pptx-presentations
-description: >-
-  Native editable PowerPoint (.pptx) slide deck studio (python-pptx / PptxGenJS) converting
-  Markdown, PDF, DOCX, or URLs into real PowerPoint shapes, OOXML charts/tables, corporate
-  templates, and speaker notes. Use when creating editable .pptx workshops, training slides
-  (08-Egitim_Kaynaklari), or partner decks. Do NOT use for PDF/EPUB books (use
-  technical-book-publishing), SVG/PNG diagrams (use editorial-architecture-diagrams), or videos
-  (use video-director-engine).
+description: >
+  Native editable PowerPoint (.pptx) slide deck studio using python-pptx / PptxGenJS. Converts Markdown/PDF/DOCX into real PowerPoint shapes, tables, and speaker notes.
 ---
 
 # 📊 Native PowerPoint (.pptx) Sunum & Eğitim Destesi Stüdyosu (`ppt-master`)

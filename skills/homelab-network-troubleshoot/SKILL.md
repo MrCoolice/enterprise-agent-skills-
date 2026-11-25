@@ -1,11 +1,7 @@
 ---
 name: homelab-network-troubleshoot
-description: >-
-  Read-only-first 6-step live network & service diagnostics across Client -> VLAN/UniFi ->
-  OPNsense (VM 101) -> AdGuard (CT 109) -> NPM/NPMplus (CT 106/104) -> Cloudflare -> LXC/VM. Use
-  when debugging live outages, DNS failures, 502/503/504 errors, TLS issues, VLAN drops, or
-  pfctl/tunnel problems. Do NOT use for static OPNsense config.xml audits (use
-  opnsense-proxmox-secops) or Proxmox VM/ZFS/PBS tasks (use proxmox-ve-ops).
+description: >
+  Read-only-first 6-step live network & service diagnostics across Client -> VLAN -> OPNsense -> AdGuard -> NPMplus -> LXC. Use for live outages, DNS/502 errors, and TLS drops.
 ---
 
 # 🩺 Homelab & Veri Merkezi Canlı Ağ Arıza Giderme Becerisi

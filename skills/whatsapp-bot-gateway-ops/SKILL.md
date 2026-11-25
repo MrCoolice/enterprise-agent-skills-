@@ -1,12 +1,7 @@
 ---
 name: whatsapp-bot-gateway-ops
-description: >-
-  Dual-mode WhatsApp bot gateway engineering for booking-whatsapp-bot (CT 116, FastAPI) via
-  WhatsAppProvider Adapter: Mode A (Baileys stability, anti-ban, CPU circuit breaker, E2EE
-  recovery) and Mode B (Meta Cloud API, HMAC webhooks, 24h window/templates). Use when building,
-  stabilizing, or migrating the WhatsApp bot. Do NOT use for STR pricing/listings (use
-  str-revenue-listing-master), Telegram bots (use telegram-bot-alerting-ops), or LXC ops (use
-  proxmox-ve-ops).
+description: >
+  Dual-mode WhatsApp bot gateway engineering for booking-whatsapp-bot (CT 116, FastAPI) via Adapter: Mode A (Baileys) and Mode B (Meta Cloud API).
 ---
 
 # 💬 WhatsApp Bot Gateway & Resmi Meta Cloud API Mühendislik Becerisi

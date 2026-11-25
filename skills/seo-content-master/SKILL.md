@@ -1,11 +1,7 @@
 ---
 name: seo-content-master
-description: >-
-  Autonomous Turkish & Global SEO/GEO content and audit engine (multi-agent writing, PAS/BAB CRO
-  copy, Wikidata entities, Local SEO/NAP, llms.txt/llms-full.txt, Pos 4-15 quick-wins, Google
-  Discover). Use when writing SEO blog articles, optimizing search rankings, or generating
-  llms.txt. Do NOT use for Matomo API reporting (use matomo-analytics-ops), daily social
-  calendars (use social-media-growth), or GTM/pricing strategy (use founder-gtm-growth-council).
+description: >
+  Autonomous Turkish & Global SEO/GEO content and audit engine (multi-agent writing, CRO copy, topical clusters, llms.txt, Discover). Use for SEO articles, cluster planning, and ranking audits.
 ---
 
 # 🚀 Autonomous SEO, GEO & Growth Content Engine (Sektör Standardı)
@@ -129,3 +125,20 @@ Kullanıcı *"Bu hafta/ay ne yazalım, ne videosu çekelim?"* dediğinde veya ye
 4. **GEO Optimizer & LLM-Ready (AEO) Mimarisi:**
    * Sitenin kök dizininde `/llms.txt` ve `/llms-full.txt` dosyalarını güncel tutar.
    * `WebMCP` ve `Lighthouse Agentic Browsing` uyumluluğu için sayfaları otonom AI crawler botlarının token harcamadan anlayacağı semantik XML/JSON-LD ve temiz HTML hiyerarşisiyle sunar.
+
+---
+
+## 🕸️ 8. SİTE ÖLÇEKLİ OTORİTE, HUB-AND-SPOKE İÇ LİNKLEME, pSEO & BACKLINK MİMARİSİ
+*(monu564100/Complete-SEO-Master-System ilkelerinden GölgeSiber ekosistemine uyarlanmıştır)*
+
+Tekil makale yerine tüm alan adının organik otoritesini büyütürken şu **3 yapısal kuralı** uygula:
+
+1. **Topical Authority & Hub-and-Spoke İç Linkleme:**
+   * Her ana konu için 1 kapsayıcı **Sütun Sayfa (Pillar / Hub)** ve buna çift yönlü bağlı **5–12 Alt Küme Sayfası (Cluster / Spoke)** planla (ör. `OPNsense Ana Rehberi` ↔ `VLAN`, `WireGuard`, `CrowdSec`, `Unbound DNS`).
+   * **Yetim Sayfa (Orphan Page) Yasağı:** Yayına giren her yeni sayfa en az 2–3 ilgili mevcut sayfadan bağlamsal çapa metniyle (anchor text) link almalı ve ilgili Hub'a geri link vermelidir; tıklama derinliği ana sayfadan **en fazla 3 tık** olmalıdır.
+2. **Programmatic SEO (pSEO) Kalite Kapısı (Sıfır Thin-Content):**
+   * Ölçekli şablon sayfalar (`secops-domain.example.com` 22+ siber araç sayfası, `hotel-suites.example.com` bölge/transfer/sezon sayfaları, `ecommerce.example.com` yazar/yayınevi/nadir kitap koleksiyonları) üretilirken sadece şehir/araç adını değiştiren kopya metin **yasaktır**.
+   * Her pSEO sayfası **en az %40 özgün veri/bağlam** (gerçek araç çıktısı/örnek komut, canlı mesafe/fiyat/SSS, nadir baskı bilgisi, özgün JSON-LD ve doğru `canonical` etiketi) taşımalıdır; düşük değerli kombinasyonlar `noindex` ile korunur.
+3. **Doğal Backlink & Dijital PR Mıknatısı (Link-Bait Varlıklar):**
+   * Soğuk spam link değişimi yerine **atıf çeken ücretsiz varlıklar** üret ve öne çıkar: GölgeSiber'in 22+ ücretsiz siber aracı (CIDR, SPF/DMARC, Şifre/Hash), OPNsense 2026 kıyaslama/mimari tabloları, açık kaynak GitHub skill repoları ve yerelleştirilmiş Türkiye homelab/CGNAT veri raporları.
+   * Her link-bait sayfada paylaşılabilir gömme/kaynakça bloğu ve açık veri tablosu bulundur.

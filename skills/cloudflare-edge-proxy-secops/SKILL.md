@@ -1,11 +1,7 @@
 ---
 name: cloudflare-edge-proxy-secops
-description: >-
-  Cloudflare Edge, WAF, Zero Trust Tunnel (cloudflared), NPM/NPMplus (CT 106/104, 10.10.10.120),
-  CrowdSec LAPI, ModSecurity, and CF-Connecting-IP operations. Use when configuring Cloudflare
-  DNS/WAF/Access/tunnels, NPMplus proxy hosts, SSL Full (Strict), or CrowdSec rules. Do NOT use
-  for OPNsense VLAN/firewall audits (use opnsense-proxmox-secops), live 502 outages (use
-  homelab-network-troubleshoot), or LXC lifecycle (use proxmox-ve-ops).
+description: >
+  Cloudflare Edge, WAF, Zero Trust Tunnel, NPMplus (CT 106/104), CrowdSec LAPI, and CF-Connecting-IP operations. Use for Cloudflare DNS/WAF/tunnels and reverse proxy hosts.
 ---
 
 # 🌐 Cloudflare Edge, Zero Trust, NPMplus & CrowdSec SecOps Becerisi

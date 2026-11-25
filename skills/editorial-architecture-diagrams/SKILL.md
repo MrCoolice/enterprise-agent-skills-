@@ -1,11 +1,7 @@
 ---
 name: editorial-architecture-diagrams
-description: >-
-  Publication-grade technical architecture diagrams, print-ready book figures (.svg + .png), and
-  self-contained interactive HTML topologies for OPNsense 2026 Book and secops-domain.example.com. Use when
-  designing network topologies, VLAN/firewall flowcharts, or Slate-950/print editorial diagrams.
-  Do NOT use for editable .pptx slides (use native-pptx-presentations), animated videos (use
-  video-director-engine), or config.xml audits (use opnsense-proxmox-secops).
+description: >
+  Publication-grade technical architecture diagrams, print book figures (.svg + .png), and interactive HTML topologies. Use for network topologies, VLAN/firewall flowcharts, and book diagrams.
 ---
 
 # 📐 Editoryal Teknik Mimari Diyagram & SVG/HTML Tasarım Becerisi

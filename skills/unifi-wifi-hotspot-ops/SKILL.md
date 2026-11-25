@@ -1,11 +1,7 @@
 ---
 name: unifi-wifi-hotspot-ops
-description: >-
-  Self-hosted UniFi OS Server (CT 107) Wi-Fi AP management (U6-Pro, U6+), RF channel/roaming
-  optimization, L3 set-inform adoption, Dalaman 5651 External Captive Portal, and read-only
-  drift/newcomer audits. Use when configuring UniFi Wi-Fi, hotspots, or Integration API
-  (X-API-KEY). Do NOT use for OPNsense firewall/VLAN rules (use opnsense-proxmox-secops), CT 107
-  Proxmox lifecycle (use proxmox-ve-ops), or WAN/502 outages (use homelab-network-troubleshoot).
+description: >
+  UniFi OS Server (CT 107) AP management (U6-Pro, U6+), RF channel optimization, L3 adoption, Dalaman 5651 captive portal, and newcomer audits.
 ---
 
 # 📡 UniFi Wi-Fi, L3 Multi-Site & 5651 Hotspot Operasyon Becerisi

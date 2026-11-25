@@ -1,12 +1,7 @@
 ---
 name: web-quality-modern-guidance
-description: >-
-  Modern web engineering, Core Web Vitals (LCP/INP/CLS), Lighthouse 95+, Next.js 16 (proxy.ts,
-  use cache), React 19, Strict TS/Zod, Tailwind/shadcn/ui, Prisma/SQLite WAL, a11y, and JSON-LD
-  hygiene (CT 115, hotel-suites.example.com). Use when auditing or refactoring web code and
-  performance. Do NOT use for editorial art direction/URL DNA extraction (use
-  editorial-web-design-studio), security pentesting (use code-security-audit), or WordPress/PHP
-  ops (use wordpress-woocommerce-ops).
+description: >
+  Modern web engineering, Core Web Vitals (LCP/INP/CLS), Lighthouse 95+, Next.js 16, React 19, Strict TS, Tailwind, and Prisma/SQLite hygiene. Use for web code refactoring and performance audits.
 ---
 
 # ⚡ Modern Web Guidance & Web Quality Uzman Becerisi
