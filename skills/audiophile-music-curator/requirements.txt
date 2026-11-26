@@ -1,0 +1,6 @@
+# Audiophile Music Curator & Universal Car Audio Station
+# Dependencies for audio tagging, volume normalization, and album art processing
+
+mutagen>=1.47.0
+Pillow>=10.0.0
+yt-dlp>=2024.0.0

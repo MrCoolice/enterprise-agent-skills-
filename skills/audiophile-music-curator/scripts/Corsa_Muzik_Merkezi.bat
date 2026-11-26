@@ -1,5 +1,5 @@
 @echo off
-title Opel Corsa Muzik ve USB Yonetim Merkezi
+title Oto Muzik ve USB Yonetim Merkezi
 color 0B
 chcp 65001 >nul
 cls
@@ -13,6 +13,17 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-:: Corsa Station interaktif uygulamasini baslat
-python "%~dp0corsa_station.py"
-
+:: Car Audio Station v3.0 calistir
+set SCRIPT_DIR=%~dp0
+if exist "%SCRIPT_DIR%scripts\car_audio_station.py" (
+    python "%SCRIPT_DIR%scripts\car_audio_station.py"
+) else if exist "%SCRIPT_DIR%car_audio_station.py" (
+    python "%SCRIPT_DIR%car_audio_station.py"
+) else if exist "C:\Users\MrCoolice\Nextcloud\Music\car_audio_station.py" (
+    python "C:\Users\MrCoolice\Nextcloud\Music\car_audio_station.py"
+) else if exist "C:\Users\MrCoolice\Nextcloud\Music\corsa_station.py" (
+    python "C:\Users\MrCoolice\Nextcloud\Music\corsa_station.py"
+) else (
+    echo [HATA] Muzik merkezi dosyasi bulunamadi!
+    pause
+)
