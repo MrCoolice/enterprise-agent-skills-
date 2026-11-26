@@ -5,71 +5,56 @@ description: Autonomous local CapCut Desktop draft producer for vertical 9:16 Re
 
 # CapCut Video Producer (GölgeSiber & Dalaman Yerel Video Üretim Motoru)
 
-Bu beceri, **CapCut Desktop (Windows)** uygulamasını harici bir render ve kurgu motoru olarak kullanarak; çizgi roman panellerini, görsel sahneleri, altyazıları ve geçişleri sıfır maliyetle, doğrudan yerel GPU donanım hızlandırmasıyla yüksek kaliteli dikey (9:16) Reels/TikTok/Shorts videolarına dönüştürür.
+Bu beceri, **CapCut Desktop (Windows & Windows Store sürümleri)** uygulamasını harici bir render ve kurgu motoru olarak kullanarak; çizgi roman panellerini, görsel sahneleri ve sesleri sıfır maliyetle, doğrudan yerel GPU donanım hızlandırmasıyla yüksek kaliteli dikey (9:16) Reels/TikTok/Shorts videolarına dönüştürür.
 
 ---
 
-## 🎯 1. Temel Prensipler ve Altın Kurallar
+## 🎯 1. Altın Kurallar ve Kalite Standartları
 
-1. **%100 ÜCRETSİZ (FREE) KATMAN HEDEFİ:**
-   - Asla ücretli veya Pro filigranlı (CapCut Pro) geçiş, şablon, ses veya efekt eklenmez.
-   - Sadece ücretsiz standart efektler (Ken Burns / Zoom Pan, Fade In/Out, temel metin kutuları, telifsiz sesler) kullanılır.
-   - Kullanıcı dışa aktarırken asla "Pro'ya Geçin" ödeme duvarına takılmaz.
+1. **%100 ÜCRETSİZ (FREE) KATMAN İLKESİ:**
+   - Asla CapCut Pro, ücretli şablon veya filigranlı geçiş kullanılmaz.
+   - Kullanıcı dışa aktarırken asla ödeme duvarına veya filigran uyarısına takılmaz.
 
-2. **YEREL ÇALIŞMA DİZİNİ:**
-   - CapCut masaüstü projeleri doğrudan şu dizinde oluşturulur:
-     `%LOCALAPPDATA%\CapCut\User Data\Projects\com.lveditor.draft\<Proje_Adi>_<ZamanDamgasi>\`
-   - Gerekli 2 ana dosya:
-     - `draft_content.json` (Zaman çizelgesi, tuval boyutu 1080x1920, katmanlar, süreler)
-     - `draft_meta_info.json` (Proje başlığı, kimlik bilgileri, son değiştirilme tarihi)
+2. **PANEL DÜZENİ VE AKILLI KIRPMA STANDARDI:**
+   - Çizgi roman ve karikatür görselleri körlemesine 4'e bölünmez!
+   - Çizgi romanın kaç panelden oluştuğu (2 panel mi, 3 panel mi, 4 panel mi) görsel üretim isteminden ve gutter (panel boşluğu) çizgilerinden tespit edilir.
+   - 2 panelli dikey çizgi romanlarda görüntü tam ortadan (`h / 2`) bölünerek **2 Sahne** (Üst Panel: Problem/Çile, Alt Panel: Çözüm/Rahatlama) olarak kurgulanır. Yanlış bölme işlemi karakterlerin kafa ve bacaklarının kesilmesine yol açar.
 
-3. **FFMPEG BAĞIMSIZLIĞI:**
-   - Kullanıcının terminalinde FFmpeg kurulu olmasa dahi CapCut masaüstü projesi anında hazır hale getirilir.
-   - Render ve GPU kodlamasını (Nvidia NVENC / Intel QSV / AMD VCE) bizzat CapCut masaüstü uygulaması kullanıcı adına yapar.
+3. **ÇİFT ALTYAZI (TEXT CLASH) YASAĞI:**
+   - Görselin içinde halihazırda konuşma balonları, tabelalar veya Türkçe diyaloglar varsa, alttan ikinci bir harici altyazı katmanı **eklenmez**.
+   - Görseldeki esprilerin ve metinlerin üstü asla harici metin kutularıyla örtülmez.
+   - Harici altyazı yalnızca tamamen metinsiz/sessiz görseller kullanıldığında eklenir.
 
-4. **KULLANICIYA ZORUNLU DIŞA AKTARIM UYARISI (1-CLICK EXPORT ALERT):**
-   - Taslak oluşturulduktan sonra kullanıcıya net bir görsel uyarı kutusu verilir.
-   - Kullanıcı CapCut'ı açar, ana sayfada beliren hazır projeye tıklar ve sağ üstteki **"Dışa Aktar" (Export)** butonuna basarak MP4'ü alır.
+4. **9:16 DİKEY ÇERÇEVELEME & AKILLI DOLGU:**
+   - Kare veya 1:1 / 4:3 oranındaki paneller 9:16 dikey tuvale yerleştirilirken çiğ siyah boşluk bırakılmaz.
+   - Sahnenin kendi renk tonuna uygun (örneğin gece sahnelerinde gece mavisi degrade, sıcak iç mekanlarda altın sarısı/ahşap degrade veya görselin bulanıklaştırılmış arka planı) dolgu uygulanır.
 
----
+5. **YEREL MAĞAZA (STORE) VE CİHAZ PARMAK İZİ UYUMU:**
+   - CapCut 9.3+ Windows Store sürümü için `draft_content.json` ve `draft_meta_info.json` dosyalarında cihaz parmak izi (`device_id`, `mac_address`, `app_id: 359289`, `engine: 191.0.0`) tam eşleşmelidir.
+   - Yardımcı dosyalar (`timeline_layout.json`, `draft_biz_config.json`, `attachment_pc_common.json`) eksiksiz klasörde bulunmalıdır.
 
-## 📐 2. CapCut Taslak Proje Mimarisi
-
-Bir proje dizini şu yapıda oluşturulmalıdır:
-
-```
-com.lveditor.draft/
-└── Proje_Adi/
-    ├── draft_content.json    # Canvas (1080x1920, 9:16, 30fps), materials (images, texts), tracks (video, audio)
-    └── draft_meta_info.json   # Proje adı, draft_id, create_time
-```
-
-### Zaman Birimi (Microseconds):
-- CapCut zaman çizelgesinde süreler **mikrosaniye** cinsindendir:
-  - 1 saniye = `1,000,000` mikrosaniye
-  - 8 saniye = `8,000,000` mikrosaniye
+6. **FFMPEG VE YEREL GPU KULLANIMI:**
+   - CapCut'ın kendi iç motorundaki FFmpeg (`%LOCALAPPDATA%\CapCut\Apps\*\ffmpeg.exe`) veya CapCut masaüstü GPU hızlandırıcısı kullanılır.
+   - Kullanıcıya her üretim sonrası 1 tıkla dışa aktarım yönergesi sunulur.
 
 ---
 
-## 🎬 3. Standart Ücretsiz Efekt & Şablon Seti
+## 🎬 2. Standart 2 Panelli Karikatür Reels Akış Şablonu
 
-| Kategori | Serbest/Ücretsiz Efekt | Kullanım Amacı |
-| :--- | :--- | :--- |
-| **Kamera Hareketi** | Ken Burns (Yavaşça Yakınlaş / Zoom In) | Hareketsiz çizgi roman panelini canlı videoya dönüştürme |
-| **Geçişler** | Fade In (Karararak Giriş), Dissolve | Sahneler arası yumuşak akış |
-| **Metin** | Bold Sans, Sarı/Beyaz Vurgulu Altyazı | Reels için dikkat çekici Türkçe başlıklar |
-| **Çözünürlük** | 1080x1920 (9:16 Dikey) | Instagram Reels, TikTok, YouTube Shorts |
+| Sahne | Kaynak Panel | Süre | Kamera / Efekt | Ses / Ritim |
+| :--- | :--- | :--- | :--- | :--- |
+| **Sahne 1 (Problem)** | Üst Panel (Havalimanı Çilesi) | 0.0 - 4.5 sn | Yavaşça karaktere doğru yaklaşma (Zoom In) | Hafif gergin / komik fon |
+| **Geçiş (Transition)**| Ara Kesit | 4.5 sn | Parlama (Flash / White Dissolve) | Geçiş efekti sesi |
+| **Sahne 2 (Çözüm)** | Alt Panel (Otel Huzuru) | 4.5 - 9.0 sn | Genişten odaya doğru ferah açılma | Rahatlatıcı / neşeli tatil melodisi |
 
 ---
 
-## 🚨 4. Dışa Aktarım Uyarı Formatı (Zorunlu Çıktı Şablonu)
-
-Taslak oluşturulduğunda kullanıcıya mutlaka aşağıdaki biçimde bildirim sunulmalıdır:
+## 🚨 3. Standart Dışa Aktarım Uyarı Formatı
 
 ```markdown
 > [!IMPORTANT]
 > ### 🎬 CapCut Projeniz Hazır! Dışa Aktarmak İçin 2 Adım:
 > 1. Masaüstünüzdeki **CapCut** uygulamasını açın.
-> 2. Ana sayfada ilk sırada yer alan **`[Proje_Adı]`** projesine tıklayın ve sağ üstteki mavi **"Dışa Aktar" (Export)** butonuna basın.
-> *Tüm şablonlar ve efektler %100 ÜCRETSİZ olarak ayarlanmıştır, herhangi bir ödeme duvarı çıkmaz.*
+> 2. Projeler listesinde ilk sırada yer alan **`[Proje_Adı]`** projesine tıklayın.
+> 3. Sağ üst köşedeki mavi **"Dışa Aktar" (Export)** butonuna basarak videonuzu kaydedin!
 ```
