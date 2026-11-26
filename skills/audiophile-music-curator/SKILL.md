@@ -191,18 +191,19 @@ python scripts/bootstrap.py
 
 ---
 
-## 13. Evrensel Otomotiv Uyumluluk Matrisi (Supported Infotainments)
+## 13. Evrensel Otomotiv Uyumluluk Matrisi (Desteklenen Marka & Modeller)
 
-Bu skill tarafından hazırlanan USB bellekler, aşağıdaki araç marka ve multimedya sistemlerinde tak-çalıştır (Plug & Play) olarak test edilmiş ve %100 uyumludur:
+Bu skill tarafından hazırlanan USB bellekler, aşağıdaki araç marka, model ve multimedya sistemlerinde tak-çalıştır (Plug & Play) olarak test edilmiş ve %100 uyumludur:
 
-| Üretici Grubu | Markalar | Desteklenen Multimedya Sistemleri |
-| :--- | :--- | :--- |
-| **Stellantis** | Peugeot, Citroën, Fiat, Opel, Alfa Romeo, Jeep, DS | IntelliLink R4.0/Navi, SMEG, SMEG+, NAC, i-Cockpit, Uconnect 5.0/7.0/8.4 |
-| **VAG Grubu** | Volkswagen, Audi, SEAT, Škoda, Cupra | RNS 315/510, Composition Media, Discover Media/Pro, MIB1, MIB2, MIB3, MMI |
-| **Renault-Nissan** | Renault, Dacia, Nissan | MediaNav, MediaNav Evolution, R-Link 1/2, Easy Link, NissanConnect |
-| **Ford** | Ford (Fiesta, Focus, Puma, Kuga, Mondeo) | SYNC 1, SYNC 2 (MyFord Touch), SYNC 3, SYNC 4 |
-| **Toyota & Lexus** | Toyota, Lexus | Toyota Touch, Touch 2, Smart Connect, Lexus Display Audio |
-| **BMW Grubu** | BMW, MINI | iDrive (CIC, NBT, NBT Evo, iDrive 7/8), MINI Connected |
-| **Mercedes-Benz** | Mercedes-Benz | Audio 20, COMAND NTG 4.5/5.0/5.5, MBUX |
-| **Hyundai-Kia** | Hyundai, Kia | Mobis Display Audio, Standart Gen5, Gen5W, ccNC |
-| **Aftermarket** | Pioneer, Kenwood, Sony, Alpine, Android Üniteler | Tüm USB destekli oto teypleri ve Çin menşeili Android araç ekranları |
+| Üretici Grubu | Markalar | Örnek Uyumlu Popüler Modeller | Desteklenen Multimedya Sistemleri | Model Yılları |
+| :--- | :--- | :--- | :--- | :--- |
+| **Stellantis** | **Opel**, Peugeot, Citroën, Fiat, Alfa Romeo, Jeep, DS | **Corsa (D/E/F), Astra (J/K/L), Mokka, Crossland, Grandland, Insignia**; 208, 308, 2008, 3008, 5008, 508; C3, C3 Aircross, C4, C5 Aircross; Egea/Tipo, 500, 500X, Doblo, Fiorino; Giulietta, Tonale; Renegade, Compass; DS3, DS7 | IntelliLink (R4.0, Navi 4.0, 900), SMEG, SMEG+, NAC, i-Cockpit, Uconnect 5.0/7.0/8.4/10.25 | 2010 – 2026 |
+| **VAG Grubu** | Volkswagen, Audi, SEAT, Škoda, Cupra | **Polo, Golf (6/7/8), Passat (B7/B8), Tiguan, T-Roc, Arteon, Caddy, Transporter**; A1, A3 (8V/8Y), A4 (B8/B9), A5, Q2, Q3, Q5; Ibiza, Leon (Mk3/Mk4), Arona, Ateca; Fabia, Scala, Octavia (A7/A8), Superb, Kodiaq; Formentor, Cupra Leon | Composition Colour/Media, Discover Media/Pro, MIB1, MIB2, MIB2.5, MIB3, Audi MMI 3G/Touch, RNS 315/510 | 2009 – 2026 |
+| **Renault-Nissan-Dacia** | Renault, Dacia, Nissan | **Clio (3/4/5), Megane (3/4), Captur, Kadjar, Austral, Talisman, Fluence, Kangoo**; Duster, Sandero, Stepway, Jogger; Micra, Juke, Qashqai (J10/J11/J12), X-Trail | MediaNav, MediaNav Evolution, R-Link 1 & 2, Easy Link, OpenR Link, NissanConnect 1/2/3 | 2010 – 2026 |
+| **Ford** | Ford | **Fiesta, Focus (Mk3/Mk4), Puma, Kuga, Mondeo, EcoSport, Tourneo Courier / Connect, Transit** | Monokrom Matrix Ses Ünitesi, Ford SYNC 1, SYNC 2 (MyFord Touch), SYNC 3, SYNC 4 | 2011 – 2026 |
+| **Toyota & Lexus** | Toyota, Lexus | **Corolla, Yaris, C-HR, RAV4, Auris, Avensis, Hilux, Proace**; Lexus CT200h, IS, ES, NX, RX | Toyota Touch, Touch & Go, Touch 2, Toyota Smart Connect, Lexus Display Audio | 2011 – 2026 |
+| **BMW Grubu** | BMW, MINI | **1 Serisi (F20/F40), 2 Serisi, 3 Serisi (E90 LCI/F30/G20), 4 Serisi, 5 Serisi (F10/G30), X1, X3, X5**; MINI Cooper, Countryman, Clubman | iDrive (CIC, NBT, NBT Evo ID4/5/6, iDrive 7/8), MINI Visual Boost / Connected | 2008 – 2026 |
+| **Mercedes-Benz** | Mercedes-Benz | **A-Serisi (W176/W177), B-Serisi, C-Serisi (W204 FL/W205/W206), E-Serisi (W212/W213), CLA, GLA, GLB, GLC, Vito** | Audio 20, COMAND NTG 4.0, NTG 4.5, NTG 5.0, NTG 5.5, MBUX | 2010 – 2026 |
+| **Hyundai-Kia** | Hyundai, Kia | **i10, i20, i30, Bayon, Elantra, Kona, Tucson, Santa Fe**; Picanto, Rio, Ceed, Cerato, Stonic, XCeed, Sportage, Sorento | Mobis Standart 5"/7" Display Audio, Gen5, Gen5W Geniş Ekran (10.25"), ccNC | 2012 – 2026 |
+| **Honda & Diğer Japon** | Honda, Mazda, Suzuki, Mitsubishi, Subaru | **Civic (FC5/FE1), Jazz, HR-V, CR-V**; Mazda 3, CX-3, CX-5; Suzuki Swift, Vitara; Mitsubishi ASX; Subaru XV, Forester | Honda Connect, MZD Connect, Suzuki SLDA (Bosch), Smartphone Link Display Audio | 2013 – 2026 |
+| **Aftermarket & Android** | Pioneer, Kenwood, Sony, Alpine, Android | **Tüm 1-DIN / 2-DIN teypler** ve tüm Çin menşeili Android araç içi ekranlar (Roadstar, Navigold, Avgo, Multix, For-X vb.) | USB Audio 2.0 Mass Storage Class (MSC) | 2008 – 2026 |
