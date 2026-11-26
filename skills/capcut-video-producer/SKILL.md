@@ -5,7 +5,7 @@ description: Autonomous local CapCut Desktop draft producer for vertical 9:16 Re
 
 # CapCut Video Producer (GölgeSiber & Dalaman Yerel Video Üretim Motoru)
 
-Bu beceri, **CapCut Desktop (Windows & Windows Store sürümleri)** uygulamasını harici bir render ve kurgu motoru olarak kullanarak; çizgi roman panellerini, görsel sahneleri ve sesleri sıfır maliyetle, doğrudan yerel GPU donanım hızlandırmasıyla yüksek kaliteli dikey (9:16) Reels/TikTok/Shorts videolarına dönüştürür.
+Bu beceri, **CapCut Desktop (Windows & Windows Store 9.3+ sürümleri)** uygulamasını harici bir render ve kurgu motoru olarak kullanarak; çizgi roman panellerini, görsel sahneleri, altyazıları, ses efektlerini ve geçişleri sıfır maliyetle, doğrudan yerel GPU donanım hızlandırmasıyla yüksek kaliteli dikey (9:16) Reels/TikTok/Shorts videolarına dönüştürür.
 
 ---
 
@@ -15,19 +15,17 @@ Bu beceri, **CapCut Desktop (Windows & Windows Store sürümleri)** uygulamasın
    - Asla CapCut Pro, ücretli şablon veya filigranlı geçiş kullanılmaz.
    - Kullanıcı dışa aktarırken asla ödeme duvarına veya filigran uyarısına takılmaz.
 
-2. **PANEL DÜZENİ VE AKILLI KIRPMA STANDARDI:**
-   - Çizgi roman ve karikatür görselleri körlemesine 4'e bölünmez!
-   - Çizgi romanın kaç panelden oluştuğu (2 panel mi, 3 panel mi, 4 panel mi) görsel üretim isteminden ve gutter (panel boşluğu) çizgilerinden tespit edilir.
-   - 2 panelli dikey çizgi romanlarda görüntü tam ortadan (`h / 2`) bölünerek **2 Sahne** (Üst Panel: Problem/Çile, Alt Panel: Çözüm/Rahatlama) olarak kurgulanır. Yanlış bölme işlemi karakterlerin kafa ve bacaklarının kesilmesine yol açar.
+2. **15 SANİYELİK 5-BEAT DİNAMİK RİTİM STANDARDI (Anti-Slayt):**
+   - 15 saniyelik videolarda asla 1-2 durağan resim kullanılmaz. İdeal ritim **5 sahnedir (her biri ~2.5-3 sn)**.
+   - Kadrajlar monoton olamaz: Aşırı Yakın Çekim (Macro Close-up), Orta Çekim (Medium) ve Geniş Açı (Wide) ardışık sıralanır.
+   - Kamera hareketleri: Panikte Crash Zoom/Shake, Çözümde Slow Pull-out uygulanır.
 
-3. **ÇİFT ALTYAZI (TEXT CLASH) YASAĞI:**
-   - Görselin içinde halihazırda konuşma balonları, tabelalar veya Türkçe diyaloglar varsa, alttan ikinci bir harici altyazı katmanı **eklenmez**.
+3. **SFX (SES EFEKTLERİ) KATMANI:**
+   - Fon müziği tek başına yetersizdir; çizgi filmi canlandıran SFX katmanıdır (Bavul gıcırtısı, yutkunma, saat tıkırtısı, ding aydınlanma sesi, yatağa zıplama sesi).
+
+4. **ÇİFT ALTYAZI (TEXT CLASH) YASAĞI:**
+   - Çizimde konuşma balonu veya tabela varsa harici altyazı basılmaz.
    - Görseldeki esprilerin ve metinlerin üstü asla harici metin kutularıyla örtülmez.
-   - Harici altyazı yalnızca tamamen metinsiz/sessiz görseller kullanıldığında eklenir.
-
-4. **9:16 DİKEY ÇERÇEVELEME & AKILLI DOLGU:**
-   - Kare veya 1:1 / 4:3 oranındaki paneller 9:16 dikey tuvale yerleştirilirken çiğ siyah boşluk bırakılmaz.
-   - Sahnenin kendi renk tonuna uygun (örneğin gece sahnelerinde gece mavisi degrade, sıcak iç mekanlarda altın sarısı/ahşap degrade veya görselin bulanıklaştırılmış arka planı) dolgu uygulanır.
 
 5. **YEREL MAĞAZA (STORE) VE CİHAZ PARMAK İZİ UYUMU:**
    - CapCut 9.3+ Windows Store sürümü için `draft_content.json` ve `draft_meta_info.json` dosyalarında cihaz parmak izi (`device_id`, `mac_address`, `app_id: 359289`, `engine: 191.0.0`) tam eşleşmelidir.
@@ -35,17 +33,24 @@ Bu beceri, **CapCut Desktop (Windows & Windows Store sürümleri)** uygulamasın
 
 6. **FFMPEG VE YEREL GPU KULLANIMI:**
    - CapCut'ın kendi iç motorundaki FFmpeg (`%LOCALAPPDATA%\CapCut\Apps\*\ffmpeg.exe`) veya CapCut masaüstü GPU hızlandırıcısı kullanılır.
-   - Kullanıcıya her üretim sonrası 1 tıkla dışa aktarım yönergesi sunulur.
 
 ---
 
-## 🎬 2. Standart 2 Panelli Karikatür Reels Akış Şablonu
+## 🎬 2. 15 Saniyelik 5-Beat Karikatür Reels Kurgu Mimarisi
 
-| Sahne | Kaynak Panel | Süre | Kamera / Efekt | Ses / Ritim |
-| :--- | :--- | :--- | :--- | :--- |
-| **Sahne 1 (Problem)** | Üst Panel (Havalimanı Çilesi) | 0.0 - 4.5 sn | Yavaşça karaktere doğru yaklaşma (Zoom In) | Hafif gergin / komik fon |
-| **Geçiş (Transition)**| Ara Kesit | 4.5 sn | Parlama (Flash / White Dissolve) | Geçiş efekti sesi |
-| **Sahne 2 (Çözüm)** | Alt Panel (Otel Huzuru) | 4.5 - 9.0 sn | Genişten odaya doğru ferah açılma | Rahatlatıcı / neşeli tatil melodisi |
+```
+Zaman Çizelgesi (15 Saniye = 15,000,000 µs):
+
+[ Kanal 1 - Video Sahneleri ]
+|-- Sahne 1 (0-3s) --|-- Sahne 2 (3-6s) --|-- Sahne 3 (6-9s) --|-- Sahne 4 (9-12s) --|-- Sahne 5 (12-15s) --|
+       (Macro Close-up)       (Medium Shot)          (Twist/Tabela)         (Wide Shot)            (Hero CTA)
+[ Geçişler ]
+                     [Parlama Flash]       [Parlama Flash]      [Parlama Flash]       [Parlama Flash]
+[ Kanal 2 - SFX (Ses Efektleri) ]
+|-- Rüzgar/Gasp --|   |-- Tıkırtı --|      |-- Ding/Chime --|   |-- Poof/Bounce --|   |-- Şık Kapanış --|
+[ Kanal 3 - Fon Müziği (%40 Ses) ]
+|================================= Ritmik Akustik / Lo-Fi Tatil Melodisi ================================|
+```
 
 ---
 
