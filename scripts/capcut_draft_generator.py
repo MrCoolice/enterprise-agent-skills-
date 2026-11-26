@@ -61,8 +61,8 @@ def create_capcut_draft(project_name, image_path, duration_seconds=8):
         "keyframe_graph_list": [],
         "keyframes": {"adjusts": [], "audios": [], "effects": [], "filters": [], "handwrites": [], "stickers": [], "texts": [], "videos": []},
         "last_modified_platform": {
-            "app_id": 3704, "app_source": "ea", "app_version": "5.0.0",
-            "device_id": "golgesiber_desktop", "hard_disk_id": "", "mac_address": "", "os": "windows", "os_version": "10.0"
+            "app_id": 359289, "app_source": "cc", "app_version": "9.3.0",
+            "device_id": "56d4a1c911121b523d0594e0959280f9", "hard_disk_id": "", "mac_address": "f35a8b8c366a53de4bfc8524062c8f02", "os": "windows", "os_version": "10.0.26200"
         },
         "materials": {
             "audio_balances": [], "audio_effects": [], "audio_fades": [], "audio_track_indexes": [], "audios": [], "beats": [],
@@ -87,10 +87,10 @@ def create_capcut_draft(project_name, image_path, duration_seconds=8):
         },
         "mutable_config": None,
         "name": project_name,
-        "new_version": "112.0.0",
+        "new_version": "191.0.0",
         "platform": {
-            "app_id": 3704, "app_source": "ea", "app_version": "5.0.0",
-            "device_id": "golgesiber_desktop", "hard_disk_id": "", "mac_address": "", "os": "windows", "os_version": "10.0"
+            "app_id": 359289, "app_source": "cc", "app_version": "9.3.0",
+            "device_id": "56d4a1c911121b523d0594e0959280f9", "hard_disk_id": "", "mac_address": "f35a8b8c366a53de4bfc8524062c8f02", "os": "windows", "os_version": "10.0.26200"
         },
         "relationships": [], "render_index_mode_on_soft_level": 0, "retouch_cover": None, "source": "default", "static_cover_image_path": "",
         "tracks": [
