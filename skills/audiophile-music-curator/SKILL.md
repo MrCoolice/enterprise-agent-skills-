@@ -97,9 +97,49 @@ python scripts/sync_usb.py
 
 ---
 
-## 7. Master Kaynak & Kalıcı Silme Kuralı (Single Source of Truth)
+---
+
+## 7. Akıllı Model Yönlendirme & Sıfır Token Protokolü (Token-Saver)
+
+Bu skill deterministik Python scriptlerine (`audit_library.py`, `normalize_audio.py`, `embed_metadata.py`, `sync_usb.py`) dayandığından, **Gemini Pro ana kotasını asla tüketmez**:
+1. **Hafif Alt Ajan Zorunluluğu:** Müzik kütüphanesini tarama, düzenleme veya USB senkronizasyonu komutları verildiğinde ajan, görevi arka planda `Model: flash_lite` veya `Model: flash` olarak çalıştırır.
+2. **Kategori Sınıflandırması:** Yeni eklenen parçanın 13 kategoriden hangisine gideceği sorusu, yerel `qwen-coder-14b` (RTX 4070) veya `groq-gpt-oss-120b` üzerinden 0.5 saniyede $0 maliyetle çözülür.
+3. **Komut Çıktıları:** Script logları filtrelenerek kullanıcıya yalnızca tamamlanan işlem özeti sunulur (token israfı engellenir).
+
+## 8. Master Kaynak & Kalıcı Silme Kuralı (Single Source of Truth)
 
 1. **Mutlak Ana Merkez:** `C:\Users\MrCoolice\Nextcloud\Music` kütüphanenin tek ve resmi kaynak dizinidir (Single Source of Truth).
 2. **Kalıcı Silme İlkesi (No Zombie Files):** Kullanıcı `Nextcloud\Music` klasöründen bir şarkıyı sildiğinde, o şarkı kalıcı olarak silinmiş kabul edilir. Hiçbir otonom işlem, yükseltme scripti veya aracı silinen parçaları asla tekrar indiremez, geri getiremez veya diriltemez.
 3. **USB Ayna Silme (True Mirror Sync):** `/music-sync` veya `sync_usb.py` çalıştırıldığında, kaynakta (`Nextcloud\Music`) silinmiş olan tüm dosyalar USB bellekten de otomatik olarak kaldırılır (`orphan file cleanup`). Böylece USB bellek her zaman Nextcloud ile %100 birebir aynı kalır.
 4. **Onaysız İndirme Yasağı:** Ajan, kullanıcı açıkça isim/bağlantı verip *"ekle"* demedikçe kendi inisiyatifiyle hiçbir yeni parça indiremez.
+
+---
+
+## 9. Hızlı İndeks (.library_index.json) & Silinenler Kara Listesi (Tombstones)
+
+Kullanıcının kütüphanesini her seferinde baştan taramamak, silme işlemlerini anında algılamak ve token tasarrufu sağlamak için iki yerel takip dosyası kullanılır:
+
+1. **`.library_index.json` (Hafif İndeks Önbelleği):**
+   - Kütüphane kökünde yer alır. Tüm kategorilerin parça sayılarını, dosya yollarını, boyutlarını ve temiz isimlerini önbellekte tutar.
+   - Analiz ve öneri işlemlerinde disk taramasını atlayarak **0.001 saniyede** doğrudan indeksten okunur.
+   - `python scripts/index_manager.py` komutu ile milisaniyeler içinde güncellenir.
+
+2. **`silinenler_kara_liste.txt` (Kalıcı Silinenler & Tombstone Defteri):**
+   - Kullanıcı `Nextcloud\Music` altından bir şarkıyı sildiğinde, sistem önceki indeks ile mevcut durumu karşılaştırarak silinen parçayı anında tespit eder ve bu deftere kaydeder.
+   - **Asla Tekrar Önermeme Garantisi:** `/music-recommend` veya öneri motorları bu kara listeyi okur; kullanıcının daha önce beğenmeyip sildiği parçaları **asla bir daha önermez ve indirmez**.
+   - **Kullanıcı Kalıcı Yasaklı Sanatçılar:** `Demir Demirkan`, `Bulutsuzluk Özlemi`, `Nirvana` kesinlikle ve kalıcı olarak yasaklanmıştır; asla önerilmez ve indirilmez.
+   - **USB Ayna Temizliği:** `/music-sync` bu listeyi kullanarak arabadaki USB bellekte kalan öksüz parçaları saniyeler içinde temizler.
+
+
+---
+
+## 10. Corsa Station (Masaüstü Menü İstasyonu & Otomatik MBR/FAT32 USB Formatı)
+
+Kullanıcının hiçbir parametre veya komut satırı ezberlemesine gerek kalmadan tek tıkla kullanabileceği interaktif Windows istasyonudur:
+
+1. **Masaüstü Başlatıcı:** `C:\Users\MrCoolice\Desktop\Corsa_Muzik_Merkezi.bat`
+2. **Menü Seçenekleri:**
+   - `[1] Hızlı Eşitleme`: Mevcut `CORSA_MUZIK` belleğine sadece yeni ve güncellenen parçaları kopyalar; kaynakta silinenleri USB'den kaldırır.
+   - `[2] Sıfırdan USB Hazırla & Formatla`: Yeni veya bozuk USB bellekleri güvenle tespit eder; Opel IntelliLink uyumlu **MBR** ve **FAT32** formatı atar, etiketini `CORSA_MUZIK` yapar ve kütüphaneyi doldurur.
+   - `[3] Kütüphane Sağlığı & USB Boyut Karşılaştırması`: Kaynak boyutu (7.24 GB) ile takılı USB'nin boş alanını kıyaslar; Opel IntelliLink R4.0 için **Min 16 GB / İdeal 32 GB** kapasite rehberini sunar.
+3. **Klavye Dinleyicisi:** `msvcrt.getch()` ile herhangi bir tuşa basıldığı anda beklemeden ana menüye döner.
