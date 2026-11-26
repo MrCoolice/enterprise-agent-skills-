@@ -9,16 +9,18 @@ import re
 import sys
 from mutagen.id3 import ID3, APIC, USLT
 
-DEFAULT_DIR = r"C:\Users\MrCoolice\Nextcloud\Music"
+try:
+    from library_config import get_library_dir
+    DEFAULT_DIR = get_library_dir()
+except Exception:
+    DEFAULT_DIR = os.path.expanduser(r"~\Nextcloud\Music")
 
 
 def audit(target_dir: str):
     if not os.path.isdir(target_dir):
-        # Fallback to current user profile or relative path
-        alt_path = os.path.expanduser(r"~\Nextcloud\Music")
-        if os.path.isdir(alt_path):
-            target_dir = alt_path
-        else:
+        # Fallback to dynamic library directory
+        target_dir = DEFAULT_DIR
+        if not os.path.isdir(target_dir):
             print(f"HATA: Dizin bulunamadi: {target_dir}")
             return
 

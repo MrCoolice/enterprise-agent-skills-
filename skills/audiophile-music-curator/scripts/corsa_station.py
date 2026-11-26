@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 """
 ================================================================================
-OPEL CORSA INTELLILINK R4.0 - OTO VE MUZIK YONETIM MERKEZI (CORSA STATION v2.0)
+OPEL CORSA INTELLILINK R4.0 - OTO VE MUZIK YONETIM MERKEZI (CORSA STATION v2.1)
 ================================================================================
 Kullanici dostu, menulu interaktif arac:
-1. Hizli Esitleme (Nextcloud -> CORSA_MUZIK)
+1. Hizli Esitleme (Kaynak Kutuphane -> CORSA_MUZIK)
 2. Yeni USB Hazirla & Formatla (MBR + FAT32 + CORSA_MUZIK + Ilk Yukleme)
 3. Kutuphane Durumu & USB Boyut Karsilastirmasi (Min/Max Bellek Rehberi)
+4. Kutuphane Klasoru Ayarla / Degistir (Kullaniciya Ozel Hedef Secimi)
 ================================================================================
 """
 import os
 import sys
 import time
+import json
 import shutil
 import subprocess
 import ctypes
@@ -22,8 +24,67 @@ try:
 except ImportError:
     HAS_MSVCRT = False
 
-NC_DIR = r"C:\Users\MrCoolice\Nextcloud\Music"
 USB_LABEL = "CORSA_MUZIK"
+CONFIG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.json")
+
+
+def get_library_dir() -> str:
+    """
+    Kutuphane klasorunu oncelik sirasina gore dinamik olarak cozer:
+    1. Ortam degiskeni: AUDIOPHILE_MUSIC_DIR veya CORSA_MUSIC_DIR
+    2. config.json icindeki 'library_dir' kaydi
+    3. Otomatik algilama:
+       - ~/Nextcloud/Music
+       - ~/Music/Corsa-Library
+       - ~/Music
+    4. Varsayilan: ~/Music
+    """
+    env_dir = os.environ.get("AUDIOPHILE_MUSIC_DIR") or os.environ.get("CORSA_MUSIC_DIR")
+    if env_dir:
+        p = os.path.abspath(os.path.expanduser(env_dir))
+        if os.path.isdir(p):
+            return p
+
+    if os.path.exists(CONFIG_FILE):
+        try:
+            with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                p = data.get("library_dir")
+                if p and os.path.isdir(p):
+                    return os.path.abspath(p)
+        except Exception:
+            pass
+
+    home = os.path.expanduser("~")
+    candidates = [
+        os.path.join(home, "Nextcloud", "Music"),
+        os.path.join(home, "Music", "Corsa-Library"),
+        os.path.join(home, "Music"),
+    ]
+    for c in candidates:
+        if os.path.isdir(c):
+            return os.path.abspath(c)
+
+    fallback = os.path.join(home, "Music")
+    os.makedirs(fallback, exist_ok=True)
+    return os.path.abspath(fallback)
+
+
+def set_library_dir(new_path: str) -> str:
+    """Kullanicinin belirledigi kutuphane yolunu config.json dosyasina kaydeder."""
+    abs_p = os.path.abspath(os.path.expanduser(new_path.strip('"').strip("'")))
+    os.makedirs(abs_p, exist_ok=True)
+    cfg = {}
+    if os.path.exists(CONFIG_FILE):
+        try:
+            with open(CONFIG_FILE, "r", encoding="utf-8") as f:
+                cfg = json.load(f)
+        except Exception:
+            pass
+    cfg["library_dir"] = abs_p
+    with open(CONFIG_FILE, "w", encoding="utf-8") as f:
+        json.dump(cfg, f, ensure_ascii=False, indent=2)
+    return abs_p
 
 
 def clear_screen():
@@ -47,10 +108,11 @@ def wait_for_key(prompt="\nAna menuye donmek icin herhangi bir tusa basin..."):
 
 
 def banner():
+    lib_dir = get_library_dir()
     print("=" * 72)
     print("      OPEL CORSA INTELLILINK R4.0 - MUZIK VE USB YONETIM MERKEZI")
     print("=" * 72)
-    print(f"  Ana Kaynak Kutuphane : {NC_DIR}")
+    print(f"  Ana Kaynak Kutuphane : {lib_dir}")
     print(f"  Hedef USB Etiketi    : {USB_LABEL}")
     print("=" * 72)
 
@@ -75,13 +137,13 @@ def get_removable_drives():
                     fs = fs_name.value
                 except Exception:
                     v_label = ""
-                    fs = ""
+                    fs = "UNKNOWN"
 
-                free_bytes = ctypes.c_ulonglong(0)
                 total_bytes = ctypes.c_ulonglong(0)
+                free_bytes = ctypes.c_ulonglong(0)
                 try:
                     ctypes.windll.kernel32.GetDiskFreeSpaceExW(
-                        drive_path, ctypes.byref(free_bytes), ctypes.byref(total_bytes), None
+                        drive_path, None, ctypes.byref(total_bytes), ctypes.byref(free_bytes)
                     )
                     size_gb = total_bytes.value / (1024 ** 3)
                     free_gb = free_bytes.value / (1024 ** 3)
@@ -89,22 +151,20 @@ def get_removable_drives():
                     size_gb = 0.0
                     free_gb = 0.0
 
-                # Sadece takili ve boyutu olanlari goster
-                if size_gb > 0.1:
-                    drives.append({
-                        "letter": letter,
-                        "path": drive_path,
-                        "label": v_label,
-                        "fs": fs,
-                        "size_gb": size_gb,
-                        "free_gb": free_gb
-                    })
+                drives.append({
+                    "letter": letter,
+                    "path": drive_path,
+                    "label": v_label,
+                    "fs": fs,
+                    "size_gb": size_gb,
+                    "free_gb": free_gb,
+                })
         bitmask >>= 1
     return drives
 
 
 def find_corsa_usb():
-    """Etiketi CORSA_MUZIK olan hazir USB'yi bulur."""
+    """'CORSA_MUZIK' etiketine sahip hazir USB surucuyu bulur."""
     for d in get_removable_drives():
         if d["label"].upper() == USB_LABEL.upper():
             return d["path"]
@@ -113,11 +173,12 @@ def find_corsa_usb():
 
 def get_library_stats():
     """Kaynak kutuphanenin boyutunu ve parca sayisini hesaplar."""
+    lib_dir = get_library_dir()
     total_bytes = 0
     total_mp3 = 0
     genres = {}
-    if os.path.isdir(NC_DIR):
-        for root, dirs, files in os.walk(NC_DIR):
+    if os.path.isdir(lib_dir):
+        for root, dirs, files in os.walk(lib_dir):
             mp3s = [f for f in files if f.lower().endswith(".mp3")]
             if mp3s:
                 fol = os.path.basename(root)
@@ -134,8 +195,10 @@ def get_library_stats():
 
 def sync_library(target_usb=None):
     """Mevcut kutuphaneyi USB'ye ayna modunda esitler."""
-    if not os.path.isdir(NC_DIR):
-        print(f"\n[HATA] Kaynak muzik klasoru bulunamadi: {NC_DIR}")
+    lib_dir = get_library_dir()
+    if not os.path.isdir(lib_dir):
+        print(f"\n[HATA] Kaynak muzik klasoru bulunamadi: {lib_dir}")
+        print("Lutfen menu [4] uzerinden gecerli bir muzik klasoru belirleyin.")
         return
 
     usb_path = target_usb if target_usb else find_corsa_usb()
@@ -147,21 +210,21 @@ def sync_library(target_usb=None):
         print("-" * 72)
         return
 
-    print(f"\n-> Kaynak : {NC_DIR}")
+    print(f"\n-> Kaynak : {lib_dir}")
     print(f"-> Hedef  : {usb_path} ({USB_LABEL})")
     print("-" * 72)
 
     src_mp3s = {}
-    for root, _, files in os.walk(NC_DIR):
-        rel = os.path.relpath(root, NC_DIR)
+    for root, _, files in os.walk(lib_dir):
+        rel = os.path.relpath(root, lib_dir)
         if rel == ".":
             continue
         for fn in files:
             if fn.lower().endswith(".mp3"):
                 src_mp3s[os.path.join(rel, fn)] = os.path.join(root, fn)
 
-    if len(src_mp3s) < 50:
-        print(f"[GUVENLIK DURDURMA] Kaynakta sadece {len(src_mp3s)} parca var, esitleme iptal edildi.")
+    if len(src_mp3s) == 0:
+        print(f"[UYARI] Kaynak klasorde kopyalanacak hic MP3 dosyasi bulunamadi!")
         return
 
     print(f"Toplam {len(src_mp3s)} kaynak parca esitleniyor...\n")
@@ -335,8 +398,10 @@ def audit_library_and_capacity():
     print("=" * 72)
 
     total_mp3, lib_gb, genres = get_library_stats()
+    lib_dir = get_library_dir()
 
-    print(f"\n[1] NEXTCLOUD KAYNAK ARSIVI:")
+    print(f"\n[1] AKTIF KAYNAK MUZIK KUTUPHANESI:")
+    print(f"  * Dizin Yolu          : {lib_dir}")
     print(f"  * Toplam Parca Sayisi : {total_mp3} Parca")
     print(f"  * Toplam Disk Boyutu  : {lib_gb:.2f} GB ({lib_gb*1024:.0f} MB)")
     print(f"  * Aktif Kategori      : {len(genres)} Klasor")
@@ -377,7 +442,7 @@ def audit_library_and_capacity():
     print(f"\n[3] OPEL CORSA INTELLILINK R4.0 KAPASITE REHBERI:")
     print("  " + "-" * 68)
     print("  * MINIMUM BELLEK BOYUTU : 16 GB")
-    print(f"    (Mevcut 595 parcalik {lib_gb:.2f} GB kutuphaneniz icin gereken en dusuk boyut)")
+    print(f"    (Mevcut {total_mp3} parcalik {lib_gb:.2f} GB kutuphaneniz icin gereken en dusuk boyut)")
     print("  * IDEAL / TAVSIYE EDILEN: 32 GB (SWEET SPOT)")
     print("    (Opel IntelliLink R4.0 teybi icin hem FAT32 standardina hem de teyp RAM")
     print("     onbellegine en uygun, en hizli acilan ve asla takilmayan resmi tavan boyut)")
@@ -387,6 +452,33 @@ def audit_library_and_capacity():
     print("  " + "-" * 68)
 
 
+def configure_library_dir():
+    """Kullanicinin kendi bilgisayarindaki muzik klasorunu secmesini ve kaydetmesini saglar."""
+    print("\n" + "=" * 72)
+    print("   KUTUPHANE KLASORU AYARLA / DEGISTIR (Ozel Yol Secimi)")
+    print("=" * 72)
+    current = get_library_dir()
+    print(f"  Mevcut Aktif Kutuphane : {current}")
+    print("\n  Farkli bir klasor kullanmak istiyorsaniz tam yolunu girin:")
+    print("  Ornekler: D:\\Muziklerim   veya   C:\\Users\\Kullanici\\Music")
+    print("  (Degisiklik yapmadan ana menuye donmek icin [Enter] tusuna basin)")
+    print("-" * 72)
+    new_path = input("  Yeni Kutuphane Yolu: ").strip()
+
+    if not new_path:
+        print("\n  [BILGI] Herhangi bir degisiklik yapilmadi.")
+        return
+
+    try:
+        saved = set_library_dir(new_path)
+        print("\n" + "-" * 72)
+        print(f"  [BASARILI] Yeni muzik kütüphanesi kaydedildi!")
+        print(f"  Hedef Dizin: {saved}")
+        print("-" * 72)
+    except Exception as e:
+        print(f"\n  [HATA] Klasor kaydedilemedi: {e}")
+
+
 def main():
     while True:
         clear_screen()
@@ -394,17 +486,19 @@ def main():
         print("\n  NE YAPMAK ISTIYORSUNUZ?\n")
         print("  [1] HIZLI ESITLEME (Rutin Senkronizasyon)")
         print("      * Sadece yeni/degisen sarkilari USB'ye atar.")
-        print("      * Nextcloud'da sildiklerinizi bellekten temizler.\n")
+        print("      * Kaynakta sildiklerinizi bellekten temizler.\n")
         print("  [2] SIFIRDAN USB HAZIRLA & FORMATLA (Yeni / Bozuk Bellek Icin)")
         print("      * Corsa'nin okuyabilmesi icin diski MBR ve FAT32 yapar.")
         print("      * Etiketini 'CORSA_MUZIK' yapar ve tum muzikleri yukler.\n")
         print("  [3] KUTUPHANE SAGLIGI & USB BOYUT KARSILASTIRMASI (Min/Max Rehberi)")
         print("      * Kutuphane boyutunu, takili USB'nin kapasitesini ve Opel")
         print("        IntelliLink R4.0 icin min/max bellek sinirlarini karsilastirir.\n")
-        print("  [4] CIKIS (Programi Kapat)\n")
+        print("  [4] KUTUPHANE KLASORUNU AYARLA / DEGISTIR (Hedef Klasor Secimi)")
+        print("      * Kendi ozel muzik klasorunuzu (D:\\Muzik vb.) belirler ve kaydeder.\n")
+        print("  [5] CIKIS (Programi Kapat)\n")
         print("=" * 72)
 
-        choice = input("Lutfen seciminizi yapin [1-4]: ").strip()
+        choice = input("Lutfen seciminizi yapin [1-5]: ").strip()
 
         if choice == "1":
             clear_screen()
@@ -421,12 +515,17 @@ def main():
             banner()
             audit_library_and_capacity()
             wait_for_key("\nAna menuye donmek icin herhangi bir tusa basin...")
-        elif choice in ["4", "q", "exit"]:
+        elif choice == "4":
+            clear_screen()
+            banner()
+            configure_library_dir()
+            wait_for_key("\nAna menuye donmek icin herhangi bir tusa basin...")
+        elif choice in ["5", "q", "exit"]:
             print("\nIyi yolculuklar ve keyifli dinlemeler!\n")
             time.sleep(1)
             break
         else:
-            print("\nGecersiz secim! Lutfen 1, 2, 3 veya 4 tuslayin.")
+            print("\nGecersiz secim! Lutfen 1, 2, 3, 4 veya 5 tuslayin.")
             time.sleep(1.2)
 
 

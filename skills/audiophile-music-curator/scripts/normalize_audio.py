@@ -57,11 +57,17 @@ def normalize_track(path: str, force: bool = False):
 
 
 def main():
-    target_dir = sys.argv[1] if len(sys.argv) > 1 else r"C:\Users\MrCoolice\Nextcloud\Music"
+    try:
+        from library_config import get_library_dir
+        def_target = get_library_dir()
+    except Exception:
+        def_target = os.path.expanduser(r"~\Nextcloud\Music")
+
+    target_dir = sys.argv[1] if len(sys.argv) > 1 else def_target
     force_all = "--force" in sys.argv
 
     if not os.path.isdir(target_dir):
-        target_dir = os.path.expanduser(r"~\Nextcloud\Music")
+        target_dir = def_target
 
     files = []
     for r, _, fns in os.walk(target_dir):

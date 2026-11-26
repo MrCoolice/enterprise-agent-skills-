@@ -108,9 +108,9 @@ Bu skill deterministik Python scriptlerine (`audit_library.py`, `normalize_audio
 
 ## 8. Master Kaynak & Kalıcı Silme Kuralı (Single Source of Truth)
 
-1. **Mutlak Ana Merkez:** `C:\Users\MrCoolice\Nextcloud\Music` kütüphanenin tek ve resmi kaynak dizinidir (Single Source of Truth).
-2. **Kalıcı Silme İlkesi (No Zombie Files):** Kullanıcı `Nextcloud\Music` klasöründen bir şarkıyı sildiğinde, o şarkı kalıcı olarak silinmiş kabul edilir. Hiçbir otonom işlem, yükseltme scripti veya aracı silinen parçaları asla tekrar indiremez, geri getiremez veya diriltemez.
-3. **USB Ayna Silme (True Mirror Sync):** `/music-sync` veya `sync_usb.py` çalıştırıldığında, kaynakta (`Nextcloud\Music`) silinmiş olan tüm dosyalar USB bellekten de otomatik olarak kaldırılır (`orphan file cleanup`). Böylece USB bellek her zaman Nextcloud ile %100 birebir aynı kalır.
+1. **Dinamik Ana Merkez & Taşınabilirlik:** Kütüphane varsayılan olarak yerel `Nextcloud/Music` veya işletim sisteminin varsayılan `Music` klasörünü otomatik tanır. Başka kullanıcılar veya farklı sürücüler (örneğin `D:\Muziklerim`) ortam değişkeni (`AUDIOPHILE_MUSIC_DIR`), `config.json` veya menüdeki `[4]` seçeneği ile tek tıkla kendi kaynak dizinlerini belirleyebilirler.
+2. **Kalıcı Silme İlkesi (No Zombie Files):** Kullanıcı kaynak klasöründen bir şarkıyı sildiğinde, o şarkı kalıcı olarak silinmiş kabul edilir. Hiçbir otonom işlem, yükseltme scripti veya aracı silinen parçaları asla tekrar indiremez, geri getiremez veya diriltemez.
+3. **USB Ayna Silme (True Mirror Sync):** `/music-sync` veya `sync_usb.py` çalıştırıldığında, kaynakta silinmiş olan tüm dosyalar USB bellekten de otomatik olarak kaldırılır (`orphan file cleanup`). Böylece USB bellek her zaman kaynak kütüphane ile %100 birebir aynı kalır.
 4. **Onaysız İndirme Yasağı:** Ajan, kullanıcı açıkça isim/bağlantı verip *"ekle"* demedikçe kendi inisiyatifiyle hiçbir yeni parça indiremez.
 
 ---
@@ -125,7 +125,7 @@ Kullanıcının kütüphanesini her seferinde baştan taramamak, silme işlemler
    - `python scripts/index_manager.py` komutu ile milisaniyeler içinde güncellenir.
 
 2. **`silinenler_kara_liste.txt` (Kalıcı Silinenler & Tombstone Defteri):**
-   - Kullanıcı `Nextcloud\Music` altından bir şarkıyı sildiğinde, sistem önceki indeks ile mevcut durumu karşılaştırarak silinen parçayı anında tespit eder ve bu deftere kaydeder.
+   - Kullanıcı müzik klasöründen bir şarkıyı sildiğinde, sistem önceki indeks ile mevcut durumu karşılaştırarak silinen parçayı anında tespit eder ve bu deftere kaydeder.
    - **Asla Tekrar Önermeme Garantisi:** `/music-recommend` veya öneri motorları bu kara listeyi okur; kullanıcının daha önce beğenmeyip sildiği parçaları **asla bir daha önermez ve indirmez**.
    - **Kullanıcı Kalıcı Yasaklı Sanatçılar:** `Demir Demirkan`, `Bulutsuzluk Özlemi`, `Nirvana` kesinlikle ve kalıcı olarak yasaklanmıştır; asla önerilmez ve indirilmez.
    - **USB Ayna Temizliği:** `/music-sync` bu listeyi kullanarak arabadaki USB bellekte kalan öksüz parçaları saniyeler içinde temizler.
@@ -137,9 +137,25 @@ Kullanıcının kütüphanesini her seferinde baştan taramamak, silme işlemler
 
 Kullanıcının hiçbir parametre veya komut satırı ezberlemesine gerek kalmadan tek tıkla kullanabileceği interaktif Windows istasyonudur:
 
-1. **Masaüstü Başlatıcı:** `C:\Users\MrCoolice\Desktop\Corsa_Muzik_Merkezi.bat`
+1. **Masaüstü Başlatıcı:** `C:\Users\MrCoolice\Desktop\Corsa_Muzik_Merkezi.bat` (veya kütüphane kökündeki `Corsa_Muzik_Merkezi.bat`)
 2. **Menü Seçenekleri:**
    - `[1] Hızlı Eşitleme`: Mevcut `CORSA_MUZIK` belleğine sadece yeni ve güncellenen parçaları kopyalar; kaynakta silinenleri USB'den kaldırır.
    - `[2] Sıfırdan USB Hazırla & Formatla`: Yeni veya bozuk USB bellekleri güvenle tespit eder; Opel IntelliLink uyumlu **MBR** ve **FAT32** formatı atar, etiketini `CORSA_MUZIK` yapar ve kütüphaneyi doldurur.
-   - `[3] Kütüphane Sağlığı & USB Boyut Karşılaştırması`: Kaynak boyutu (7.24 GB) ile takılı USB'nin boş alanını kıyaslar; Opel IntelliLink R4.0 için **Min 16 GB / İdeal 32 GB** kapasite rehberini sunar.
+   - `[3] Kütüphane Sağlığı & USB Boyut Karşılaştırması`: Kaynak boyutu ile takılı USB'nin boş alanını kıyaslar; Opel IntelliLink R4.0 için **Min 16 GB / İdeal 32 GB** kapasite rehberini sunar.
+   - `[4] Kütüphane Klasörünü Ayarla / Değiştir`: Kullanıcının kendi bilgisayarındaki müzik klasörünü (`D:\Muziklerim` vb.) seçmesini ve kalıcı olarak kaydetmesini sağlar.
+   - `[5] Çıkış`: Programı kapatır.
 3. **Klavye Dinleyicisi:** `msvcrt.getch()` ile herhangi bir tuşa basıldığı anda beklemeden ana menüye döner.
+
+---
+
+## 11. Taşınabilirlik & Çoklu Kullanıcı Yapılandırması (Multi-User Portability)
+
+GitHub deposundan projeyi indiren farklı kullanıcılar için kütüphane yolu 4 kademeli dinamik çözümleme (`library_config.py`) ile belirlenir:
+
+1. **Kademe 1 (Ortam Değişkeni):** `AUDIOPHILE_MUSIC_DIR` veya `CORSA_MUSIC_DIR` tanımlıysa doğrudan o yol kullanılır.
+2. **Kademe 2 (`config.json`):** Kullanıcı menüden `[4]` seçeneği ile klasör belirlediğinde yol yerel `config.json` içine yazılır ve hatırlanır.
+3. **Kademe 3 (Otomatik Algılama):**
+   - `~/Nextcloud/Music` (Nextcloud kullanıcıları için)
+   - `~/Music/Corsa-Library`
+   - `~/Music` (Standart Windows/macOS/Linux kullanıcı müzik dizini)
+4. **Kademe 4 (Varsayılan):** Kullanıcının işletim sistemi müzik klasörü (`~/Music`). Hiçbir hardcoded kullanıcı adı veya dosya yolu kısıtlaması bulunmaz.
