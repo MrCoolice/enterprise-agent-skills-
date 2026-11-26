@@ -25,6 +25,14 @@ def create_capcut_draft(project_name, image_path, duration_seconds=8):
     project_dir_name = f"{clean_name}_{int(time.time())}"
     project_dir = os.path.join(CAPCUT_DRAFT_ROOT, project_dir_name)
     os.makedirs(project_dir, exist_ok=True)
+    # Cover image copy
+    cover_dest = os.path.join(project_dir, "draft_cover.jpg")
+    try:
+        import shutil
+        shutil.copy2(image_path, cover_dest)
+    except Exception as e:
+        pass
+
 
     duration_us = int(duration_seconds * 1_000_000)
     material_id = str(uuid.uuid4()).upper()
@@ -111,7 +119,7 @@ def create_capcut_draft(project_name, image_path, duration_seconds=8):
     draft_meta_info = {
         "cloud_package_completed_time": 0, "draft_cloud_capcut_id": 0, "draft_cloud_last_action_download": False,
         "draft_cloud_materials": [], "draft_cloud_purchase_info": "", "draft_cloud_template_id": "", "draft_cloud_tutorial_info": "",
-        "draft_cloud_videocut_purchase_info": "", "draft_cover": "", "draft_fold_path": project_dir.replace("/", "\\"),
+        "draft_cloud_videocut_purchase_info": "", "draft_cover": "draft_cover.jpg", "draft_fold_path": project_dir.replace("/", "\\"),
         "draft_id": str(uuid.uuid4()).upper(), "draft_is_ai_clone": False, "draft_is_ai_shorts": False,
         "draft_is_article_video_draft": False, "draft_is_cloud_merge": False, "draft_is_enterprise": False,
         "draft_is_from_deeplink": False, "draft_is_invisible": False, "draft_is_mv_template": False, "draft_is_smart_ads": False,
