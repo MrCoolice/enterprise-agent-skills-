@@ -94,3 +94,12 @@ python scripts/embed_metadata.py "C:\Users\MrCoolice\Nextcloud\Music"
 # 4. USB belleğe ayna senkronizasyonu yap
 python scripts/sync_usb.py
 ```
+
+---
+
+## 7. Master Kaynak & Kalıcı Silme Kuralı (Single Source of Truth)
+
+1. **Mutlak Ana Merkez:** `C:\Users\MrCoolice\Nextcloud\Music` kütüphanenin tek ve resmi kaynak dizinidir (Single Source of Truth).
+2. **Kalıcı Silme İlkesi (No Zombie Files):** Kullanıcı `Nextcloud\Music` klasöründen bir şarkıyı sildiğinde, o şarkı kalıcı olarak silinmiş kabul edilir. Hiçbir otonom işlem, yükseltme scripti veya aracı silinen parçaları asla tekrar indiremez, geri getiremez veya diriltemez.
+3. **USB Ayna Silme (True Mirror Sync):** `/music-sync` veya `sync_usb.py` çalıştırıldığında, kaynakta (`Nextcloud\Music`) silinmiş olan tüm dosyalar USB bellekten de otomatik olarak kaldırılır (`orphan file cleanup`). Böylece USB bellek her zaman Nextcloud ile %100 birebir aynı kalır.
+4. **Onaysız İndirme Yasağı:** Ajan, kullanıcı açıkça isim/bağlantı verip *"ekle"* demedikçe kendi inisiyatifiyle hiçbir yeni parça indiremez.
