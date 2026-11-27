@@ -6,7 +6,7 @@ description: >
 
 # Audiophile Music Curator & Automotive Library Ops
 
-Bu skill; yerel ve bulut tabanlı müzik kütüphanelerinin (`Nextcloud\Music`), araç içi bilgi-eğlence sistemlerinin (özellikle **Opel IntelliLink R4.0**) ve odyofil koleksiyonlarının kusursuz şekilde yönetilmesi, indirilmesi, ses seviyesi dengelenmesi (-14 LUFS), etiketlenmesi, mükerrer önleme (deduplication) filtrelemesi ve senkronize edilmesi için tasarlanmış yüksek verimli (token-saver) operasyon rehberidir.
+Bu skill; yerel ve bulut tabanlı müzik kütüphanelerinin (`Nextcloud\Music`), araç içi bilgi-eğlence sistemlerinin (özellikle **Opel IntelliLink R4.0**) ve odyofil koleksiyonlarının kusursuz şekilde yönetilmesi, indirilmesi, ses seviyesi dengelenmesi (-14 LUFS), etiketlenmesi, mükerrer önleme (deduplication) filtrelemesi, akıllı kademeli model kullanımı ($0 Local-First & Graceful Fallback) ve senkronize edilmesi için tasarlanmış yüksek verimli operasyon rehberidir.
 
 ---
 
@@ -18,7 +18,7 @@ Bu skill; yerel ve bulut tabanlı müzik kütüphanelerinin (`Nextcloud\Music`),
 | `/music-add <sorgu / link>` | Şarkıyı/albümü kütüphaneyi tarayıp mükerrer kontrolü yaparak 320k MP3 kalitesinde indirir, 500x500 kapak ve sözleri gömer, uygun klasöre atar. |
 | `/music-normalize` | Kütüphaneyi EBU R128 (-14 LUFS) standardına göre tarar; arabada kısık veya aşırı patlayanları dengeler. |
 | `/music-audit` | Kütüphaneyi tarar; eksik kapak, eksik söz, mükerrer şarkı ve dosya adı hatalarını raporlar. |
-| `/music-recommend` | Kütüphanede ZATEN BULUNAN parçaları hariç tutarak türe/ruh haline göre sadece yepyeni taze parça ve sanatçı önerileri sunar. |
+| `/music-recommend` | Kütüphanede ZATEN BULUNAN parçaları hariç tutarak sadece yeni ve taze öneriler sunar (Varsa yerel Ollama, yoksa bedava fallback). |
 
 ---
 
@@ -73,15 +73,7 @@ Kütüphane aşağıdaki 15 odaklı klasör yapısına göre kategorize edilir:
 
 ---
 
-## 5. Güvenlik ve Ayna Senkronizasyon Protokolü
-
-* **50-Parça Taban Kilidi (Floor Guard):** Kaynak dizindeki (`Nextcloud\Music`) parça sayısı 50'nin altına düşerse USB senkronizasyonu acil olarak durdurulur ve USB üzerindeki hiçbir dosya silinmez.
-* **Araç Sistem Dosyası Koruması:** USB kökündeki `System Volume Information`, `asisconfig.xml` ve aracın oluşturduğu önbellek dosyaları asla silinmez.
-* **Tarih Toleransı:** FAT32 dosya sisteminin 2 saniyelik zaman damgası çözünürlüğü nedeniyle, dosya boyutu eşit ve zaman farkı <= 2 saniye ise kopyalama atlanır.
-
----
-
-## 6. Mükerrer Önleme ve Parmak İzi Filtresi (Zero-Duplicate Guard)
+## 5. Mükerrer Önleme ve Parmak İzi Filtresi (Zero-Duplicate Guard)
 
 Kütüphanenin bütünlüğünü korumak ve disk/hafıza israfını önlemek için şu katı kurallar uygulanır:
 
@@ -89,16 +81,31 @@ Kütüphanenin bütünlüğünü korumak ve disk/hafıza israfını önlemek iç
    - Asistan veya yerel LLM müzik önerisi (`/music-recommend`) yapmadan önce kütüphanedeki tüm klasörleri tarar ve mevcut şarkıların parmak izini (normalize edilmiş Sanatçı - Başlık) çıkarır.
    - **Kütüphanede zaten var olan hiçbir şarkı ASLA yeni öneri olarak sunulamaz.** Kullanıcıya sadece kütüphanesinde bulunmayan taze cevherler tavsiye edilir.
 2. **İndirme Öncesi Mükerrer Engeli (No Redundant Downloads):**
-   - `/music-add` veya otomatik indirme tetiklendiğinde, hedeflenen parça adı fuzzy matching (Remaster, Official Audio, parantez içi etiketler temizlenerek) ile tüm kütüphanede taranır.
+   - `/music-add` veya otomatik indirme tetiklendiğinde, hedeflenen parça adı fuzzy matching ile tüm kütüphanede taranır.
    - Eğer şarkı başka bir klasörde zaten varsa, **indirme derhal engellenir** ve kullanıcıya bildirilir: *"Bu şarkı zaten [Klasör Adı] altında mevcut, tekrar indirilmedi."*
 3. **Aktivite Klasörleri Disiplini:**
    - `14_GYM_WORKOUT` ve `15_CYCLING_CARDIO` gibi amaca özel derleme klasörlerine mevcut kütüphaneden seçilen parçalar yerel olarak kopyalanabilir; ancak internetten yeni bir şarkı indirilecekse bu şarkı kütüphanenin başka hiçbir klasöründe bulunmamalıdır.
 
 ---
 
+## 6. Akıllı Kademeli Model Hiyerarşisi ($0 Local-First & Graceful Fallback)
+
+Asistan müzik analizi, zevk modelleme ve öneri üretirken şu 3 kademeli hiyerarşiye kesin olarak uyar:
+
+1. **Tier 1 (Öncelikli - Varsa): Yerel RTX 4070 / Ollama (`http://127.0.0.1:11434`)**
+   - Asistan önce yerel Ollama API'sini yoklar.
+   - Eğer servis açıksa; kütüphane özeti doğrudan yerel **`deepseek-r1:14b`** veya **`qwen2.5-coder:14b`** modeline gönderilir. İşlem %100 yerel donanımda, sınırsız ve $0 maliyetle tamamlanır.
+2. **Tier 2 (Yedek - Kapalıysa): Antigravity Bedava Alt Ajan (`flash_lite`)**
+   - Eğer Ollama kapalıysa (`ConnectionRefused` vb.), sistem kesinlikle hata verip durmaz.
+   - Otomatik olarak Antigravity bünyesindeki ücretsiz **`flash_lite`** alt ajanına devreder ve analizi yine $0 maliyetle bitirir.
+3. **Tier 3 (Kırmızı Çizgi Kuralı): Sıfır Paralı API Garantisi**
+   - Harici ücretli servisler (OpenAI, Spotify Developer API, Claude vb.) kesinlikle çağrılmaz. Her operasyon daima ücretsiz yerel veya dahili araçlarla çözülür.
+
+---
+
 ## 7. Master Kaynak & Kalıcı Silme Kuralı (Single Source of Truth)
 
 1. **Mutlak Ana Merkez:** `C:\Users\devops-engineer\Nextcloud\Music` kütüphanenin tek ve resmi kaynak dizinidir (Single Source of Truth).
-2. **Kalıcı Silme İlkesi (No Zombie Files):** Kullanıcı `Nextcloud\Music` klasöründen bir şarkıyı sildiğinde, o şarkı kalıcı olarak silinmiş kabul edilir. Hiçbir otonom işlem, yükseltme scripti veya aracı silinen parçaları asla tekrar indiremez, geri getiremez veya diriltemez.
-3. **USB Ayna Silme (True Mirror Sync):** `/music-sync` veya `sync_usb.py` çalıştırıldığında, kaynakta (`Nextcloud\Music`) silinmiş olan tüm dosyalar USB bellekten de otomatik olarak kaldırılır (`orphan file cleanup`). Böylece USB bellek her zaman Nextcloud ile %100 birebir aynı kalır.
+2. **Kalıcı Silme İlkesi (No Zombie Files):** Kullanıcı `Nextcloud\Music` klasöründen bir şarkıyı sildiğinde, o şarkı kalıcı olarak silinmiş kabul edilir. Hiçbir otonom işlem silinen parçaları asla tekrar indiremez veya geri getiremez.
+3. **USB Ayna Silme (True Mirror Sync):** `/music-sync` veya `sync_usb.py` çalıştırıldığında, kaynakta silinmiş olan tüm dosyalar USB bellekten de otomatik olarak kaldırılır (`orphan cleanup`).
 4. **Onaysız İndirme Yasağı:** Ajan, kullanıcı açıkça isim/bağlantı verip *"ekle"* demedikçe kendi inisiyatifiyle hiçbir yeni parça indiremez.
