@@ -8,11 +8,7 @@ import shutil
 import subprocess
 import sys
 
-try:
-    from library_config import get_library_dir
-    DEFAULT_NC = get_library_dir()
-except Exception:
-    DEFAULT_NC = os.path.expanduser(r"~\Nextcloud\Music")
+DEFAULT_NC = r"C:\Users\devops-engineer\Nextcloud\Music"
 USB_LABEL = "CORSA_MUZIK"
 
 

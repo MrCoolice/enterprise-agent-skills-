@@ -166,15 +166,9 @@ def process_mp3(path: str):
 
 
 def main():
-    try:
-        from library_config import get_library_dir
-        def_target = get_library_dir()
-    except Exception:
-        def_target = os.path.expanduser(r"~\Nextcloud\Music")
-
-    target = sys.argv[1] if len(sys.argv) > 1 else def_target
+    target = sys.argv[1] if len(sys.argv) > 1 else r"C:\Users\devops-engineer\Nextcloud\Music"
     if not os.path.isdir(target):
-        target = def_target
+        target = os.path.expanduser(r"~\Nextcloud\Music")
 
     all_mp3s = []
     for root, _, files in os.walk(target):
