@@ -252,7 +252,7 @@ Kurulum tamamlandıktan sonra ajana doğrudan görevinizi söylemeniz yeterlidir
 
 ---
 
-## 📋 40 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
+## 📋 43 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
 
 | Skill Name | 🇬🇧 English Description | 🇩🇪 Deutsche Beschreibung | 🇹🇷 Türkçe Açıklama |
 | :--- | :--- | :--- | :--- |
@@ -337,6 +337,9 @@ This repository has been strictly sanitized:
 ## 📄 License
 Released under the [MIT License](LICENSE).
 
+| `google-maps-scraper` | Intelligence & Tourism | Google Maps business, hotel, review score, phone number, and location scraper. | google maps scrape, local hotel benchmark, maps reviews |
+| `firecrawl-map` | Web & SEO | Fast full-site URL discovery, sitemap generation, and deep architecture crawler. | firecrawl map, sitemap crawl, map website urls |
+| `google-maps-platform` | Navigation & API | Google Maps Places, Geocoding, Routes, and live Distance Matrix routing. | google maps route, distance matrix, directions api |
 | `design-doc-mermaid` | Architecture & Documentation | 110K+ install enterprise design document & Mermaid architecture, sequence, and ER diagram generator. | mermaid diagram, architecture map, sequence diagram, system design |
 | `nodejs-backend-patterns` | Backend & Architecture | Enterprise Node.js / TypeScript async streams, event-loop hygiene, memory leak prevention. | nodejs patterns, event loop, memory leak, async queue |
 | `wordpress-pro` | E-Commerce & CMS | Professional WordPress & WooCommerce hook/filter architecture, theme security, and REST API. | wordpress pro, woocommerce theme, wp rest api |
