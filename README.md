@@ -252,7 +252,7 @@ Kurulum tamamlandıktan sonra ajana doğrudan görevinizi söylemeniz yeterlidir
 
 ---
 
-## 📋 39 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
+## 📋 40 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
 
 | Skill Name | 🇬🇧 English Description | 🇩🇪 Deutsche Beschreibung | 🇹🇷 Türkçe Açıklama |
 | :--- | :--- | :--- | :--- |
@@ -337,6 +337,7 @@ This repository has been strictly sanitized:
 ## 📄 License
 Released under the [MIT License](LICENSE).
 
+| `design-doc-mermaid` | Architecture & Documentation | 110K+ install enterprise design document & Mermaid architecture, sequence, and ER diagram generator. | mermaid diagram, architecture map, sequence diagram, system design |
 | `nodejs-backend-patterns` | Backend & Architecture | Enterprise Node.js / TypeScript async streams, event-loop hygiene, memory leak prevention. | nodejs patterns, event loop, memory leak, async queue |
 | `wordpress-pro` | E-Commerce & CMS | Professional WordPress & WooCommerce hook/filter architecture, theme security, and REST API. | wordpress pro, woocommerce theme, wp rest api |
 | `wp-playground` | E-Commerce & CMS | Zero-risk in-browser/WASM WordPress test environment for plugin and code testing. | wp playground, test wordpress plugin, wasm wp |
