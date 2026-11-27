@@ -1,12 +1,12 @@
 ---
 name: audiophile-music-curator
 description: >
-  Autonomous music library curation, 500x500 ID3v2.3 cover embedding, LRCLIB synced lyrics, 13-genre routing, and automotive FAT32/MBR USB mirror sync for Opel IntelliLink and Nextcloud.
+  Autonomous music library curation, 500x500 ID3v2.3 cover embedding, LRCLIB synced lyrics, 15-genre routing, zero-duplicate guard, and automotive FAT32/MBR USB mirror sync for Opel IntelliLink and Nextcloud.
 ---
 
 # Audiophile Music Curator & Automotive Library Ops
 
-Bu skill; yerel ve bulut tabanlı müzik kütüphanelerinin (`Nextcloud\Music`), araç içi bilgi-eğlence sistemlerinin (özellikle **Opel IntelliLink R4.0**) ve odyofil koleksiyonlarının kusursuz şekilde yönetilmesi, indirilmesi, ses seviyesi dengelenmesi (-14 LUFS), etiketlenmesi ve senkronize edilmesi için tasarlanmış yüksek verimli (token-saver) operasyon rehberidir.
+Bu skill; yerel ve bulut tabanlı müzik kütüphanelerinin (`Nextcloud\Music`), araç içi bilgi-eğlence sistemlerinin (özellikle **Opel IntelliLink R4.0**) ve odyofil koleksiyonlarının kusursuz şekilde yönetilmesi, indirilmesi, ses seviyesi dengelenmesi (-14 LUFS), etiketlenmesi, mükerrer önleme (deduplication) filtrelemesi ve senkronize edilmesi için tasarlanmış yüksek verimli (token-saver) operasyon rehberidir.
 
 ---
 
@@ -15,10 +15,10 @@ Bu skill; yerel ve bulut tabanlı müzik kütüphanelerinin (`Nextcloud\Music`),
 | Komut | Açıklama |
 | :--- | :--- |
 | `/music-sync` | Nextcloud ile bağlı olan USB belleği (`CORSA_MUZIK`) ayna modunda senkronize eder. |
-| `/music-add <sorgu / link>` | Şarkıyı/albümü 320k MP3 kalitesinde indirir, 500x500 kapak ve sözleri gömer, uygun klasöre atar. |
+| `/music-add <sorgu / link>` | Şarkıyı/albümü kütüphaneyi tarayıp mükerrer kontrolü yaparak 320k MP3 kalitesinde indirir, 500x500 kapak ve sözleri gömer, uygun klasöre atar. |
 | `/music-normalize` | Kütüphaneyi EBU R128 (-14 LUFS) standardına göre tarar; arabada kısık veya aşırı patlayanları dengeler. |
 | `/music-audit` | Kütüphaneyi tarar; eksik kapak, eksik söz, mükerrer şarkı ve dosya adı hatalarını raporlar. |
-| `/music-recommend` | Mevcut kütüphanenin tür/ruh hali ağırlıklarına göre yeni parça ve sanatçı önerileri sunar. |
+| `/music-recommend` | Kütüphanede ZATEN BULUNAN parçaları hariç tutarak türe/ruh haline göre sadece yepyeni taze parça ve sanatçı önerileri sunar. |
 
 ---
 
@@ -49,9 +49,9 @@ IntelliLink R4.0 ve benzeri araç multimedya üniteleri katı donanım kurallar�
 
 ---
 
-## 4. 13 Tematik Kategori Matrisi
+## 4. 15 Tematik Kategori Matrisi
 
-Kütüphane aşağıdaki 13 odaklı klasör yapısına göre kategorize edilir:
+Kütüphane aşağıdaki 15 odaklı klasör yapısına göre kategorize edilir:
 
 | No | Klasör Adı | Tanım & Temsili Sanatçılar |
 | :---: | :--- | :--- |
@@ -68,6 +68,8 @@ Kütüphane aşağıdaki 13 odaklı klasör yapısına göre kategorize edilir:
 | `11` | `11_SYNTHWAVE_OUTRUN` | Retrowave & Outrun (Kavinsky, The Midnight, FM-84, GUNSHIP, Dance With the Dead). |
 | `12` | `12_CYBERPUNK_DARK_TECHNO`| Cyberpunk & Midtempo (Gesaffelstein, Rezz, Carpenter Brut, Perturbator, Daniel Deluxe). |
 | `13` | `13_ANADOLU_PSYCHEDELIC` | Anadolu Pop/Rock & Psychedelic (Derindekiler, Berrin Keskin, Altın Gün, Derya Yıldırım). |
+| `14` | `14_GYM_WORKOUT` | Ağırlık, Power, PR, Drop-set, Yüksek Agresyon (Five Finger Death Punch, Arch Enemy, Mick Gordon). |
+| `15` | `15_CYCLING_CARDIO` | Bisiklet, 120-135 BPM Akıcı Kadans, Gece & Yol Sürüşü (FM-84, The Midnight, Daniel Deluxe, Kavinsky). |
 
 ---
 
@@ -79,21 +81,18 @@ Kütüphane aşağıdaki 13 odaklı klasör yapısına göre kategorize edilir:
 
 ---
 
-## 6. Komut Satırı & Script Entegrasyonları
+## 6. Mükerrer Önleme ve Parmak İzi Filtresi (Zero-Duplicate Guard)
 
-```bash
-# 1. Kütüphaneyi tara ve raporla (eksik kapak/söz/mükerrer tespiti)
-python scripts/audit_library.py
+Kütüphanenin bütünlüğünü korumak ve disk/hafıza israfını önlemek için şu katı kurallar uygulanır:
 
-# 2. Akıllı Ses Seviyesi Dengeleme (-14 LUFS cerrahi düzeltme)
-python scripts/normalize_audio.py
-
-# 3. Eksik 500x500 kapakları ve sözleri göm
-python scripts/embed_metadata.py "C:\Users\devops-engineer\Nextcloud\Music"
-
-# 4. USB belleğe ayna senkronizasyonu yap
-python scripts/sync_usb.py
-```
+1. **Tavsiye Öncesi Kütüphane Taraması (Anti-Echo):**
+   - Asistan veya yerel LLM müzik önerisi (`/music-recommend`) yapmadan önce kütüphanedeki tüm klasörleri tarar ve mevcut şarkıların parmak izini (normalize edilmiş Sanatçı - Başlık) çıkarır.
+   - **Kütüphanede zaten var olan hiçbir şarkı ASLA yeni öneri olarak sunulamaz.** Kullanıcıya sadece kütüphanesinde bulunmayan taze cevherler tavsiye edilir.
+2. **İndirme Öncesi Mükerrer Engeli (No Redundant Downloads):**
+   - `/music-add` veya otomatik indirme tetiklendiğinde, hedeflenen parça adı fuzzy matching (Remaster, Official Audio, parantez içi etiketler temizlenerek) ile tüm kütüphanede taranır.
+   - Eğer şarkı başka bir klasörde zaten varsa, **indirme derhal engellenir** ve kullanıcıya bildirilir: *"Bu şarkı zaten [Klasör Adı] altında mevcut, tekrar indirilmedi."*
+3. **Aktivite Klasörleri Disiplini:**
+   - `14_GYM_WORKOUT` ve `15_CYCLING_CARDIO` gibi amaca özel derleme klasörlerine mevcut kütüphaneden seçilen parçalar yerel olarak kopyalanabilir; ancak internetten yeni bir şarkı indirilecekse bu şarkı kütüphanenin başka hiçbir klasöründe bulunmamalıdır.
 
 ---
 
