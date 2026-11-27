@@ -1,0 +1,14 @@
+{
+  "name": "yucezerey",
+  "owner": {
+    "name": "Yüce Zerey",
+    "url": "https://github.com/yucezerey"
+  },
+  "plugins": [
+    {
+      "name": "turkish-anti-ai-skill",
+      "source": "./",
+      "description": "Türkçe metni insan eliyle yazılmış gibi doğal yazan veya onaran, çeviri kokusu ve TDK hatalarını denetleyen Agent Skill paketi."
+    }
+  ]
+}

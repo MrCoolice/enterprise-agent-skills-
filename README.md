@@ -252,7 +252,7 @@ Kurulum tamamlandıktan sonra ajana doğrudan görevinizi söylemeniz yeterlidir
 
 ---
 
-## 📋 36 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
+## 📋 39 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
 
 | Skill Name | 🇬🇧 English Description | 🇩🇪 Deutsche Beschreibung | 🇹🇷 Türkçe Açıklama |
 | :--- | :--- | :--- | :--- |
@@ -337,6 +337,10 @@ This repository has been strictly sanitized:
 ## 📄 License
 Released under the [MIT License](LICENSE).
 
+| `nodejs-backend-patterns` | Backend & Architecture | Enterprise Node.js / TypeScript async streams, event-loop hygiene, memory leak prevention. | nodejs patterns, event loop, memory leak, async queue |
+| `wordpress-pro` | E-Commerce & CMS | Professional WordPress & WooCommerce hook/filter architecture, theme security, and REST API. | wordpress pro, woocommerce theme, wp rest api |
+| `wp-playground` | E-Commerce & CMS | Zero-risk in-browser/WASM WordPress test environment for plugin and code testing. | wp playground, test wordpress plugin, wasm wp |
+| `turkish-anti-ai-skill` | Content & Localization | Anti-AI translation filter; removes robotic phrasing for authentic, natural Turkish content. | turkish anti ai, dogal turkce, ceviriden arindir |
 | `typegpu` | Media & GPU Compute | WebGPU and TypeGPU TypeScript reactive shaders, particle simulations, and visual compute. | typegpu, webgpu shader, wgsl, gpu particle |
 | `debian-linux-triage` | Infrastructure & Linux | Debian & Ubuntu LXC/VM systemd, journalctl, dmesg, and OOM-killer root-cause triage. | debian triage, linux troubleshooting, oom killer, service crash |
 | `blender-materials` | 3D & Graphics | Blender Python automated PBR materials, procedural shaders, and neon/metal textures. | blender materials, pbr shader, procedural texture, neon glass |
