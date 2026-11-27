@@ -357,3 +357,7 @@ Released under the [MIT License](LICENSE).
 | `find-skills` | Meta | On-demand discovery and installation of agent skills via Vercel `skills.sh` ecosystem (`npx skills find`). | `npx skills find`, search skills, discover tool |
 | `ai-video-generation` | Media & Creative | Multi-model video generation across 40+ models (Google Veo 3.1, Seedance 2.5, Wan 2.7, Kling v4, Runway). | generate video, text to video, veo, wan, kling |
 | `ai-avatar-video` | Media & Creative | AI avatar, digital human, talking head and lipsync generation (P-Video-Avatar, OmniHuman, Fabric). | ai avatar, talking head, lipsync, digital human |
+
+| `seo` | SEO & Organic Growth | 43K+ install #1 SEO architecture, programmatic search intent, and Google ranking engine. | seo audit, programmatic seo, keyword research |
+| `link-building` | Link Acquisition | 20K+ install Corey Haines authority backlink acquisition, digital PR, and outreach playbook. | link building, backlink outreach, unlinked mentions |
+| `link-prospecting` | SEO & Intelligence | 7.7K+ install automated high-DA guest post, resource page, and competitor link finder. | link prospecting, guest post targets, authority links |
