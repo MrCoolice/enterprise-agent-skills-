@@ -7,6 +7,10 @@ If offline, signals fallback to free cloud subagent tier ($0 cost guaranteed).
 import json
 import urllib.request
 import urllib.error
+import sys
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
+    sys.stderr.reconfigure(encoding='utf-8')
 
 OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
 DEFAULT_MODEL = "deepseek-r1:14b"
