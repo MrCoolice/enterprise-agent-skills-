@@ -1,6 +1,6 @@
 # 🎮 Agent Commands & Prompt Trigger Cheat Sheet (Komut ve İstek Sözlüğü)
 
-This document provides exact, copy-pasteable prompt triggers and command syntax for all **26 Enterprise Agent Skills** across different AI Agent platforms (**Google Antigravity**, **Claude Code**, **Cursor / Windsurf**).
+This document provides exact, copy-pasteable prompt triggers and command syntax for all **29 Enterprise Agent Skills** across different AI Agent platforms (**Google Antigravity**, **Claude Code**, **Cursor / Windsurf**).
 
 ---
 
@@ -27,7 +27,7 @@ This document provides exact, copy-pasteable prompt triggers and command syntax 
 
 ---
 
-## 📋 Complete 26 Skills Trigger Prompt Matrix
+## 📋 Complete 29 Skills Trigger Prompt Matrix
 
 | Skill Name | 🇹🇷 Türkçe İstek / Komut Örneği | 🇬🇧 English Trigger Command / Prompt | 🇩🇪 Deutscher Befehl / Prompt-Beispiel |
 | :--- | :--- | :--- | :--- |
