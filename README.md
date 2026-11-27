@@ -252,7 +252,7 @@ Kurulum tamamlandıktan sonra ajana doğrudan görevinizi söylemeniz yeterlidir
 
 ---
 
-## 📋 29 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
+## 📋 32 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
 
 | Skill Name | 🇬🇧 English Description | 🇩🇪 Deutsche Beschreibung | 🇹🇷 Türkçe Açıklama |
 | :--- | :--- | :--- | :--- |
@@ -337,6 +337,9 @@ This repository has been strictly sanitized:
 ## 📄 License
 Released under the [MIT License](LICENSE).
 
+| `instagram-scraper` | Marketing & Intelligence | Fast Instagram profile, reels, hashtag, and competitor scraper for social growth. | scrape instagram, competitor reels, hashtag audit |
+| `design-taste-frontend` | Frontend & UX | Elite UI aesthetic, anti-AI-slop design system, and micro-interactions benchmark. | design taste, anti ai slop, elegant typography |
+| `game-feel` | Game Development | Game juice, screen shake, tactile particle feedback, and player retention feel. | game feel, screen shake, game juice, feedback |
 | `find-skills` | Meta | On-demand discovery and installation of agent skills via Vercel `skills.sh` ecosystem (`npx skills find`). | `npx skills find`, search skills, discover tool |
 | `ai-video-generation` | Media & Creative | Multi-model video generation across 40+ models (Google Veo 3.1, Seedance 2.5, Wan 2.7, Kling v4, Runway). | generate video, text to video, veo, wan, kling |
 | `ai-avatar-video` | Media & Creative | AI avatar, digital human, talking head and lipsync generation (P-Video-Avatar, OmniHuman, Fabric). | ai avatar, talking head, lipsync, digital human |
