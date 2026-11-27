@@ -252,7 +252,7 @@ Kurulum tamamlandıktan sonra ajana doğrudan görevinizi söylemeniz yeterlidir
 
 ---
 
-## 📋 43 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
+## 📋 44 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
 
 | Skill Name | 🇬🇧 English Description | 🇩🇪 Deutsche Beschreibung | 🇹🇷 Türkçe Açıklama |
 | :--- | :--- | :--- | :--- |
@@ -337,6 +337,8 @@ This repository has been strictly sanitized:
 ## 📄 License
 Released under the [MIT License](LICENSE).
 
+| `reddit-automation` | Growth & Community Marketing | 1.6M install help-first Reddit lead discovery, pain-point monitor, and response generator. | reddit leads, reddit monitor, organic growth, find subreddits |
+| `backlink-analyzer` | SEO & Domain Authority | Organic backlink profile audit, competitor link gap analysis, and toxic link detector. | backlink audit, competitor backlinks, domain authority, seo links |
 | `google-maps-scraper` | Intelligence & Tourism | Google Maps business, hotel, review score, phone number, and location scraper. | google maps scrape, local hotel benchmark, maps reviews |
 | `firecrawl-map` | Web & SEO | Fast full-site URL discovery, sitemap generation, and deep architecture crawler. | firecrawl map, sitemap crawl, map website urls |
 | `google-maps-platform` | Navigation & API | Google Maps Places, Geocoding, Routes, and live Distance Matrix routing. | google maps route, distance matrix, directions api |
