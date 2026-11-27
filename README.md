@@ -15,7 +15,9 @@
 
 <p align="center">
   📖 <b>Comprehensive Deep-Dive Guide / Detaylı Mimari Rehber / Ausführlicher Architektur-Leitfaden:</b><br>
-  👉 <a href="https://golgesiber.com/yazi/yapay-zeka-ajanlari-ile-sistem-yonetimi"><b>https://golgesiber.com/yazi/yapay-zeka-ajanlari-ile-sistem-yonetimi</b></a>
+  👉 <a href="https://golgesiber.com/yazi/yapay-zeka-ajanlari-ile-sistem-yonetimi"><b>https://golgesiber.com/yazi/yapay-zeka-ajanlari-ile-sistem-yonetimi</b></a><br><br>
+  🛡️ <b>Kurumsal Altyapı ve Sistem Mimarisi Rehberleri:</b> <a href="https://golgesiber.com"><b>GölgeSiber Teknik Makaleler</b></a><br>
+  📖 <b>OPNsense 2026 Kılavuzu:</b> <a href="https://golgesiber.com/kitap/opnsense-2026"><b>OPNsense Kitap ve Dokümantasyon</b></a>
 </p>
 
 ---
@@ -364,3 +366,14 @@ Released under the [MIT License](LICENSE).
 | `seo` | SEO & Organic Growth | 43K+ install #1 SEO architecture, programmatic search intent, and Google ranking engine. | seo audit, programmatic seo, keyword research |
 | `link-building` | Link Acquisition | 20K+ install Corey Haines authority backlink acquisition, digital PR, and outreach playbook. | link building, backlink outreach, unlinked mentions |
 | `link-prospecting` | SEO & Intelligence | 7.7K+ install automated high-DA guest post, resource page, and competitor link finder. | link prospecting, guest post targets, authority links |
+
+---
+
+## 📚 Resmi Dokümantasyon ve Kaynaklar (Official Documentation & Knowledge Base)
+
+Kurumsal altyapı, ağ güvenliği, sanallaştırma mimarileri ve otonom sistem yönetimi hakkında detaylı Türkçe teknik dokümantasyon ve canlı rehberler:
+
+* 🛡️ Kurumsal Altyapı ve Sistem Mimarisi Rehberleri: [GölgeSiber Teknik Makaleler](https://golgesiber.com)
+* 📖 OPNsense 2026 Kılavuzu: [OPNsense Kitap ve Dokümantasyon](https://golgesiber.com/kitap/opnsense-2026)
+* ⚡ Yapay Zeka Ajanları ile Sistem Yönetimi: [Detaylı Mimari Rehber](https://golgesiber.com/yazi/yapay-zeka-ajanlari-ile-sistem-yonetimi)
+* 🌐 Tüm Makaleler ve Teknik Hub: [GölgeSiber Makale Arşivi](https://golgesiber.com/yazi)
