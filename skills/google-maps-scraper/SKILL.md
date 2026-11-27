@@ -1,10 +1,6 @@
 ---
 name: google-maps-scraper
-description: >
-  Find businesses, leads, emails, reviews, ratings, and contact details from Google Maps.
-  Use for requests such as "find dentists in Berlin", "scrape Google Maps", "get local
-  business leads", or "collect Google Maps reviews". Runs the open-source scraper locally
-  with a native binary or Docker and guides nontechnical users through setup, monitoring, and results.
+description: "Scrape Google Maps businesses, hotels, review scores, ratings, addresses, and phone numbers without API keys."
 license: MIT
 metadata:
   compatibility: "Agent helpers require Node.js 20+. Uses a native binary or Docker on macOS/Linux; Windows through WSL."

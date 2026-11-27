@@ -1,6 +1,7 @@
 ---
 name: seo-backlinks
-description: "Analyze a site's backlink profile, anchors, toxic signals, competitors, gaps, and disavow candidates. Use only when links or referring domains are the requested focus."
+description: "Analyze domain backlink profiles, referring domains, anchor distribution, and toxic link detection."
+
 user-invocable: true
 argument-hint: "<url>"
 license: MIT
