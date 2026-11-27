@@ -252,7 +252,7 @@ Kurulum tamamlandıktan sonra ajana doğrudan görevinizi söylemeniz yeterlidir
 
 ---
 
-## 📋 35 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
+## 📋 36 Skills Directory / Beceri Dizini / Fähigkeiten-Katalog
 
 | Skill Name | 🇬🇧 English Description | 🇩🇪 Deutsche Beschreibung | 🇹🇷 Türkçe Açıklama |
 | :--- | :--- | :--- | :--- |
@@ -337,6 +337,7 @@ This repository has been strictly sanitized:
 ## 📄 License
 Released under the [MIT License](LICENSE).
 
+| `typegpu` | Media & GPU Compute | WebGPU and TypeGPU TypeScript reactive shaders, particle simulations, and visual compute. | typegpu, webgpu shader, wgsl, gpu particle |
 | `debian-linux-triage` | Infrastructure & Linux | Debian & Ubuntu LXC/VM systemd, journalctl, dmesg, and OOM-killer root-cause triage. | debian triage, linux troubleshooting, oom killer, service crash |
 | `blender-materials` | 3D & Graphics | Blender Python automated PBR materials, procedural shaders, and neon/metal textures. | blender materials, pbr shader, procedural texture, neon glass |
 | `blender-modeling` | 3D & Graphics | Programmatic 3D mesh modeling, primitives, transforms, and scene composition in Blender. | blender modeling, create 3d mesh, blender script |
