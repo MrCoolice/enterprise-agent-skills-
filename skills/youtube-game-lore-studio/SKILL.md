@@ -10,6 +10,7 @@ Bu beceri; oyunların (Diablo, StarCraft, Elden Ring, Warhammer, Fallout), kült
 ---
 
 ## 📌 Hızlı Referans Kılavuzları (Token Tasarrufu):
+- **Trend Avı & İçerik Arbitrajı:** `references/trend-arbitrage-competitor-analysis.md` (Global Outlier Mining, Türkiye Boşluk Analizi, Katalizör Takvimi).
 - **SEO & Trafik Hunisi:** `references/seo-growth-funnel.md` (Search-to-Browse, 1 Uzun -> 3 Dikey Kanca, Chaptering).
 - **Ritim & Akış Standardı:** `references/bedtime-lore-pacing.md` (60-75 BPM Kalp Atışı Pacing, Hipnotik Mikro-Hareket).
 - **Stüdyo Ses Mühendisliği:** `audio-mastering-engineer` becerisi ve `scripts/audio_engineer_audit.py`.
