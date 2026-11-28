@@ -16,6 +16,7 @@ Bu beceri; oyunların (Diablo, StarCraft, Elden Ring, Warhammer, Fallout), kült
 - **Trend Avı & İçerik Arbitrajı:** `references/trend-arbitrage-competitor-analysis.md` (Global Outlier Mining, Türkiye Boşluk Analizi, Katalizör Takvimi).
 - **SEO & Trafik Hunisi:** `references/seo-growth-funnel.md` (Search-to-Browse, 1 Uzun -> 3 Dikey Kanca, Chaptering).
 - **Ritim & Akış Standardı:** `references/bedtime-lore-pacing.md` (60-75 BPM Kalp Atışı Pacing, Hipnotik Mikro-Hareket).
+- **Telif, FSEK m. 35 & Fair Use:** `references/copyright-fsek-fair-use-compliance.md` (İktibas Serbestisi, Content ID Müzik Korunması, Zorunlu Yasal Beyan).
 - **Stüdyo Ses Mühendisliği:** `audio-mastering-engineer` becerisi ve `scripts/audio_engineer_audit.py`.
 
 ---
@@ -30,6 +31,9 @@ Bu beceri; oyunların (Diablo, StarCraft, Elden Ring, Warhammer, Fallout), kült
    - Kapanış vedayla değil; sıradaki hikayeye bağlanan Açık Döngüyle (Open Loop) biter ve bitiş ekranında oynatma listesi açılır.
 4. **İngilizce Oyun İsimlerinin Korunması:**
    - *"StarCraft", "Kerrigan", "Tristram", "Sanctuary"* gibi terimler orijinal Blizzard fonetiğiyle okunur; Türkçe harf harf okunamaz.
+5. **Telif & FSEK m. 35 Uyumluluğu:**
+   - Asla ham oyun albümü müzikleri (OST) kullanılmaz; sinematikler 8–15 saniyelik dönüştürücü tahlillerle kesilir ve açıklamada FSEK m. 35 yasal koruma beyanı yer alır.
+
 
 ---
 
