@@ -32,19 +32,28 @@ Bir konunun tutup tutmayacağını tahmin etmeye çalışmak kumardır. Bunun ye
 
 ---
 
-## 3. "Katalizör Takvimi" (Upcoming Catalyst Calendar)
+## 3. Steam İndirimleri & SteamDB Oyuncu Patlaması Radarı (The Steam Sale Wave)
 
-Lore aramaları rastgele patlamaz; dış dünyadaki büyük olaylarla tetiklenir:
-- **Dizi / Film Uyarlamaları:**
-  - *Fallout* 2. Sezon çıktığında -> New Vegas ve Enclave lore aramaları %600 fırlar.
-  - *Warhammer 40k* (Amazon) haberi çıktığında -> "İmparator kimdir, Space Marine nedir" aramaları patlar.
-  - *Dune: Prophecy* -> Bene Gesserit tarikatı merak edilir.
-- **Büyük Oyun Güncellemeleri & DLC'ler:**
-  - Yeni bir FromSoftware DLC'si veya Diablo sezonu duyurulduğunda, insanlar oyunu oynamasa bile hikayesini dinlemek için YouTube'a koşar.
+Steam indirimleri (Mevsimsel İndirimler, Yayıncı İndirimleri), yüz binlerce oyuncuyu derin anlatılı RPG ve strateji oyunlarına akıtır:
+- **Oyuncu Sayısı Patlaması (SteamDB Concurrent Surge):**
+  - Örneğin *The Witcher 3*, *Cyberpunk*, *Fallout: New Vegas*, *Dark Souls* veya *Mass Effect* %75–85 indirime girdiğinde anlık oyuncu sayısı 10 binden 100 bine fırlar.
+  - Oyunu alan kitle 50 saatlik devasa evrenin karşısında afallar ve hemen YouTube'a koşar: *"Bu dünyanın öncesinde ne olmuştu?", "Kürelerin Birleşimi nedir?", "Büyük Nükleer Savaştan önce dünya nasıldı?"*
+- **Taktik:** Steam indirim takvimi ve SteamDB anlık oyuncu artışları takip edilir. İndirimin ilk haftasında o oyunun derin arka plan lore videosu hazır olmalıdır.
 
 ---
 
-## 4. Konu Başlığı Formatı (Merak Açığı - Curiosity Gap)
+## 4. Türk Toplulukları ve Ekşi Sözlük Dip Kuyuları (Local Goldmines)
+
+Türkiye'de kitlelerin yıllardır cevabını aradığı, Ekşi Sözlük ve forumlarda on binlerce entry alan ama videosu olmayan kutsal konular:
+1. **Warhammer 40.000 (En Büyük Açlık):** "Nereden başlanmalı?", "Horus Heresy nedir?", "İmparator kimdir?". Türkiye'de kaliteli sesle anlatan neredeyse hiç kimse yok.
+2. **Diablo Evreninin Başlangıcı:** Melekler ve İblislerin savaşı (Ebedi Çatışma), Inarius ve Lilith'in kaçışı, Sanctuary'nin doğuşu.
+3. **StarCraft'ın Trajedisi:** Sarah Kerrigan'ın insanlıktan Zerg Kraliçesine dönüşümündeki psikolojik travma.
+4. **H.P. Lovecraft ve Cthulhu Mitosu:** Kozmik korkunun delirtici doğası, delilik ve kadim varlıklar.
+5. **Dune Evreni:** Bene Gesserit tarikatı ve baharatın (Melange) galaktik bağımlılığı.
+
+---
+
+## 5. Konu Başlığı Formatı (Merak Açığı - Curiosity Gap)
 
 - ❌ *Tembel Başlık:* "Warhammer 40K Evreni Nedir?" (Sıfır merak).
 - ✅ *Aykırı Başlık:* "İnsanlığın 10.000 Yıllık Ceset Tanrısı: İmparator Aslında Bir Canavar mıydı? | Warhammer 40K Lore"
