@@ -10,6 +10,7 @@ Bu beceri; oyunların (Diablo, StarCraft, Elden Ring, Warhammer, Fallout), kült
 ---
 
 ## 📌 Hızlı Referans Kılavuzları (Token Tasarrufu):
+- **İsimlendirme & Handle (@) Mimarisi:** `references/channel-naming-and-handle-architecture.md` (Radyo Testi, ASCII Handle, 3 Platform Eşleşmesi).
 - **Kanal Kurulumu & Sosyal Medya:** `references/channel-setup-and-social-launch.md` (Altın Üçgen, Kanal Anahtar Kelimeleri, Bio Mimarisi).
 - **Görsel Cephanelik & Thumbnail:** `references/thumbnail-shorts-visual-strategy.md` (Sinematik B-Roll, Blender 2.5D, 60-30-10 Thumbnail, 3 Shorts Takvimi).
 - **Trend Avı & İçerik Arbitrajı:** `references/trend-arbitrage-competitor-analysis.md` (Global Outlier Mining, Türkiye Boşluk Analizi, Katalizör Takvimi).
